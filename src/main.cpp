@@ -23,13 +23,16 @@
 uint32_t interval = 60;
 static inline void print_stats(NetStats &st)
 {
-    for (int i = 0; i < sizeof(st.pci_id); i++)
+    for (uint64_t i = 0; i < sizeof(st.pci_id); i++)
     {
         printf("%c", st.pci_id[i]);
     }
     printf("\n");
     printf(
-        "num_arp: %" PRIu32 "\nnum_bcast_arp: % " PRIu32 "\nnum_ipv4: %" PRIu32 "\nnum_ipv6: %" PRIu32 "\nnum_multicast: %" PRIu32 "\n", st.num_arp, st.num_bcast_arp,
+        "num_arp: %" PRIu32 "\nnum_bcast_arp: %" PRIu32
+        "\nnum_ipv4: %" PRIu32 "\nnum_ipv6: %" PRIu32
+        "\nnum_multicast: %" PRIu32 "\n",
+        st.num_arp, st.num_bcast_arp,
         st.num_ipv4, st.num_ipv6, st.num_multicast);
     for (auto it = st.arp_stats.begin(); it != st.arp_stats.end(); ++it)
     {

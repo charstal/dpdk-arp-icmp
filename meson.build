@@ -46,3 +46,15 @@ executable('monitor', sources,
 c_args: [dpdk_cflags],
 cpp_args: [dpdk_cflags],
 dependencies: [dpdk, protobuf, grpc], install : true)
+
+
+client_sources = files(
+    'src/proto/ns.grpc.pb.cc',
+    'src/proto/ns.pb.cc',
+    'src/client.cpp',
+)
+
+executable('client', client_sources,
+    dependencies: [protobuf, grpc], 
+    install:true,
+ )
