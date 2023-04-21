@@ -5,6 +5,7 @@ from pprint import pprint
 URL = "http://pushgateway.example.org:9091/metrics/job/"
 JOB = "arp_job"
 
+
 def cmdCall(cmd):
     subp = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
     subp.wait()
@@ -12,11 +13,12 @@ def cmdCall(cmd):
         raise Exception('failed')
     return subp.stdout.readlines()
 
+
 def pushGateWay(metric, val):
-    push_cmd =   "echo " +  '"' + metric + " " + val + '"' + " | curl --data-binary @- " + URL + JOB
+    push_cmd = "echo " + '"' + metric + " " + val + \
+        '"' + " | curl --data-binary @- " + URL + JOB
     print(push_cmd)
-    #cmdCall(push_cmd)
-    
+    # cmdCall(push_cmd)
 
 
 def getArpStats():
@@ -31,9 +33,10 @@ def getArpStats():
         elif line.startswith(b'multicast'):
             pushGateWay('multicast', line.split()[2].decode())
 
+
 def pushData():
     getArpStats()
-    
+
 
 if __name__ == "__main__":
     pushData()

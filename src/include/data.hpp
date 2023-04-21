@@ -18,7 +18,7 @@ static inline std::string ipv4_to_string(uint32_t ip)
 class NetStats
 {
 public:
-   // NetStats() : pci_id('0'), num_arp(0), num_ipv4(0), num_ipv6(0), num_multicast(0) {}
+    // NetStats() : pci_id('0'), num_arp(0), num_ipv4(0), num_ipv6(0), num_multicast(0) {}
     char pci_id[PORT_PCI_DEV_ID_LENGTH + 1];
     uint32_t num_arp;
     uint32_t num_bcast_arp;

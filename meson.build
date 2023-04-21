@@ -18,7 +18,7 @@ dpdk = declare_dependency(
         '-lrte_net_ixgbe',
         '-lrte_net_i40e',
         ],
-     required: true,static: false)
+)
 #dpdk_lib = static_library('libdpdk')
 #dpdk = declare_dependency(link_with:dpdk_lib)
 protobuf = dependency('protobuf')
@@ -32,7 +32,7 @@ sources = files(
     'src/process.cpp',
     'src/proto/ns.grpc.pb.cc',
     'src/proto/ns.pb.cc',
-    'src/proto/server.cpp',
+    'src/server.cpp',
 )
 
 dpdk_cflags = run_command('pkg-config', '--cflags-only-I', 'libdpdk').stdout().split()

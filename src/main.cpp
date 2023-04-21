@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include <rte_cycles.h>
 #include <rte_eal.h>
@@ -13,28 +14,28 @@
 #include <rte_mempool.h>
 #include <rte_rwlock.h>
 
-#include "common.h"
-#include "data.hpp"
-#include "port.h"
-#include "process.hpp"
-#include "proto/server.hpp"
-#include "unistd.h"
+#include "include/common.h"
+#include "include/data.hpp"
+#include "include/port.h"
+#include "include/process.hpp"
+#include "include/server.hpp"
 
 uint32_t interval = 60;
 static inline void print_stats(NetStats &st)
 {
-    for(int i = 0 ; i < sizeof(st.pci_id) ; i++ ){
-        printf("%c",st.pci_id[i]);
+    for (int i = 0; i < sizeof(st.pci_id); i++)
+    {
+        printf("%c", st.pci_id[i]);
     }
     printf("\n");
     printf(
-        "num_arp: %" PRIu32 "\nnum_bcast_arp: % " PRIu32 "\nnum_ipv4: %" PRIu32 "\nnum_ipv6: %" PRIu32 "\nnum_multicast: %" PRIu32 "\n", st.num_arp,st.num_bcast_arp,
-        st.num_ipv4, st.num_ipv6, st.num_multicast
-    );
-    for (auto it = st.arp_stats.begin(); it != st.arp_stats.end(); ++it) {
+        "num_arp: %" PRIu32 "\nnum_bcast_arp: % " PRIu32 "\nnum_ipv4: %" PRIu32 "\nnum_ipv6: %" PRIu32 "\nnum_multicast: %" PRIu32 "\n", st.num_arp, st.num_bcast_arp,
+        st.num_ipv4, st.num_ipv6, st.num_multicast);
+    for (auto it = st.arp_stats.begin(); it != st.arp_stats.end(); ++it)
+    {
         printf(IPV4_PRT_FMT "\t%" PRIu32 "\n", IPV4_BYTES(it->first), it->second);
     }
-   // printf("------------------------\n");
+    // printf("------------------------\n");
 }
 
 static inline void init_list()
@@ -52,23 +53,27 @@ __rte_noreturn int main_loop(__rte_unused void *arg)
     const uint64_t period = rte_get_tsc_hz();
     uint64_t cur_period = rte_get_tsc_cycles();
 
-    for (;;) {
+    for (;;)
+    {
         uint16_t port_id;
         RTE_ETH_FOREACH_DEV(port_id)
-        {   
-            WriteLockGuard guard(lock);    
-            auto &st=net_stats_list.front();
-            auto &st_2=net_stats_list_2.front();
-            if(port_id==0){
-   //            auto st = net_stats_list.front();
-                collect_stats(port_id, st);
-            }else if (port_id==1)
+        {
+            WriteLockGuard guard(lock);
+            auto &st = net_stats_list.front();
+            auto &st_2 = net_stats_list_2.front();
+            if (port_id == 0)
             {
-           //     st_2 = net_stats_list_2.front();
+                //            auto st = net_stats_list.front();
+                collect_stats(port_id, st);
+            }
+            else if (port_id == 1)
+            {
+                //     st_2 = net_stats_list_2.front();
                 collect_stats(port_id, st_2);
             }
             uint64_t cur_tsc = rte_get_timer_cycles();
-            if (cur_tsc - cur_period >= period) {
+            if (cur_tsc - cur_period >= period)
+            {
                 print_stats(st);
                 print_stats(st_2);
                 cur_period = cur_tsc;
@@ -79,10 +84,10 @@ __rte_noreturn int main_loop(__rte_unused void *arg)
                     net_stats_list.pop_back();
                 net_stats_list_2.emplace_front();
                 if (net_stats_list_2.size() > interval)
-                    net_stats_list_2.pop_back(); 
-               
-               // printf("------------------------\n");
-          }
+                    net_stats_list_2.pop_back();
+
+                // printf("------------------------\n");
+            }
         }
     }
 }
@@ -92,10 +97,13 @@ int main(int argc, char *argv[])
     int ret;
     int ac = 0;
     char *av[] = {};
-    ret = rte_eal_init(ac, av);    
-    if (ret < 0) {
+    ret = rte_eal_init(ac, av);
+    if (ret < 0)
+    {
         rte_exit(1, "Fail to initialize EAL\n");
-    } else {
+    }
+    else
+    {
         argc -= ret;
         argv += ret;
         printf("Initialize EAL OK\n");
@@ -110,30 +118,43 @@ int main(int argc, char *argv[])
 
     struct rte_mempool *mbuf_pool =
         rte_pktmbuf_pool_create("mbuf_pool", 65535, 512, 0, RTE_MBUF_DEFAULT_BUF_SIZE, rte_socket_id());
-    if (mbuf_pool == NULL) {
+    if (mbuf_pool == NULL)
+    {
         rte_exit(1, "Fail to create a mbuf pool\n");
     }
-     
-    if(argc == 3){
-        if(strcmp(argv[1],"-i")==0){
-           interval = atoi(argv[2]);
-           if(interval < 1){
-             rte_exit(1, "1.Please enter the correct parameters, example: monitor -i 60\n");
-           }
-        }else{
-          rte_exit(1, "2.Please enter the correct parameters,example: monitor -i 60\n");
+
+    if (argc == 3)
+    {
+        if (strcmp(argv[1], "-i") == 0)
+        {
+            interval = atoi(argv[2]);
+            if (interval < 1)
+            {
+                rte_exit(1, "1.Please enter the correct parameters, example: monitor -i 60\n");
+            }
         }
-    }else if (argc == 2)
-    { 
-        if(strcmp(argv[1],"-i")==0){
+        else
+        {
+            rte_exit(1, "2.Please enter the correct parameters,example: monitor -i 60\n");
+        }
+    }
+    else if (argc == 2)
+    {
+        if (strcmp(argv[1], "-i") == 0)
+        {
             rte_exit(1, "3.Please enter a parameter, example: monitor -i 60\n");
-        }else{
+        }
+        else
+        {
             rte_exit(1, "4.Please enter the correct parameters, example: monitor -i 60\n");
         }
-    }else if (argc == 1)
+    }
+    else if (argc == 1)
     {
         interval = 60;
-    }else {
+    }
+    else
+    {
         rte_exit(1, "5.Please enter the correct parameters, example: monitor -i 60 \n");
     }
     port_init_all(mbuf_pool);
@@ -149,9 +170,12 @@ int main(int argc, char *argv[])
     port_finalize_all();
 
     ret = rte_eal_cleanup();
-    if (ret < 0) {
+    if (ret < 0)
+    {
         rte_exit(1, "Fail to finalize EAL\n");
-    } else {
+    }
+    else
+    {
         printf("Finalize EAL OK\n");
     }
 

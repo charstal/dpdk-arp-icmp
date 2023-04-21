@@ -27,49 +27,44 @@ static const char* NetStats_method_names[] = {
 
 std::unique_ptr< NetStats::Stub> NetStats::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< NetStats::Stub> stub(new NetStats::Stub(channel));
+  std::unique_ptr< NetStats::Stub> stub(new NetStats::Stub(channel, options));
   return stub;
 }
 
-NetStats::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_GetNetStats_(NetStats_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+NetStats::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_GetNetStats_(NetStats_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status NetStats::Stub::GetNetStats(::grpc::ClientContext* context, const ::ns::Request& request, ::ns::Response* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_GetNetStats_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::ns::Request, ::ns::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetNetStats_, context, request, response);
 }
 
-void NetStats::Stub::experimental_async::GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetNetStats_, context, request, response, std::move(f));
+void NetStats::Stub::async::GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::ns::Request, ::ns::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetNetStats_, context, request, response, std::move(f));
 }
 
-void NetStats::Stub::experimental_async::GetNetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ns::Response* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetNetStats_, context, request, response, std::move(f));
-}
-
-void NetStats::Stub::experimental_async::GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GetNetStats_, context, request, response, reactor);
-}
-
-void NetStats::Stub::experimental_async::GetNetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ns::Response* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GetNetStats_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::ns::Response>* NetStats::Stub::AsyncGetNetStatsRaw(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ns::Response>::Create(channel_.get(), cq, rpcmethod_GetNetStats_, context, request, true);
+void NetStats::Stub::async::GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetNetStats_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ns::Response>* NetStats::Stub::PrepareAsyncGetNetStatsRaw(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ns::Response>::Create(channel_.get(), cq, rpcmethod_GetNetStats_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ns::Response, ::ns::Request, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetNetStats_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::ns::Response>* NetStats::Stub::AsyncGetNetStatsRaw(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetNetStatsRaw(context, request, cq);
+  result->StartCall();
+  return result;
 }
 
 NetStats::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       NetStats_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< NetStats::Service, ::ns::Request, ::ns::Response>(
+      new ::grpc::internal::RpcMethodHandler< NetStats::Service, ::ns::Request, ::ns::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](NetStats::Service* service,
-             ::grpc_impl::ServerContext* ctx,
+             ::grpc::ServerContext* ctx,
              const ::ns::Request* req,
              ::ns::Response* resp) {
                return service->GetNetStats(ctx, req, resp);

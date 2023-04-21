@@ -7,7 +7,6 @@
 #include "ns.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
@@ -43,36 +42,22 @@ class NetStats final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ns::Response>> PrepareAsyncGetNetStats(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ns::Response>>(PrepareAsyncGetNetStatsRaw(context, request, cq));
     }
-    class experimental_async_interface {
+    class async_interface {
      public:
-      virtual ~experimental_async_interface() {}
+      virtual ~async_interface() {}
       virtual void GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetNetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ns::Response* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void GetNetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ns::Response* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetNetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ns::Response* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
-    virtual class experimental_async_interface* experimental_async() { return nullptr; }
-  private:
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ns::Response>* AsyncGetNetStatsRaw(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ns::Response>* PrepareAsyncGetNetStatsRaw(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
-    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
     ::grpc::Status GetNetStats(::grpc::ClientContext* context, const ::ns::Request& request, ::ns::Response* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ns::Response>> AsyncGetNetStats(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ns::Response>>(AsyncGetNetStatsRaw(context, request, cq));
@@ -80,32 +65,22 @@ class NetStats final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ns::Response>> PrepareAsyncGetNetStats(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ns::Response>>(PrepareAsyncGetNetStatsRaw(context, request, cq));
     }
-    class experimental_async final :
-      public StubInterface::experimental_async_interface {
+    class async final :
+      public StubInterface::async_interface {
      public:
       void GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, std::function<void(::grpc::Status)>) override;
-      void GetNetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ns::Response* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void GetNetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ns::Response* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetNetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ns::Response* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
-      explicit experimental_async(Stub* stub): stub_(stub) { }
+      explicit async(Stub* stub): stub_(stub) { }
       Stub* stub() { return stub_; }
       Stub* stub_;
     };
-    class experimental_async_interface* experimental_async() override { return &async_stub_; }
+    class async* async() override { return &async_stub_; }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    class experimental_async async_stub_{this};
+    class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::ns::Response>* AsyncGetNetStatsRaw(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ns::Response>* PrepareAsyncGetNetStatsRaw(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetNetStats_;
@@ -140,36 +115,22 @@ class NetStats final {
   };
   typedef WithAsyncMethod_GetNetStats<Service > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetNetStats : public BaseClass {
+  class WithCallbackMethod_GetNetStats : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GetNetStats() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ns::Request, ::ns::Response>(
+    WithCallbackMethod_GetNetStats() {
+      ::grpc::Service::MarkMethodCallback(0,
+          new ::grpc::internal::CallbackUnaryHandler< ::ns::Request, ::ns::Response>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ns::Request* request, ::ns::Response* response) { return this->GetNetStats(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::ns::Request* request, ::ns::Response* response) { return this->GetNetStats(context, request, response); }));}
     void SetMessageAllocatorFor_GetNetStats(
-        ::grpc::experimental::MessageAllocator< ::ns::Request, ::ns::Response>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::ns::Request, ::ns::Response>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ns::Request, ::ns::Response>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::ns::Request, ::ns::Response>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GetNetStats() override {
+    ~WithCallbackMethod_GetNetStats() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -177,20 +138,11 @@ class NetStats final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetNetStats(
-      ::grpc::CallbackServerContext* /*context*/, const ::ns::Request* /*request*/, ::ns::Response* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetNetStats(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ns::Request* /*request*/, ::ns::Response* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::ns::Request* /*request*/, ::ns::Response* /*response*/)  { return nullptr; }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_GetNetStats<Service > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_GetNetStats<Service > ExperimentalCallbackService;
+  typedef WithCallbackMethod_GetNetStats<Service > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetNetStats : public BaseClass {
    private:
@@ -229,27 +181,17 @@ class NetStats final {
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetNetStats : public BaseClass {
+  class WithRawCallbackMethod_GetNetStats : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GetNetStats() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+    WithRawCallbackMethod_GetNetStats() {
+      ::grpc::Service::MarkMethodRawCallback(0,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetNetStats(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetNetStats(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GetNetStats() override {
+    ~WithRawCallbackMethod_GetNetStats() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -257,14 +199,8 @@ class NetStats final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetNetStats(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetNetStats(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetNetStats : public BaseClass {
@@ -275,8 +211,8 @@ class NetStats final {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
           ::ns::Request, ::ns::Response>(
-            [this](::grpc_impl::ServerContext* context,
-                   ::grpc_impl::ServerUnaryStreamer<
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
                      ::ns::Request, ::ns::Response>* streamer) {
                        return this->StreamedGetNetStats(context,
                          streamer);

@@ -11,14 +11,17 @@ GRPC_CPP_PLUGIN_PATH ?= `which $(GRPC_CPP_PLUGIN)`
 
 all: client
 
-client: ns.pb.o ns.grpc.pb.o client.o
-	$(CXX) $^ $(LDFLAGS) -o $@
-
 %.grpc.pb.cc: %.proto
 	protoc --grpc_out=. --plugin=protoc-gen-grpc=$(GRPC_CPP_PLUGIN_PATH) $<
 
 %.pb.cc: %.proto
 	protoc --cpp_out=. $<
 
+
+client: ns.pb.o ns.grpc.pb.o client.o
+	$(CXX) $^ $(LDFLAGS) -o $@
+
+
 clean:
-	rm -f client.o client
+	rm -f client
+	rm -f *.o
