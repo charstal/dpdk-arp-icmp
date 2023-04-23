@@ -47,14 +47,16 @@ static inline void init_list()
 
     net_stats_list.clear();
     net_stats_list.emplace_front();
-    net_stats_list_2.clear();
-    net_stats_list_2.emplace_front();
+    // net_stats_list_2.clear();
+    // net_stats_list_2.emplace_front();
 }
 
 __rte_noreturn int main_loop(__rte_unused void *arg)
 {
+    // tsc frequency
     const uint64_t period = rte_get_tsc_hz();
-    uint64_t cur_period = rte_get_tsc_cycles();
+    // cur tsc
+    uint64_t cur_cycles = rte_get_timer_cycles();
 
     for (;;)
     {
@@ -63,31 +65,29 @@ __rte_noreturn int main_loop(__rte_unused void *arg)
         {
             WriteLockGuard guard(lock);
             auto &st = net_stats_list.front();
-            auto &st_2 = net_stats_list_2.front();
+            // auto &st_2 = net_stats_list_2.front();
             if (port_id == 0)
             {
-                //            auto st = net_stats_list.front();
                 collect_stats(port_id, st);
             }
-            else if (port_id == 1)
-            {
-                //     st_2 = net_stats_list_2.front();
-                collect_stats(port_id, st_2);
-            }
+            // else if (port_id == 1)
+            // {
+            //     collect_stats(port_id, st_2);
+            // }
             uint64_t cur_tsc = rte_get_timer_cycles();
-            if (cur_tsc - cur_period >= period)
+            if (cur_tsc - cur_cycles >= period)
             {
                 print_stats(st);
-                print_stats(st_2);
-                cur_period = cur_tsc;
+                // print_stats(st_2);
+                cur_cycles = cur_tsc;
                 printf("------------------------\n");
                 // 添加新节点，删除旧节点
                 net_stats_list.emplace_front();
                 if (net_stats_list.size() > interval)
                     net_stats_list.pop_back();
-                net_stats_list_2.emplace_front();
-                if (net_stats_list_2.size() > interval)
-                    net_stats_list_2.pop_back();
+                // net_stats_list_2.emplace_front();
+                // if (net_stats_list_2.size() > interval)
+                //     net_stats_list_2.pop_back();
 
                 // printf("------------------------\n");
             }
@@ -97,90 +97,83 @@ __rte_noreturn int main_loop(__rte_unused void *arg)
 
 int main(int argc, char *argv[])
 {
-    int ret;
+    switch (argc)
+    {
+    case 1:
+        /* code */
+        interval = 60;
+        break;
+    case 3:
+        if (strcmp(argv[1], "-i") == 0)
+        {
+            interval = atoi(argv[2]);
+            if (interval >= 1)
+            {
+                break;
+            }
+        }
+    default:
+        printf("Please enter the correct parameters, example: monitor -i 60 \n");
+        exit(1);
+    }
+
     int ac = 0;
     char *av[] = {};
-    ret = rte_eal_init(ac, av);
+    // eal init
+    int ret = rte_eal_init(ac, av);
     if (ret < 0)
     {
         rte_exit(1, "Fail to initialize EAL\n");
     }
-    else
-    {
-        argc -= ret;
-        argv += ret;
-        printf("Initialize EAL OK\n");
-    }
+    printf("Initialize EAL OK\n");
+    // else
+    // {
+    // argc -= ret;
+    // argv += ret;
 
-    /*uint16_t nb_ports = rte_eth_dev_count_avail();
-    if (nb_ports == 0) {
-        rte_exit(1, "No available Ethernet ports\n");
-    } else {
-        printf("Available %" PRIu16 " Ethernet ports\n", nb_ports);
-    }*/
+    // }
 
+    // uint16_t nb_ports = rte_eth_dev_count_avail();
+    // if (nb_ports == 0)
+    // {
+    //     rte_exit(1, "No available Ethernet ports\n");
+    // }
+    // else
+    // {
+    //     printf("Available %" PRIu16 " Ethernet ports\n", nb_ports);
+    // }
+
+    // mbuf pool init
     struct rte_mempool *mbuf_pool =
         rte_pktmbuf_pool_create("mbuf_pool", 65535, 512, 0, RTE_MBUF_DEFAULT_BUF_SIZE, rte_socket_id());
-    if (mbuf_pool == NULL)
+    if (!mbuf_pool)
     {
         rte_exit(1, "Fail to create a mbuf pool\n");
     }
+    printf("Create mbuf pool OK\n");
 
-    if (argc == 3)
-    {
-        if (strcmp(argv[1], "-i") == 0)
-        {
-            interval = atoi(argv[2]);
-            if (interval < 1)
-            {
-                rte_exit(1, "1.Please enter the correct parameters, example: monitor -i 60\n");
-            }
-        }
-        else
-        {
-            rte_exit(1, "2.Please enter the correct parameters,example: monitor -i 60\n");
-        }
-    }
-    else if (argc == 2)
-    {
-        if (strcmp(argv[1], "-i") == 0)
-        {
-            rte_exit(1, "3.Please enter a parameter, example: monitor -i 60\n");
-        }
-        else
-        {
-            rte_exit(1, "4.Please enter the correct parameters, example: monitor -i 60\n");
-        }
-    }
-    else if (argc == 1)
-    {
-        interval = 60;
-    }
-    else
-    {
-        rte_exit(1, "5.Please enter the correct parameters, example: monitor -i 60 \n");
-    }
+    // port init
     port_init_all(mbuf_pool);
 
+    // list init
     init_list();
+    // find a lcore
     unsigned int lcore_id = rte_get_next_lcore(-1, 1, 1);
+    // run main_loop in lcore
     rte_eal_remote_launch(main_loop, NULL, lcore_id);
-
+    // grpc server
     run_server();
-
+    // wait finished
     rte_eal_mp_wait_lcore();
-
+    // close port
     port_finalize_all();
-
+    // clean up
     ret = rte_eal_cleanup();
     if (ret < 0)
     {
         rte_exit(1, "Fail to finalize EAL\n");
     }
-    else
-    {
-        printf("Finalize EAL OK\n");
-    }
+    printf("Finalize EAL OK\n");
 
     return 0;
 }

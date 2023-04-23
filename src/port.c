@@ -13,13 +13,14 @@ void port_init(uint16_t port_id, struct rte_mempool *mbuf_pool)
     int ret;
 
     struct rte_eth_dev_info dev_info;
+    // get dev info
     ret = rte_eth_dev_info_get(port_id, &dev_info);
-    struct rte_device *device = dev_info.device;
-    printf("device info is %s \n", device->name);
     if (ret < 0)
     {
         rte_exit(1, "rte_eth_dev_info_get: err=%d, port=%" PRIu16 "\n", ret, port_id);
     }
+    struct rte_device *device = dev_info.device;
+    printf("device info is %s \n", device->name);
 
     /* 配置设备 */
     struct rte_eth_conf eth_conf = {};
@@ -31,12 +32,14 @@ void port_init(uint16_t port_id, struct rte_mempool *mbuf_pool)
 
     uint16_t nb_rx_desc = 512;
     uint16_t nb_tx_desc = 512;
+    // adjust tx/rx descriptors nums
     ret = rte_eth_dev_adjust_nb_rx_tx_desc(port_id, &nb_rx_desc, &nb_tx_desc);
     if (ret < 0)
     {
         rte_exit(1, "rte_eth_dev_adjust_nb_rx_tx_desc: err=%d, port=%" PRIu16 "\n", ret, port_id);
     }
 
+    // get device socket id
     int socket_id = rte_eth_dev_socket_id(port_id);
     if (socket_id < 0)
     {
@@ -77,11 +80,7 @@ void port_init(uint16_t port_id, struct rte_mempool *mbuf_pool)
     {
         rte_exit(1, "rte_eth_macaddr_get: err=%d, port=%" PRIu16 "\n", ret, port_id);
     }
-    else
-    {
-        printf(
-            "Initialize port %" PRIu16 ", mac " RTE_ETHER_ADDR_PRT_FMT "\n", port_id, RTE_ETHER_ADDR_BYTES(&mac_addr));
-    }
+    printf("Initialize port %" PRIu16 ", mac " RTE_ETHER_ADDR_PRT_FMT "\n", port_id, RTE_ETHER_ADDR_BYTES(&mac_addr));
 }
 
 void port_init_all(struct rte_mempool *mbuf_pool)

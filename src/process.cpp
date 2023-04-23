@@ -11,7 +11,7 @@
 #include "include/data.hpp"
 #include "include/process.hpp"
 
-#define NB_PKTS 4
+#define NB_PKTS 32
 
 static inline void collect_stats_arp(struct rte_arp_hdr *arp_hdr, NetStats &st)
 {

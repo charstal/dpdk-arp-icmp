@@ -69,5 +69,5 @@ private:
 };
 
 extern std::list<NetStats> net_stats_list;
-extern std::list<NetStats> net_stats_list_2;
+// extern std::list<NetStats> net_stats_list_2;
 extern RWLock lock;
