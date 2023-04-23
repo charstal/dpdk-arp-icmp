@@ -50,7 +50,7 @@ struct TableStruct_ns_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -67,9 +67,6 @@ extern RequestDefaultTypeInternal _Request_default_instance_;
 class Response;
 struct ResponseDefaultTypeInternal;
 extern ResponseDefaultTypeInternal _Response_default_instance_;
-class Response_ArpStats2Entry_DoNotUse;
-struct Response_ArpStats2Entry_DoNotUseDefaultTypeInternal;
-extern Response_ArpStats2Entry_DoNotUseDefaultTypeInternal _Response_ArpStats2Entry_DoNotUse_default_instance_;
 class Response_ArpStatsEntry_DoNotUse;
 struct Response_ArpStatsEntry_DoNotUseDefaultTypeInternal;
 extern Response_ArpStatsEntry_DoNotUseDefaultTypeInternal _Response_ArpStatsEntry_DoNotUse_default_instance_;
@@ -78,7 +75,6 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::ns::ARPStats* Arena::CreateMaybeMessage<::ns::ARPStats>(Arena*);
 template<> ::ns::Request* Arena::CreateMaybeMessage<::ns::Request>(Arena*);
 template<> ::ns::Response* Arena::CreateMaybeMessage<::ns::Response>(Arena*);
-template<> ::ns::Response_ArpStats2Entry_DoNotUse* Arena::CreateMaybeMessage<::ns::Response_ArpStats2Entry_DoNotUse>(Arena*);
 template<> ::ns::Response_ArpStatsEntry_DoNotUse* Arena::CreateMaybeMessage<::ns::Response_ArpStatsEntry_DoNotUse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace ns {
@@ -113,13 +109,6 @@ class Request final :
       CopyFrom(from);
     }
     return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
   }
 
   static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
@@ -226,44 +215,7 @@ public:
   void MergeFrom(const Response_ArpStatsEntry_DoNotUse& other);
   static const Response_ArpStatsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const Response_ArpStatsEntry_DoNotUse*>(&_Response_ArpStatsEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-#ifndef NDEBUG
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-       s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ns.Response.ArpStatsEntry.key");
-#else
-    (void) s;
-#endif
-    return true;
- }
-  static bool ValidateValue(void*) { return true; }
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-};
-
-// -------------------------------------------------------------------
-
-class Response_ArpStats2Entry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Response_ArpStats2Entry_DoNotUse, 
-    std::string, ::ns::ARPStats,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
-public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Response_ArpStats2Entry_DoNotUse, 
-    std::string, ::ns::ARPStats,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
-  Response_ArpStats2Entry_DoNotUse();
-  explicit constexpr Response_ArpStats2Entry_DoNotUse(
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit Response_ArpStats2Entry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const Response_ArpStats2Entry_DoNotUse& other);
-  static const Response_ArpStats2Entry_DoNotUse* internal_default_instance() { return reinterpret_cast<const Response_ArpStats2Entry_DoNotUse*>(&_Response_ArpStats2Entry_DoNotUse_default_instance_); }
-  static bool ValidateKey(std::string* s) {
-#ifndef NDEBUG
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-       s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ns.Response.ArpStats2Entry.key");
-#else
-    (void) s;
-#endif
-    return true;
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ns.Response.ArpStatsEntry.key");
  }
   static bool ValidateValue(void*) { return true; }
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
@@ -303,13 +255,6 @@ class Response final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
   static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
     return GetDescriptor();
   }
@@ -327,7 +272,7 @@ class Response final :
                &_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    2;
 
   friend void swap(Response& a, Response& b) {
     a.Swap(&b);
@@ -403,19 +348,12 @@ class Response final :
 
   enum : int {
     kArpStatsFieldNumber = 7,
-    kArpStats2FieldNumber = 14,
     kPciIdFieldNumber = 1,
-    kPciId2FieldNumber = 8,
     kNumArpFieldNumber = 2,
     kNumBcastArpFieldNumber = 3,
     kNumIpv4FieldNumber = 4,
     kNumIpv6FieldNumber = 5,
     kNumMulticastFieldNumber = 6,
-    kNumArp2FieldNumber = 9,
-    kNumBcastArp2FieldNumber = 10,
-    kNumIpv42FieldNumber = 11,
-    kNumIpv62FieldNumber = 12,
-    kNumMulticast2FieldNumber = 13,
   };
   // map<string, .ns.ARPStats> arp_stats = 7;
   int arp_stats_size() const;
@@ -434,28 +372,7 @@ class Response final :
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >*
       mutable_arp_stats();
 
-  // map<string, .ns.ARPStats> arp_stats_2 = 14;
-  int arp_stats_2_size() const;
-  private:
-  int _internal_arp_stats_2_size() const;
-  public:
-  void clear_arp_stats_2();
-  private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >&
-      _internal_arp_stats_2() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >*
-      _internal_mutable_arp_stats_2();
-  public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >&
-      arp_stats_2() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >*
-      mutable_arp_stats_2();
-
-  // required string pci_id = 1;
-  bool has_pci_id() const;
-  private:
-  bool _internal_has_pci_id() const;
-  public:
+  // string pci_id = 1;
   void clear_pci_id();
   const std::string& pci_id() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -469,29 +386,7 @@ class Response final :
   std::string* _internal_mutable_pci_id();
   public:
 
-  // required string pci_id_2 = 8;
-  bool has_pci_id_2() const;
-  private:
-  bool _internal_has_pci_id_2() const;
-  public:
-  void clear_pci_id_2();
-  const std::string& pci_id_2() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_pci_id_2(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_pci_id_2();
-  PROTOBUF_NODISCARD std::string* release_pci_id_2();
-  void set_allocated_pci_id_2(std::string* pci_id_2);
-  private:
-  const std::string& _internal_pci_id_2() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_pci_id_2(const std::string& value);
-  std::string* _internal_mutable_pci_id_2();
-  public:
-
-  // required uint32 num_arp = 2;
-  bool has_num_arp() const;
-  private:
-  bool _internal_has_num_arp() const;
-  public:
+  // uint32 num_arp = 2;
   void clear_num_arp();
   uint32_t num_arp() const;
   void set_num_arp(uint32_t value);
@@ -500,11 +395,7 @@ class Response final :
   void _internal_set_num_arp(uint32_t value);
   public:
 
-  // required uint32 num_bcast_arp = 3;
-  bool has_num_bcast_arp() const;
-  private:
-  bool _internal_has_num_bcast_arp() const;
-  public:
+  // uint32 num_bcast_arp = 3;
   void clear_num_bcast_arp();
   uint32_t num_bcast_arp() const;
   void set_num_bcast_arp(uint32_t value);
@@ -513,11 +404,7 @@ class Response final :
   void _internal_set_num_bcast_arp(uint32_t value);
   public:
 
-  // required uint32 num_ipv4 = 4;
-  bool has_num_ipv4() const;
-  private:
-  bool _internal_has_num_ipv4() const;
-  public:
+  // uint32 num_ipv4 = 4;
   void clear_num_ipv4();
   uint32_t num_ipv4() const;
   void set_num_ipv4(uint32_t value);
@@ -526,11 +413,7 @@ class Response final :
   void _internal_set_num_ipv4(uint32_t value);
   public:
 
-  // required uint32 num_ipv6 = 5;
-  bool has_num_ipv6() const;
-  private:
-  bool _internal_has_num_ipv6() const;
-  public:
+  // uint32 num_ipv6 = 5;
   void clear_num_ipv6();
   uint32_t num_ipv6() const;
   void set_num_ipv6(uint32_t value);
@@ -539,11 +422,7 @@ class Response final :
   void _internal_set_num_ipv6(uint32_t value);
   public:
 
-  // required uint32 num_multicast = 6;
-  bool has_num_multicast() const;
-  private:
-  bool _internal_has_num_multicast() const;
-  public:
+  // uint32 num_multicast = 6;
   void clear_num_multicast();
   uint32_t num_multicast() const;
   void set_num_multicast(uint32_t value);
@@ -552,105 +431,25 @@ class Response final :
   void _internal_set_num_multicast(uint32_t value);
   public:
 
-  // required uint32 num_arp_2 = 9;
-  bool has_num_arp_2() const;
-  private:
-  bool _internal_has_num_arp_2() const;
-  public:
-  void clear_num_arp_2();
-  uint32_t num_arp_2() const;
-  void set_num_arp_2(uint32_t value);
-  private:
-  uint32_t _internal_num_arp_2() const;
-  void _internal_set_num_arp_2(uint32_t value);
-  public:
-
-  // required uint32 num_bcast_arp_2 = 10;
-  bool has_num_bcast_arp_2() const;
-  private:
-  bool _internal_has_num_bcast_arp_2() const;
-  public:
-  void clear_num_bcast_arp_2();
-  uint32_t num_bcast_arp_2() const;
-  void set_num_bcast_arp_2(uint32_t value);
-  private:
-  uint32_t _internal_num_bcast_arp_2() const;
-  void _internal_set_num_bcast_arp_2(uint32_t value);
-  public:
-
-  // required uint32 num_ipv4_2 = 11;
-  bool has_num_ipv4_2() const;
-  private:
-  bool _internal_has_num_ipv4_2() const;
-  public:
-  void clear_num_ipv4_2();
-  uint32_t num_ipv4_2() const;
-  void set_num_ipv4_2(uint32_t value);
-  private:
-  uint32_t _internal_num_ipv4_2() const;
-  void _internal_set_num_ipv4_2(uint32_t value);
-  public:
-
-  // required uint32 num_ipv6_2 = 12;
-  bool has_num_ipv6_2() const;
-  private:
-  bool _internal_has_num_ipv6_2() const;
-  public:
-  void clear_num_ipv6_2();
-  uint32_t num_ipv6_2() const;
-  void set_num_ipv6_2(uint32_t value);
-  private:
-  uint32_t _internal_num_ipv6_2() const;
-  void _internal_set_num_ipv6_2(uint32_t value);
-  public:
-
-  // required uint32 num_multicast_2 = 13;
-  bool has_num_multicast_2() const;
-  private:
-  bool _internal_has_num_multicast_2() const;
-  public:
-  void clear_num_multicast_2();
-  uint32_t num_multicast_2() const;
-  void set_num_multicast_2(uint32_t value);
-  private:
-  uint32_t _internal_num_multicast_2() const;
-  void _internal_set_num_multicast_2(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:ns.Response)
  private:
   class _Internal;
 
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::MapField<
       Response_ArpStatsEntry_DoNotUse,
       std::string, ::ns::ARPStats,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> arp_stats_;
-  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-      Response_ArpStats2Entry_DoNotUse,
-      std::string, ::ns::ARPStats,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> arp_stats_2_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pci_id_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pci_id_2_;
   uint32_t num_arp_;
   uint32_t num_bcast_arp_;
   uint32_t num_ipv4_;
   uint32_t num_ipv6_;
   uint32_t num_multicast_;
-  uint32_t num_arp_2_;
-  uint32_t num_bcast_arp_2_;
-  uint32_t num_ipv4_2_;
-  uint32_t num_ipv6_2_;
-  uint32_t num_multicast_2_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ns_2eproto;
 };
 // -------------------------------------------------------------------
@@ -686,13 +485,6 @@ class ARPStats final :
     return *this;
   }
 
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
   static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
     return GetDescriptor();
   }
@@ -710,7 +502,7 @@ class ARPStats final :
                &_ARPStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    3;
 
   friend void swap(ARPStats& a, ARPStats& b) {
     a.Swap(&b);
@@ -787,11 +579,7 @@ class ARPStats final :
     kNumPktsFieldNumber = 1,
     kRateFieldNumber = 2,
   };
-  // required uint32 num_pkts = 1;
-  bool has_num_pkts() const;
-  private:
-  bool _internal_has_num_pkts() const;
-  public:
+  // uint32 num_pkts = 1;
   void clear_num_pkts();
   uint32_t num_pkts() const;
   void set_num_pkts(uint32_t value);
@@ -800,11 +588,7 @@ class ARPStats final :
   void _internal_set_num_pkts(uint32_t value);
   public:
 
-  // required uint32 rate = 2;
-  bool has_rate() const;
-  private:
-  bool _internal_has_rate() const;
-  public:
+  // uint32 rate = 2;
   void clear_rate();
   uint32_t rate() const;
   void set_rate(uint32_t value);
@@ -817,16 +601,12 @@ class ARPStats final :
  private:
   class _Internal;
 
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t num_pkts_;
   uint32_t rate_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ns_2eproto;
 };
 // ===================================================================
@@ -844,21 +624,11 @@ class ARPStats final :
 
 // -------------------------------------------------------------------
 
-// -------------------------------------------------------------------
-
 // Response
 
-// required string pci_id = 1;
-inline bool Response::_internal_has_pci_id() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool Response::has_pci_id() const {
-  return _internal_has_pci_id();
-}
+// string pci_id = 1;
 inline void Response::clear_pci_id() {
   pci_id_.ClearToEmpty();
-  _has_bits_[0] &= ~0x00000001u;
 }
 inline const std::string& Response::pci_id() const {
   // @@protoc_insertion_point(field_get:ns.Response.pci_id)
@@ -867,7 +637,7 @@ inline const std::string& Response::pci_id() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void Response::set_pci_id(ArgT0&& arg0, ArgT... args) {
- _has_bits_[0] |= 0x00000001u;
+ 
  pci_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:ns.Response.pci_id)
 }
@@ -880,32 +650,22 @@ inline const std::string& Response::_internal_pci_id() const {
   return pci_id_.Get();
 }
 inline void Response::_internal_set_pci_id(const std::string& value) {
-  _has_bits_[0] |= 0x00000001u;
+  
   pci_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* Response::_internal_mutable_pci_id() {
-  _has_bits_[0] |= 0x00000001u;
+  
   return pci_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* Response::release_pci_id() {
   // @@protoc_insertion_point(field_release:ns.Response.pci_id)
-  if (!_internal_has_pci_id()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000001u;
-  auto* p = pci_id_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (pci_id_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    pci_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  return pci_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
 inline void Response::set_allocated_pci_id(std::string* pci_id) {
   if (pci_id != nullptr) {
-    _has_bits_[0] |= 0x00000001u;
+    
   } else {
-    _has_bits_[0] &= ~0x00000001u;
+    
   }
   pci_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), pci_id,
       GetArenaForAllocation());
@@ -917,17 +677,9 @@ inline void Response::set_allocated_pci_id(std::string* pci_id) {
   // @@protoc_insertion_point(field_set_allocated:ns.Response.pci_id)
 }
 
-// required uint32 num_arp = 2;
-inline bool Response::_internal_has_num_arp() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
-  return value;
-}
-inline bool Response::has_num_arp() const {
-  return _internal_has_num_arp();
-}
+// uint32 num_arp = 2;
 inline void Response::clear_num_arp() {
   num_arp_ = 0u;
-  _has_bits_[0] &= ~0x00000004u;
 }
 inline uint32_t Response::_internal_num_arp() const {
   return num_arp_;
@@ -937,7 +689,7 @@ inline uint32_t Response::num_arp() const {
   return _internal_num_arp();
 }
 inline void Response::_internal_set_num_arp(uint32_t value) {
-  _has_bits_[0] |= 0x00000004u;
+  
   num_arp_ = value;
 }
 inline void Response::set_num_arp(uint32_t value) {
@@ -945,17 +697,9 @@ inline void Response::set_num_arp(uint32_t value) {
   // @@protoc_insertion_point(field_set:ns.Response.num_arp)
 }
 
-// required uint32 num_bcast_arp = 3;
-inline bool Response::_internal_has_num_bcast_arp() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
-  return value;
-}
-inline bool Response::has_num_bcast_arp() const {
-  return _internal_has_num_bcast_arp();
-}
+// uint32 num_bcast_arp = 3;
 inline void Response::clear_num_bcast_arp() {
   num_bcast_arp_ = 0u;
-  _has_bits_[0] &= ~0x00000008u;
 }
 inline uint32_t Response::_internal_num_bcast_arp() const {
   return num_bcast_arp_;
@@ -965,7 +709,7 @@ inline uint32_t Response::num_bcast_arp() const {
   return _internal_num_bcast_arp();
 }
 inline void Response::_internal_set_num_bcast_arp(uint32_t value) {
-  _has_bits_[0] |= 0x00000008u;
+  
   num_bcast_arp_ = value;
 }
 inline void Response::set_num_bcast_arp(uint32_t value) {
@@ -973,17 +717,9 @@ inline void Response::set_num_bcast_arp(uint32_t value) {
   // @@protoc_insertion_point(field_set:ns.Response.num_bcast_arp)
 }
 
-// required uint32 num_ipv4 = 4;
-inline bool Response::_internal_has_num_ipv4() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool Response::has_num_ipv4() const {
-  return _internal_has_num_ipv4();
-}
+// uint32 num_ipv4 = 4;
 inline void Response::clear_num_ipv4() {
   num_ipv4_ = 0u;
-  _has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t Response::_internal_num_ipv4() const {
   return num_ipv4_;
@@ -993,7 +729,7 @@ inline uint32_t Response::num_ipv4() const {
   return _internal_num_ipv4();
 }
 inline void Response::_internal_set_num_ipv4(uint32_t value) {
-  _has_bits_[0] |= 0x00000010u;
+  
   num_ipv4_ = value;
 }
 inline void Response::set_num_ipv4(uint32_t value) {
@@ -1001,17 +737,9 @@ inline void Response::set_num_ipv4(uint32_t value) {
   // @@protoc_insertion_point(field_set:ns.Response.num_ipv4)
 }
 
-// required uint32 num_ipv6 = 5;
-inline bool Response::_internal_has_num_ipv6() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
-  return value;
-}
-inline bool Response::has_num_ipv6() const {
-  return _internal_has_num_ipv6();
-}
+// uint32 num_ipv6 = 5;
 inline void Response::clear_num_ipv6() {
   num_ipv6_ = 0u;
-  _has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t Response::_internal_num_ipv6() const {
   return num_ipv6_;
@@ -1021,7 +749,7 @@ inline uint32_t Response::num_ipv6() const {
   return _internal_num_ipv6();
 }
 inline void Response::_internal_set_num_ipv6(uint32_t value) {
-  _has_bits_[0] |= 0x00000020u;
+  
   num_ipv6_ = value;
 }
 inline void Response::set_num_ipv6(uint32_t value) {
@@ -1029,17 +757,9 @@ inline void Response::set_num_ipv6(uint32_t value) {
   // @@protoc_insertion_point(field_set:ns.Response.num_ipv6)
 }
 
-// required uint32 num_multicast = 6;
-inline bool Response::_internal_has_num_multicast() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
-  return value;
-}
-inline bool Response::has_num_multicast() const {
-  return _internal_has_num_multicast();
-}
+// uint32 num_multicast = 6;
 inline void Response::clear_num_multicast() {
   num_multicast_ = 0u;
-  _has_bits_[0] &= ~0x00000040u;
 }
 inline uint32_t Response::_internal_num_multicast() const {
   return num_multicast_;
@@ -1049,7 +769,7 @@ inline uint32_t Response::num_multicast() const {
   return _internal_num_multicast();
 }
 inline void Response::_internal_set_num_multicast(uint32_t value) {
-  _has_bits_[0] |= 0x00000040u;
+  
   num_multicast_ = value;
 }
 inline void Response::set_num_multicast(uint32_t value) {
@@ -1086,259 +806,13 @@ Response::mutable_arp_stats() {
   return _internal_mutable_arp_stats();
 }
 
-// required string pci_id_2 = 8;
-inline bool Response::_internal_has_pci_id_2() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool Response::has_pci_id_2() const {
-  return _internal_has_pci_id_2();
-}
-inline void Response::clear_pci_id_2() {
-  pci_id_2_.ClearToEmpty();
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline const std::string& Response::pci_id_2() const {
-  // @@protoc_insertion_point(field_get:ns.Response.pci_id_2)
-  return _internal_pci_id_2();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void Response::set_pci_id_2(ArgT0&& arg0, ArgT... args) {
- _has_bits_[0] |= 0x00000002u;
- pci_id_2_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:ns.Response.pci_id_2)
-}
-inline std::string* Response::mutable_pci_id_2() {
-  std::string* _s = _internal_mutable_pci_id_2();
-  // @@protoc_insertion_point(field_mutable:ns.Response.pci_id_2)
-  return _s;
-}
-inline const std::string& Response::_internal_pci_id_2() const {
-  return pci_id_2_.Get();
-}
-inline void Response::_internal_set_pci_id_2(const std::string& value) {
-  _has_bits_[0] |= 0x00000002u;
-  pci_id_2_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* Response::_internal_mutable_pci_id_2() {
-  _has_bits_[0] |= 0x00000002u;
-  return pci_id_2_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* Response::release_pci_id_2() {
-  // @@protoc_insertion_point(field_release:ns.Response.pci_id_2)
-  if (!_internal_has_pci_id_2()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000002u;
-  auto* p = pci_id_2_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (pci_id_2_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    pci_id_2_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void Response::set_allocated_pci_id_2(std::string* pci_id_2) {
-  if (pci_id_2 != nullptr) {
-    _has_bits_[0] |= 0x00000002u;
-  } else {
-    _has_bits_[0] &= ~0x00000002u;
-  }
-  pci_id_2_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), pci_id_2,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (pci_id_2_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    pci_id_2_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:ns.Response.pci_id_2)
-}
-
-// required uint32 num_arp_2 = 9;
-inline bool Response::_internal_has_num_arp_2() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
-  return value;
-}
-inline bool Response::has_num_arp_2() const {
-  return _internal_has_num_arp_2();
-}
-inline void Response::clear_num_arp_2() {
-  num_arp_2_ = 0u;
-  _has_bits_[0] &= ~0x00000080u;
-}
-inline uint32_t Response::_internal_num_arp_2() const {
-  return num_arp_2_;
-}
-inline uint32_t Response::num_arp_2() const {
-  // @@protoc_insertion_point(field_get:ns.Response.num_arp_2)
-  return _internal_num_arp_2();
-}
-inline void Response::_internal_set_num_arp_2(uint32_t value) {
-  _has_bits_[0] |= 0x00000080u;
-  num_arp_2_ = value;
-}
-inline void Response::set_num_arp_2(uint32_t value) {
-  _internal_set_num_arp_2(value);
-  // @@protoc_insertion_point(field_set:ns.Response.num_arp_2)
-}
-
-// required uint32 num_bcast_arp_2 = 10;
-inline bool Response::_internal_has_num_bcast_arp_2() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
-  return value;
-}
-inline bool Response::has_num_bcast_arp_2() const {
-  return _internal_has_num_bcast_arp_2();
-}
-inline void Response::clear_num_bcast_arp_2() {
-  num_bcast_arp_2_ = 0u;
-  _has_bits_[0] &= ~0x00000100u;
-}
-inline uint32_t Response::_internal_num_bcast_arp_2() const {
-  return num_bcast_arp_2_;
-}
-inline uint32_t Response::num_bcast_arp_2() const {
-  // @@protoc_insertion_point(field_get:ns.Response.num_bcast_arp_2)
-  return _internal_num_bcast_arp_2();
-}
-inline void Response::_internal_set_num_bcast_arp_2(uint32_t value) {
-  _has_bits_[0] |= 0x00000100u;
-  num_bcast_arp_2_ = value;
-}
-inline void Response::set_num_bcast_arp_2(uint32_t value) {
-  _internal_set_num_bcast_arp_2(value);
-  // @@protoc_insertion_point(field_set:ns.Response.num_bcast_arp_2)
-}
-
-// required uint32 num_ipv4_2 = 11;
-inline bool Response::_internal_has_num_ipv4_2() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
-  return value;
-}
-inline bool Response::has_num_ipv4_2() const {
-  return _internal_has_num_ipv4_2();
-}
-inline void Response::clear_num_ipv4_2() {
-  num_ipv4_2_ = 0u;
-  _has_bits_[0] &= ~0x00000200u;
-}
-inline uint32_t Response::_internal_num_ipv4_2() const {
-  return num_ipv4_2_;
-}
-inline uint32_t Response::num_ipv4_2() const {
-  // @@protoc_insertion_point(field_get:ns.Response.num_ipv4_2)
-  return _internal_num_ipv4_2();
-}
-inline void Response::_internal_set_num_ipv4_2(uint32_t value) {
-  _has_bits_[0] |= 0x00000200u;
-  num_ipv4_2_ = value;
-}
-inline void Response::set_num_ipv4_2(uint32_t value) {
-  _internal_set_num_ipv4_2(value);
-  // @@protoc_insertion_point(field_set:ns.Response.num_ipv4_2)
-}
-
-// required uint32 num_ipv6_2 = 12;
-inline bool Response::_internal_has_num_ipv6_2() const {
-  bool value = (_has_bits_[0] & 0x00000400u) != 0;
-  return value;
-}
-inline bool Response::has_num_ipv6_2() const {
-  return _internal_has_num_ipv6_2();
-}
-inline void Response::clear_num_ipv6_2() {
-  num_ipv6_2_ = 0u;
-  _has_bits_[0] &= ~0x00000400u;
-}
-inline uint32_t Response::_internal_num_ipv6_2() const {
-  return num_ipv6_2_;
-}
-inline uint32_t Response::num_ipv6_2() const {
-  // @@protoc_insertion_point(field_get:ns.Response.num_ipv6_2)
-  return _internal_num_ipv6_2();
-}
-inline void Response::_internal_set_num_ipv6_2(uint32_t value) {
-  _has_bits_[0] |= 0x00000400u;
-  num_ipv6_2_ = value;
-}
-inline void Response::set_num_ipv6_2(uint32_t value) {
-  _internal_set_num_ipv6_2(value);
-  // @@protoc_insertion_point(field_set:ns.Response.num_ipv6_2)
-}
-
-// required uint32 num_multicast_2 = 13;
-inline bool Response::_internal_has_num_multicast_2() const {
-  bool value = (_has_bits_[0] & 0x00000800u) != 0;
-  return value;
-}
-inline bool Response::has_num_multicast_2() const {
-  return _internal_has_num_multicast_2();
-}
-inline void Response::clear_num_multicast_2() {
-  num_multicast_2_ = 0u;
-  _has_bits_[0] &= ~0x00000800u;
-}
-inline uint32_t Response::_internal_num_multicast_2() const {
-  return num_multicast_2_;
-}
-inline uint32_t Response::num_multicast_2() const {
-  // @@protoc_insertion_point(field_get:ns.Response.num_multicast_2)
-  return _internal_num_multicast_2();
-}
-inline void Response::_internal_set_num_multicast_2(uint32_t value) {
-  _has_bits_[0] |= 0x00000800u;
-  num_multicast_2_ = value;
-}
-inline void Response::set_num_multicast_2(uint32_t value) {
-  _internal_set_num_multicast_2(value);
-  // @@protoc_insertion_point(field_set:ns.Response.num_multicast_2)
-}
-
-// map<string, .ns.ARPStats> arp_stats_2 = 14;
-inline int Response::_internal_arp_stats_2_size() const {
-  return arp_stats_2_.size();
-}
-inline int Response::arp_stats_2_size() const {
-  return _internal_arp_stats_2_size();
-}
-inline void Response::clear_arp_stats_2() {
-  arp_stats_2_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >&
-Response::_internal_arp_stats_2() const {
-  return arp_stats_2_.GetMap();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >&
-Response::arp_stats_2() const {
-  // @@protoc_insertion_point(field_map:ns.Response.arp_stats_2)
-  return _internal_arp_stats_2();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >*
-Response::_internal_mutable_arp_stats_2() {
-  return arp_stats_2_.MutableMap();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >*
-Response::mutable_arp_stats_2() {
-  // @@protoc_insertion_point(field_mutable_map:ns.Response.arp_stats_2)
-  return _internal_mutable_arp_stats_2();
-}
-
 // -------------------------------------------------------------------
 
 // ARPStats
 
-// required uint32 num_pkts = 1;
-inline bool ARPStats::_internal_has_num_pkts() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool ARPStats::has_num_pkts() const {
-  return _internal_has_num_pkts();
-}
+// uint32 num_pkts = 1;
 inline void ARPStats::clear_num_pkts() {
   num_pkts_ = 0u;
-  _has_bits_[0] &= ~0x00000001u;
 }
 inline uint32_t ARPStats::_internal_num_pkts() const {
   return num_pkts_;
@@ -1348,7 +822,7 @@ inline uint32_t ARPStats::num_pkts() const {
   return _internal_num_pkts();
 }
 inline void ARPStats::_internal_set_num_pkts(uint32_t value) {
-  _has_bits_[0] |= 0x00000001u;
+  
   num_pkts_ = value;
 }
 inline void ARPStats::set_num_pkts(uint32_t value) {
@@ -1356,17 +830,9 @@ inline void ARPStats::set_num_pkts(uint32_t value) {
   // @@protoc_insertion_point(field_set:ns.ARPStats.num_pkts)
 }
 
-// required uint32 rate = 2;
-inline bool ARPStats::_internal_has_rate() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool ARPStats::has_rate() const {
-  return _internal_has_rate();
-}
+// uint32 rate = 2;
 inline void ARPStats::clear_rate() {
   rate_ = 0u;
-  _has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t ARPStats::_internal_rate() const {
   return rate_;
@@ -1376,7 +842,7 @@ inline uint32_t ARPStats::rate() const {
   return _internal_rate();
 }
 inline void ARPStats::_internal_set_rate(uint32_t value) {
-  _has_bits_[0] |= 0x00000002u;
+  
   rate_ = value;
 }
 inline void ARPStats::set_rate(uint32_t value) {
@@ -1387,8 +853,6 @@ inline void ARPStats::set_rate(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

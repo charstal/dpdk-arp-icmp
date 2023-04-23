@@ -39,33 +39,15 @@ struct Response_ArpStatsEntry_DoNotUseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Response_ArpStatsEntry_DoNotUseDefaultTypeInternal _Response_ArpStatsEntry_DoNotUse_default_instance_;
-constexpr Response_ArpStats2Entry_DoNotUse::Response_ArpStats2Entry_DoNotUse(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
-struct Response_ArpStats2Entry_DoNotUseDefaultTypeInternal {
-  constexpr Response_ArpStats2Entry_DoNotUseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~Response_ArpStats2Entry_DoNotUseDefaultTypeInternal() {}
-  union {
-    Response_ArpStats2Entry_DoNotUse _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Response_ArpStats2Entry_DoNotUseDefaultTypeInternal _Response_ArpStats2Entry_DoNotUse_default_instance_;
 constexpr Response::Response(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : arp_stats_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
-  , arp_stats_2_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
   , pci_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , pci_id_2_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , num_arp_(0u)
   , num_bcast_arp_(0u)
   , num_ipv4_(0u)
   , num_ipv6_(0u)
-  , num_multicast_(0u)
-  , num_arp_2_(0u)
-  , num_bcast_arp_2_(0u)
-  , num_ipv4_2_(0u)
-  , num_ipv6_2_(0u)
-  , num_multicast_2_(0u){}
+  , num_multicast_(0u){}
 struct ResponseDefaultTypeInternal {
   constexpr ResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -89,7 +71,7 @@ struct ARPStatsDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ARPStatsDefaultTypeInternal _ARPStats_default_instance_;
 }  // namespace ns
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ns_2eproto[5];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ns_2eproto[4];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_ns_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ns_2eproto = nullptr;
 
@@ -110,17 +92,7 @@ const uint32_t TableStruct_ns_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(proto
   PROTOBUF_FIELD_OFFSET(::ns::Response_ArpStatsEntry_DoNotUse, value_),
   0,
   1,
-  PROTOBUF_FIELD_OFFSET(::ns::Response_ArpStats2Entry_DoNotUse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response_ArpStats2Entry_DoNotUse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ns::Response_ArpStats2Entry_DoNotUse, key_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response_ArpStats2Entry_DoNotUse, value_),
-  0,
-  1,
-  PROTOBUF_FIELD_OFFSET(::ns::Response, _has_bits_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ns::Response, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -133,28 +105,7 @@ const uint32_t TableStruct_ns_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(proto
   PROTOBUF_FIELD_OFFSET(::ns::Response, num_ipv6_),
   PROTOBUF_FIELD_OFFSET(::ns::Response, num_multicast_),
   PROTOBUF_FIELD_OFFSET(::ns::Response, arp_stats_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, pci_id_2_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, num_arp_2_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, num_bcast_arp_2_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, num_ipv4_2_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, num_ipv6_2_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, num_multicast_2_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, arp_stats_2_),
-  0,
-  2,
-  3,
-  4,
-  5,
-  6,
-  ~0u,
-  1,
-  7,
-  8,
-  9,
-  10,
-  11,
-  ~0u,
-  PROTOBUF_FIELD_OFFSET(::ns::ARPStats, _has_bits_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ns::ARPStats, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -162,47 +113,37 @@ const uint32_t TableStruct_ns_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(proto
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::ns::ARPStats, num_pkts_),
   PROTOBUF_FIELD_OFFSET(::ns::ARPStats, rate_),
-  0,
-  1,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::ns::Request)},
   { 6, 14, -1, sizeof(::ns::Response_ArpStatsEntry_DoNotUse)},
-  { 16, 24, -1, sizeof(::ns::Response_ArpStats2Entry_DoNotUse)},
-  { 26, 46, -1, sizeof(::ns::Response)},
-  { 60, 68, -1, sizeof(::ns::ARPStats)},
+  { 16, -1, -1, sizeof(::ns::Response)},
+  { 29, -1, -1, sizeof(::ns::ARPStats)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_Response_ArpStatsEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_Response_ArpStats2Entry_DoNotUse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_ARPStats_default_instance_),
 };
 
 const char descriptor_table_protodef_ns_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\010ns.proto\022\002ns\"\t\n\007Request\"\334\003\n\010Response\022\016"
-  "\n\006pci_id\030\001 \002(\t\022\017\n\007num_arp\030\002 \002(\r\022\025\n\rnum_b"
-  "cast_arp\030\003 \002(\r\022\020\n\010num_ipv4\030\004 \002(\r\022\020\n\010num_"
-  "ipv6\030\005 \002(\r\022\025\n\rnum_multicast\030\006 \002(\r\022-\n\tarp"
+  "\n\010ns.proto\022\002ns\"\t\n\007Request\"\353\001\n\010Response\022\016"
+  "\n\006pci_id\030\001 \001(\t\022\017\n\007num_arp\030\002 \001(\r\022\025\n\rnum_b"
+  "cast_arp\030\003 \001(\r\022\020\n\010num_ipv4\030\004 \001(\r\022\020\n\010num_"
+  "ipv6\030\005 \001(\r\022\025\n\rnum_multicast\030\006 \001(\r\022-\n\tarp"
   "_stats\030\007 \003(\0132\032.ns.Response.ArpStatsEntry"
-  "\022\020\n\010pci_id_2\030\010 \002(\t\022\021\n\tnum_arp_2\030\t \002(\r\022\027\n"
-  "\017num_bcast_arp_2\030\n \002(\r\022\022\n\nnum_ipv4_2\030\013 \002"
-  "(\r\022\022\n\nnum_ipv6_2\030\014 \002(\r\022\027\n\017num_multicast_"
-  "2\030\r \002(\r\0220\n\013arp_stats_2\030\016 \003(\0132\033.ns.Respon"
-  "se.ArpStats2Entry\032=\n\rArpStatsEntry\022\013\n\003ke"
-  "y\030\001 \001(\t\022\033\n\005value\030\002 \001(\0132\014.ns.ARPStats:\0028\001"
-  "\032>\n\016ArpStats2Entry\022\013\n\003key\030\001 \001(\t\022\033\n\005value"
-  "\030\002 \001(\0132\014.ns.ARPStats:\0028\001\"*\n\010ARPStats\022\020\n\010"
-  "num_pkts\030\001 \002(\r\022\014\n\004rate\030\002 \002(\r26\n\010NetStats"
-  "\022*\n\013GetNetStats\022\013.ns.Request\032\014.ns.Respon"
-  "se\"\000"
+  "\032=\n\rArpStatsEntry\022\013\n\003key\030\001 \001(\t\022\033\n\005value\030"
+  "\002 \001(\0132\014.ns.ARPStats:\0028\001\"*\n\010ARPStats\022\020\n\010n"
+  "um_pkts\030\001 \001(\r\022\014\n\004rate\030\002 \001(\r26\n\010NetStats\022"
+  "*\n\013GetNetStats\022\013.ns.Request\032\014.ns.Respons"
+  "e\"\000b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ns_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ns_2eproto = {
-  false, false, 604, descriptor_table_protodef_ns_2eproto, "ns.proto", 
-  &descriptor_table_ns_2eproto_once, nullptr, 0, 5,
+  false, false, 371, descriptor_table_protodef_ns_2eproto, "ns.proto", 
+  &descriptor_table_ns_2eproto_once, nullptr, 0, 4,
   schemas, file_default_instances, TableStruct_ns_2eproto::offsets,
   file_level_metadata_ns_2eproto, file_level_enum_descriptors_ns_2eproto, file_level_service_descriptors_ns_2eproto,
 };
@@ -269,69 +210,14 @@ void Response_ArpStatsEntry_DoNotUse::MergeFrom(const Response_ArpStatsEntry_DoN
 
 // ===================================================================
 
-Response_ArpStats2Entry_DoNotUse::Response_ArpStats2Entry_DoNotUse() {}
-Response_ArpStats2Entry_DoNotUse::Response_ArpStats2Entry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-    : SuperType(arena) {}
-void Response_ArpStats2Entry_DoNotUse::MergeFrom(const Response_ArpStats2Entry_DoNotUse& other) {
-  MergeFromInternal(other);
-}
-::PROTOBUF_NAMESPACE_ID::Metadata Response_ArpStats2Entry_DoNotUse::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
-      file_level_metadata_ns_2eproto[2]);
-}
-
-// ===================================================================
-
 class Response::_Internal {
  public:
-  using HasBits = decltype(std::declval<Response>()._has_bits_);
-  static void set_has_pci_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_num_arp(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_num_bcast_arp(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
-  }
-  static void set_has_num_ipv4(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
-  }
-  static void set_has_num_ipv6(HasBits* has_bits) {
-    (*has_bits)[0] |= 32u;
-  }
-  static void set_has_num_multicast(HasBits* has_bits) {
-    (*has_bits)[0] |= 64u;
-  }
-  static void set_has_pci_id_2(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static void set_has_num_arp_2(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
-  }
-  static void set_has_num_bcast_arp_2(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
-  }
-  static void set_has_num_ipv4_2(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
-  }
-  static void set_has_num_ipv6_2(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
-  }
-  static void set_has_num_multicast_2(HasBits* has_bits) {
-    (*has_bits)[0] |= 2048u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000fff) ^ 0x00000fff) != 0;
-  }
 };
 
 Response::Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  arp_stats_(arena),
-  arp_stats_2_(arena) {
+  arp_stats_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -339,30 +225,20 @@ Response::Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
   // @@protoc_insertion_point(arena_constructor:ns.Response)
 }
 Response::Response(const Response& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   arp_stats_.MergeFrom(from.arp_stats_);
-  arp_stats_2_.MergeFrom(from.arp_stats_2_);
   pci_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     pci_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (from._internal_has_pci_id()) {
+  if (!from._internal_pci_id().empty()) {
     pci_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_pci_id(), 
       GetArenaForAllocation());
   }
-  pci_id_2_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    pci_id_2_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (from._internal_has_pci_id_2()) {
-    pci_id_2_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_pci_id_2(), 
-      GetArenaForAllocation());
-  }
   ::memcpy(&num_arp_, &from.num_arp_,
-    static_cast<size_t>(reinterpret_cast<char*>(&num_multicast_2_) -
-    reinterpret_cast<char*>(&num_arp_)) + sizeof(num_multicast_2_));
+    static_cast<size_t>(reinterpret_cast<char*>(&num_multicast_) -
+    reinterpret_cast<char*>(&num_arp_)) + sizeof(num_multicast_));
   // @@protoc_insertion_point(copy_constructor:ns.Response)
 }
 
@@ -371,14 +247,10 @@ pci_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlrea
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   pci_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-pci_id_2_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  pci_id_2_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&num_arp_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&num_multicast_2_) -
-    reinterpret_cast<char*>(&num_arp_)) + sizeof(num_multicast_2_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&num_multicast_) -
+    reinterpret_cast<char*>(&num_arp_)) + sizeof(num_multicast_));
 }
 
 Response::~Response() {
@@ -391,14 +263,12 @@ Response::~Response() {
 inline void Response::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   pci_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  pci_id_2_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void Response::ArenaDtor(void* object) {
   Response* _this = reinterpret_cast< Response* >(object);
   (void)_this;
   _this->arp_stats_. ~MapField();
-  _this->arp_stats_2_. ~MapField();
 }
 inline void Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) {
   if (arena != nullptr) {
@@ -416,89 +286,64 @@ void Response::Clear() {
   (void) cached_has_bits;
 
   arp_stats_.Clear();
-  arp_stats_2_.Clear();
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      pci_id_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      pci_id_2_.ClearNonDefaultToEmpty();
-    }
-  }
-  if (cached_has_bits & 0x000000fcu) {
-    ::memset(&num_arp_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&num_arp_2_) -
-        reinterpret_cast<char*>(&num_arp_)) + sizeof(num_arp_2_));
-  }
-  if (cached_has_bits & 0x00000f00u) {
-    ::memset(&num_bcast_arp_2_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&num_multicast_2_) -
-        reinterpret_cast<char*>(&num_bcast_arp_2_)) + sizeof(num_multicast_2_));
-  }
-  _has_bits_.Clear();
+  pci_id_.ClearToEmpty();
+  ::memset(&num_arp_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&num_multicast_) -
+      reinterpret_cast<char*>(&num_arp_)) + sizeof(num_multicast_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required string pci_id = 1;
+      // string pci_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_pci_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ns.Response.pci_id");
-          #endif  // !NDEBUG
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ns.Response.pci_id"));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // required uint32 num_arp = 2;
+      // uint32 num_arp = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_num_arp(&has_bits);
           num_arp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // required uint32 num_bcast_arp = 3;
+      // uint32 num_bcast_arp = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _Internal::set_has_num_bcast_arp(&has_bits);
           num_bcast_arp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // required uint32 num_ipv4 = 4;
+      // uint32 num_ipv4 = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _Internal::set_has_num_ipv4(&has_bits);
           num_ipv4_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // required uint32 num_ipv6 = 5;
+      // uint32 num_ipv6 = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          _Internal::set_has_num_ipv6(&has_bits);
           num_ipv6_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // required uint32 num_multicast = 6;
+      // uint32 num_multicast = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
-          _Internal::set_has_num_multicast(&has_bits);
           num_multicast_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
@@ -514,76 +359,6 @@ const char* Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
-        } else
-          goto handle_unusual;
-        continue;
-      // required string pci_id_2 = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
-          auto str = _internal_mutable_pci_id_2();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ns.Response.pci_id_2");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // required uint32 num_arp_2 = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
-          _Internal::set_has_num_arp_2(&has_bits);
-          num_arp_2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // required uint32 num_bcast_arp_2 = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
-          _Internal::set_has_num_bcast_arp_2(&has_bits);
-          num_bcast_arp_2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // required uint32 num_ipv4_2 = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 88)) {
-          _Internal::set_has_num_ipv4_2(&has_bits);
-          num_ipv4_2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // required uint32 num_ipv6_2 = 12;
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 96)) {
-          _Internal::set_has_num_ipv6_2(&has_bits);
-          num_ipv6_2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // required uint32 num_multicast_2 = 13;
-      case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 104)) {
-          _Internal::set_has_num_multicast_2(&has_bits);
-          num_multicast_2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // map<string, .ns.ARPStats> arp_stats_2 = 14;
-      case 14:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 114)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(&arp_stats_2_, ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<114>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -603,7 +378,6 @@ const char* Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
     CHK_(ptr != nullptr);
   }  // while
 message_done:
-  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -617,43 +391,42 @@ uint8_t* Response::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = _has_bits_[0];
-  // required string pci_id = 1;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+  // string pci_id = 1;
+  if (!this->_internal_pci_id().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_pci_id().data(), static_cast<int>(this->_internal_pci_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "ns.Response.pci_id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_pci_id(), target);
   }
 
-  // required uint32 num_arp = 2;
-  if (cached_has_bits & 0x00000004u) {
+  // uint32 num_arp = 2;
+  if (this->_internal_num_arp() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_num_arp(), target);
   }
 
-  // required uint32 num_bcast_arp = 3;
-  if (cached_has_bits & 0x00000008u) {
+  // uint32 num_bcast_arp = 3;
+  if (this->_internal_num_bcast_arp() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_num_bcast_arp(), target);
   }
 
-  // required uint32 num_ipv4 = 4;
-  if (cached_has_bits & 0x00000010u) {
+  // uint32 num_ipv4 = 4;
+  if (this->_internal_num_ipv4() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_num_ipv4(), target);
   }
 
-  // required uint32 num_ipv6 = 5;
-  if (cached_has_bits & 0x00000020u) {
+  // uint32 num_ipv6 = 5;
+  if (this->_internal_num_ipv6() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_num_ipv6(), target);
   }
 
-  // required uint32 num_multicast = 6;
-  if (cached_has_bits & 0x00000040u) {
+  // uint32 num_multicast = 6;
+  if (this->_internal_num_multicast() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_num_multicast(), target);
   }
@@ -667,9 +440,9 @@ uint8_t* Response::_InternalSerialize(
     struct Utf8Check {
       static void Check(ConstPtr p) {
         (void)p;
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
           p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
           "ns.Response.ArpStatsEntry.key");
       }
     };
@@ -700,88 +473,6 @@ uint8_t* Response::_InternalSerialize(
     }
   }
 
-  // required string pci_id_2 = 8;
-  if (cached_has_bits & 0x00000002u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_pci_id_2().data(), static_cast<int>(this->_internal_pci_id_2().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "ns.Response.pci_id_2");
-    target = stream->WriteStringMaybeAliased(
-        8, this->_internal_pci_id_2(), target);
-  }
-
-  // required uint32 num_arp_2 = 9;
-  if (cached_has_bits & 0x00000080u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_num_arp_2(), target);
-  }
-
-  // required uint32 num_bcast_arp_2 = 10;
-  if (cached_has_bits & 0x00000100u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(10, this->_internal_num_bcast_arp_2(), target);
-  }
-
-  // required uint32 num_ipv4_2 = 11;
-  if (cached_has_bits & 0x00000200u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(11, this->_internal_num_ipv4_2(), target);
-  }
-
-  // required uint32 num_ipv6_2 = 12;
-  if (cached_has_bits & 0x00000400u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(12, this->_internal_num_ipv6_2(), target);
-  }
-
-  // required uint32 num_multicast_2 = 13;
-  if (cached_has_bits & 0x00000800u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(13, this->_internal_num_multicast_2(), target);
-  }
-
-  // map<string, .ns.ARPStats> arp_stats_2 = 14;
-  if (!this->_internal_arp_stats_2().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        (void)p;
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-          "ns.Response.ArpStats2Entry.key");
-      }
-    };
-
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_arp_stats_2().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_arp_stats_2().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >::const_iterator
-          it = this->_internal_arp_stats_2().begin();
-          it != this->_internal_arp_stats_2().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = Response_ArpStats2Entry_DoNotUse::Funcs::InternalSerialize(14, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
-      }
-    } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >::const_iterator
-          it = this->_internal_arp_stats_2().begin();
-          it != this->_internal_arp_stats_2().end(); ++it) {
-        target = Response_ArpStats2Entry_DoNotUse::Funcs::InternalSerialize(14, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
-      }
-    }
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -790,124 +481,10 @@ uint8_t* Response::_InternalSerialize(
   return target;
 }
 
-size_t Response::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:ns.Response)
-  size_t total_size = 0;
-
-  if (_internal_has_pci_id()) {
-    // required string pci_id = 1;
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_pci_id());
-  }
-
-  if (_internal_has_pci_id_2()) {
-    // required string pci_id_2 = 8;
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_pci_id_2());
-  }
-
-  if (_internal_has_num_arp()) {
-    // required uint32 num_arp = 2;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_arp());
-  }
-
-  if (_internal_has_num_bcast_arp()) {
-    // required uint32 num_bcast_arp = 3;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_bcast_arp());
-  }
-
-  if (_internal_has_num_ipv4()) {
-    // required uint32 num_ipv4 = 4;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv4());
-  }
-
-  if (_internal_has_num_ipv6()) {
-    // required uint32 num_ipv6 = 5;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv6());
-  }
-
-  if (_internal_has_num_multicast()) {
-    // required uint32 num_multicast = 6;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_multicast());
-  }
-
-  if (_internal_has_num_arp_2()) {
-    // required uint32 num_arp_2 = 9;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_arp_2());
-  }
-
-  if (_internal_has_num_bcast_arp_2()) {
-    // required uint32 num_bcast_arp_2 = 10;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_bcast_arp_2());
-  }
-
-  if (_internal_has_num_ipv4_2()) {
-    // required uint32 num_ipv4_2 = 11;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv4_2());
-  }
-
-  if (_internal_has_num_ipv6_2()) {
-    // required uint32 num_ipv6_2 = 12;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv6_2());
-  }
-
-  if (_internal_has_num_multicast_2()) {
-    // required uint32 num_multicast_2 = 13;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_multicast_2());
-  }
-
-  return total_size;
-}
 size_t Response::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ns.Response)
   size_t total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000fff) ^ 0x00000fff) == 0) {  // All required fields are present.
-    // required string pci_id = 1;
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_pci_id());
-
-    // required string pci_id_2 = 8;
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_pci_id_2());
-
-    // required uint32 num_arp = 2;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_arp());
-
-    // required uint32 num_bcast_arp = 3;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_bcast_arp());
-
-    // required uint32 num_ipv4 = 4;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv4());
-
-    // required uint32 num_ipv6 = 5;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv6());
-
-    // required uint32 num_multicast = 6;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_multicast());
-
-    // required uint32 num_arp_2 = 9;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_arp_2());
-
-    // required uint32 num_bcast_arp_2 = 10;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_bcast_arp_2());
-
-    // required uint32 num_ipv4_2 = 11;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv4_2());
-
-    // required uint32 num_ipv6_2 = 12;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv6_2());
-
-    // required uint32 num_multicast_2 = 13;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_multicast_2());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -921,13 +498,36 @@ size_t Response::ByteSizeLong() const {
     total_size += Response_ArpStatsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
-  // map<string, .ns.ARPStats> arp_stats_2 = 14;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_arp_stats_2_size());
-  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >::const_iterator
-      it = this->_internal_arp_stats_2().begin();
-      it != this->_internal_arp_stats_2().end(); ++it) {
-    total_size += Response_ArpStats2Entry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  // string pci_id = 1;
+  if (!this->_internal_pci_id().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_pci_id());
+  }
+
+  // uint32 num_arp = 2;
+  if (this->_internal_num_arp() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_arp());
+  }
+
+  // uint32 num_bcast_arp = 3;
+  if (this->_internal_num_bcast_arp() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_bcast_arp());
+  }
+
+  // uint32 num_ipv4 = 4;
+  if (this->_internal_num_ipv4() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv4());
+  }
+
+  // uint32 num_ipv6 = 5;
+  if (this->_internal_num_ipv6() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv6());
+  }
+
+  // uint32 num_multicast = 6;
+  if (this->_internal_num_multicast() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_multicast());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -953,49 +553,23 @@ void Response::MergeFrom(const Response& from) {
   (void) cached_has_bits;
 
   arp_stats_.MergeFrom(from.arp_stats_);
-  arp_stats_2_.MergeFrom(from.arp_stats_2_);
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    if (cached_has_bits & 0x00000001u) {
-      _internal_set_pci_id(from._internal_pci_id());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _internal_set_pci_id_2(from._internal_pci_id_2());
-    }
-    if (cached_has_bits & 0x00000004u) {
-      num_arp_ = from.num_arp_;
-    }
-    if (cached_has_bits & 0x00000008u) {
-      num_bcast_arp_ = from.num_bcast_arp_;
-    }
-    if (cached_has_bits & 0x00000010u) {
-      num_ipv4_ = from.num_ipv4_;
-    }
-    if (cached_has_bits & 0x00000020u) {
-      num_ipv6_ = from.num_ipv6_;
-    }
-    if (cached_has_bits & 0x00000040u) {
-      num_multicast_ = from.num_multicast_;
-    }
-    if (cached_has_bits & 0x00000080u) {
-      num_arp_2_ = from.num_arp_2_;
-    }
-    _has_bits_[0] |= cached_has_bits;
+  if (!from._internal_pci_id().empty()) {
+    _internal_set_pci_id(from._internal_pci_id());
   }
-  if (cached_has_bits & 0x00000f00u) {
-    if (cached_has_bits & 0x00000100u) {
-      num_bcast_arp_2_ = from.num_bcast_arp_2_;
-    }
-    if (cached_has_bits & 0x00000200u) {
-      num_ipv4_2_ = from.num_ipv4_2_;
-    }
-    if (cached_has_bits & 0x00000400u) {
-      num_ipv6_2_ = from.num_ipv6_2_;
-    }
-    if (cached_has_bits & 0x00000800u) {
-      num_multicast_2_ = from.num_multicast_2_;
-    }
-    _has_bits_[0] |= cached_has_bits;
+  if (from._internal_num_arp() != 0) {
+    _internal_set_num_arp(from._internal_num_arp());
+  }
+  if (from._internal_num_bcast_arp() != 0) {
+    _internal_set_num_bcast_arp(from._internal_num_bcast_arp());
+  }
+  if (from._internal_num_ipv4() != 0) {
+    _internal_set_num_ipv4(from._internal_num_ipv4());
+  }
+  if (from._internal_num_ipv6() != 0) {
+    _internal_set_num_ipv6(from._internal_num_ipv6());
+  }
+  if (from._internal_num_multicast() != 0) {
+    _internal_set_num_multicast(from._internal_num_multicast());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1008,9 +582,6 @@ void Response::CopyFrom(const Response& from) {
 }
 
 bool Response::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_has_bits_)) return false;
-  if (!::PROTOBUF_NAMESPACE_ID::internal::AllAreInitialized(arp_stats_)) return false;
-  if (!::PROTOBUF_NAMESPACE_ID::internal::AllAreInitialized(arp_stats_2_)) return false;
   return true;
 }
 
@@ -1019,22 +590,15 @@ void Response::InternalSwap(Response* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
   arp_stats_.InternalSwap(&other->arp_stats_);
-  arp_stats_2_.InternalSwap(&other->arp_stats_2_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &pci_id_, lhs_arena,
       &other->pci_id_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &pci_id_2_, lhs_arena,
-      &other->pci_id_2_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Response, num_multicast_2_)
-      + sizeof(Response::num_multicast_2_)
+      PROTOBUF_FIELD_OFFSET(Response, num_multicast_)
+      + sizeof(Response::num_multicast_)
       - PROTOBUF_FIELD_OFFSET(Response, num_arp_)>(
           reinterpret_cast<char*>(&num_arp_),
           reinterpret_cast<char*>(&other->num_arp_));
@@ -1043,23 +607,13 @@ void Response::InternalSwap(Response* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Response::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
-      file_level_metadata_ns_2eproto[3]);
+      file_level_metadata_ns_2eproto[2]);
 }
 
 // ===================================================================
 
 class ARPStats::_Internal {
  public:
-  using HasBits = decltype(std::declval<ARPStats>()._has_bits_);
-  static void set_has_num_pkts(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_rate(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000003) ^ 0x00000003) != 0;
-  }
 };
 
 ARPStats::ARPStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -1072,8 +626,7 @@ ARPStats::ARPStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
   // @@protoc_insertion_point(arena_constructor:ns.ARPStats)
 }
 ARPStats::ARPStats(const ARPStats& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&num_pkts_, &from.num_pkts_,
     static_cast<size_t>(reinterpret_cast<char*>(&rate_) -
@@ -1115,36 +668,29 @@ void ARPStats::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    ::memset(&num_pkts_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&rate_) -
-        reinterpret_cast<char*>(&num_pkts_)) + sizeof(rate_));
-  }
-  _has_bits_.Clear();
+  ::memset(&num_pkts_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&rate_) -
+      reinterpret_cast<char*>(&num_pkts_)) + sizeof(rate_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* ARPStats::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 num_pkts = 1;
+      // uint32 num_pkts = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_num_pkts(&has_bits);
           num_pkts_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // required uint32 rate = 2;
+      // uint32 rate = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_rate(&has_bits);
           rate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
@@ -1166,7 +712,6 @@ const char* ARPStats::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
     CHK_(ptr != nullptr);
   }  // while
 message_done:
-  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -1180,15 +725,14 @@ uint8_t* ARPStats::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = _has_bits_[0];
-  // required uint32 num_pkts = 1;
-  if (cached_has_bits & 0x00000001u) {
+  // uint32 num_pkts = 1;
+  if (this->_internal_num_pkts() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_num_pkts(), target);
   }
 
-  // required uint32 rate = 2;
-  if (cached_has_bits & 0x00000002u) {
+  // uint32 rate = 2;
+  if (this->_internal_rate() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_rate(), target);
   }
@@ -1201,39 +745,23 @@ uint8_t* ARPStats::_InternalSerialize(
   return target;
 }
 
-size_t ARPStats::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:ns.ARPStats)
-  size_t total_size = 0;
-
-  if (_internal_has_num_pkts()) {
-    // required uint32 num_pkts = 1;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_pkts());
-  }
-
-  if (_internal_has_rate()) {
-    // required uint32 rate = 2;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_rate());
-  }
-
-  return total_size;
-}
 size_t ARPStats::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:ns.ARPStats)
   size_t total_size = 0;
 
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required uint32 num_pkts = 1;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_pkts());
-
-    // required uint32 rate = 2;
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_rate());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // uint32 num_pkts = 1;
+  if (this->_internal_num_pkts() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_pkts());
+  }
+
+  // uint32 rate = 2;
+  if (this->_internal_rate() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_rate());
+  }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
@@ -1257,15 +785,11 @@ void ARPStats::MergeFrom(const ARPStats& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      num_pkts_ = from.num_pkts_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      rate_ = from.rate_;
-    }
-    _has_bits_[0] |= cached_has_bits;
+  if (from._internal_num_pkts() != 0) {
+    _internal_set_num_pkts(from._internal_num_pkts());
+  }
+  if (from._internal_rate() != 0) {
+    _internal_set_rate(from._internal_rate());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1278,14 +802,12 @@ void ARPStats::CopyFrom(const ARPStats& from) {
 }
 
 bool ARPStats::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_has_bits_)) return false;
   return true;
 }
 
 void ARPStats::InternalSwap(ARPStats* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ARPStats, rate_)
       + sizeof(ARPStats::rate_)
@@ -1297,7 +819,7 @@ void ARPStats::InternalSwap(ARPStats* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ARPStats::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
-      file_level_metadata_ns_2eproto[4]);
+      file_level_metadata_ns_2eproto[3]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -1308,9 +830,6 @@ template<> PROTOBUF_NOINLINE ::ns::Request* Arena::CreateMaybeMessage< ::ns::Req
 }
 template<> PROTOBUF_NOINLINE ::ns::Response_ArpStatsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ns::Response_ArpStatsEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ns::Response_ArpStatsEntry_DoNotUse >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ns::Response_ArpStats2Entry_DoNotUse* Arena::CreateMaybeMessage< ::ns::Response_ArpStats2Entry_DoNotUse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ns::Response_ArpStats2Entry_DoNotUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ns::Response* Arena::CreateMaybeMessage< ::ns::Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ns::Response >(arena);

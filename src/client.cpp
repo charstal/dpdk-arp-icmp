@@ -54,12 +54,7 @@ public:
       std::cout << "ipv4 total:  " << response.num_ipv4() << std::endl;
       std::cout << "ipv6 total:  " << response.num_ipv6() << std::endl;
       std::cout << "multicast total:  " << response.num_multicast() << std::endl;
-      std::cout << "pci_id:  " << response.pci_id_2() << std::endl;
-      std::cout << "arp_rx_total_pps:  " << response.num_arp_2() << std::endl;
-      std::cout << "arp_rx_bcast_pps:  " << response.num_bcast_arp_2() << std::endl;
-      std::cout << "ipv4 total:  " << response.num_ipv4_2() << std::endl;
-      std::cout << "ipv6 total:  " << response.num_ipv6_2() << std::endl;
-      std::cout << "multicast total:  " << response.num_multicast_2() << std::endl;
+
       // for(auto it : response.arp_stats()){
       //    ns::ARPStats tmp = it.second;
       //  std::cout << it.first <<std::setw(12) << "   amount: "<< tmp.num_pkts() << std::setw(12) << "    rate: " << tmp.rate() << std::endl;

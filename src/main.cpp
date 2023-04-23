@@ -116,6 +116,7 @@ int main(int argc, char *argv[])
         printf("Please enter the correct parameters, example: monitor -i 60 \n");
         exit(1);
     }
+    printf("Interval %d", interval);
 
     int ac = 0;
     char *av[] = {};
