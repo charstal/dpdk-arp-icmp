@@ -19,12 +19,6 @@ public:
         st.num_ipv6 = 0;
         st.num_ipv4 = 0;
         st.num_multicast = 0;
-        NetStats st_2;
-        st_2.num_arp = 0;
-        st_2.num_bcast_arp = 0;
-        st_2.num_ipv6 = 0;
-        st_2.num_ipv4 = 0;
-        st_2.num_multicast = 0;
         for (auto &item : net_stats_list)
         {
             memcpy(st.pci_id, item.pci_id, sizeof(item.pci_id));
@@ -38,19 +32,6 @@ public:
                 st.arp_stats[it->first] += it->second;
             }
         }
-        // for (auto &item_2 : net_stats_list_2)
-        // {
-        //     memcpy(st_2.pci_id, item_2.pci_id, sizeof(item_2.pci_id));
-        //     st_2.num_arp += item_2.num_arp;
-        //     st_2.num_bcast_arp += item_2.num_bcast_arp;
-        //     st_2.num_ipv4 += item_2.num_ipv4;
-        //     st_2.num_ipv6 += item_2.num_ipv6;
-        //     st_2.num_multicast += item_2.num_multicast;
-        //     for (auto it = item_2.arp_stats.begin(); it != item_2.arp_stats.end(); ++it)
-        //     {
-        //         st_2.arp_stats[it->first] += it->second;
-        //     }
-        // }
 
         uint32_t seconds = static_cast<uint32_t>(net_stats_list.size());
         response->set_pci_id(st.pci_id);

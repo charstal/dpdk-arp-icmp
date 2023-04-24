@@ -9,16 +9,29 @@ service NetStats {
 message Request {}
 
 message Response {
-  string pci_id = 1;
-  uint32 num_arp = 2;
-  uint32 num_bcast_arp = 3;
+  map<string, DeviceStats> device_stats = 1;
+  uint32 num_pkgts = 2;
+  uint32 rate = 3;
   uint32 num_ipv4 = 4;
   uint32 num_ipv6 = 5;
   uint32 num_multicast = 6;
-  map<string, ARPStats> arp_stats = 7;
+}
+
+message DeviceStats {
+  ARPStats arp_stats = 1;
+  ICMPStats icmp_stats = 2;
+}
+
+message ICMPStats {
+  uint32 num_icmp = 1;
+  uint32 num_bcast_icmp = 2;
 }
 
 message ARPStats {
-  uint32 num_pkts = 1;
-  uint32 rate = 2;
+  uint32 num_arp = 1;
+  uint32 num_bcast_arp = 2;
+  uint32 num_req_arp = 3;
+  uint32 num_resp_arp = 4;
+  uint32 num_gratuitous_arp = 5;
+  uint32 num_probe_arp = 6;
 }
