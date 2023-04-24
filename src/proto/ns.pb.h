@@ -50,7 +50,7 @@ struct TableStruct_ns_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[10]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -61,21 +61,45 @@ namespace ns {
 class ARPStats;
 struct ARPStatsDefaultTypeInternal;
 extern ARPStatsDefaultTypeInternal _ARPStats_default_instance_;
+class DeviceStats;
+struct DeviceStatsDefaultTypeInternal;
+extern DeviceStatsDefaultTypeInternal _DeviceStats_default_instance_;
+class ICMPStats;
+struct ICMPStatsDefaultTypeInternal;
+extern ICMPStatsDefaultTypeInternal _ICMPStats_default_instance_;
+class IPMACStats;
+struct IPMACStatsDefaultTypeInternal;
+extern IPMACStatsDefaultTypeInternal _IPMACStats_default_instance_;
+class NetStats;
+struct NetStatsDefaultTypeInternal;
+extern NetStatsDefaultTypeInternal _NetStats_default_instance_;
+class NetStats_DestIpStatsEntry_DoNotUse;
+struct NetStats_DestIpStatsEntry_DoNotUseDefaultTypeInternal;
+extern NetStats_DestIpStatsEntry_DoNotUseDefaultTypeInternal _NetStats_DestIpStatsEntry_DoNotUse_default_instance_;
+class NetStats_DeviceStatsEntry_DoNotUse;
+struct NetStats_DeviceStatsEntry_DoNotUseDefaultTypeInternal;
+extern NetStats_DeviceStatsEntry_DoNotUseDefaultTypeInternal _NetStats_DeviceStatsEntry_DoNotUse_default_instance_;
+class NetStats_SrcIpStatsEntry_DoNotUse;
+struct NetStats_SrcIpStatsEntry_DoNotUseDefaultTypeInternal;
+extern NetStats_SrcIpStatsEntry_DoNotUseDefaultTypeInternal _NetStats_SrcIpStatsEntry_DoNotUse_default_instance_;
 class Request;
 struct RequestDefaultTypeInternal;
 extern RequestDefaultTypeInternal _Request_default_instance_;
 class Response;
 struct ResponseDefaultTypeInternal;
 extern ResponseDefaultTypeInternal _Response_default_instance_;
-class Response_ArpStatsEntry_DoNotUse;
-struct Response_ArpStatsEntry_DoNotUseDefaultTypeInternal;
-extern Response_ArpStatsEntry_DoNotUseDefaultTypeInternal _Response_ArpStatsEntry_DoNotUse_default_instance_;
 }  // namespace ns
 PROTOBUF_NAMESPACE_OPEN
 template<> ::ns::ARPStats* Arena::CreateMaybeMessage<::ns::ARPStats>(Arena*);
+template<> ::ns::DeviceStats* Arena::CreateMaybeMessage<::ns::DeviceStats>(Arena*);
+template<> ::ns::ICMPStats* Arena::CreateMaybeMessage<::ns::ICMPStats>(Arena*);
+template<> ::ns::IPMACStats* Arena::CreateMaybeMessage<::ns::IPMACStats>(Arena*);
+template<> ::ns::NetStats* Arena::CreateMaybeMessage<::ns::NetStats>(Arena*);
+template<> ::ns::NetStats_DestIpStatsEntry_DoNotUse* Arena::CreateMaybeMessage<::ns::NetStats_DestIpStatsEntry_DoNotUse>(Arena*);
+template<> ::ns::NetStats_DeviceStatsEntry_DoNotUse* Arena::CreateMaybeMessage<::ns::NetStats_DeviceStatsEntry_DoNotUse>(Arena*);
+template<> ::ns::NetStats_SrcIpStatsEntry_DoNotUse* Arena::CreateMaybeMessage<::ns::NetStats_SrcIpStatsEntry_DoNotUse>(Arena*);
 template<> ::ns::Request* Arena::CreateMaybeMessage<::ns::Request>(Arena*);
 template<> ::ns::Response* Arena::CreateMaybeMessage<::ns::Response>(Arena*);
-template<> ::ns::Response_ArpStatsEntry_DoNotUse* Arena::CreateMaybeMessage<::ns::Response_ArpStatsEntry_DoNotUse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace ns {
 
@@ -199,31 +223,6 @@ class Request final :
 };
 // -------------------------------------------------------------------
 
-class Response_ArpStatsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Response_ArpStatsEntry_DoNotUse, 
-    std::string, ::ns::ARPStats,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
-public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Response_ArpStatsEntry_DoNotUse, 
-    std::string, ::ns::ARPStats,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
-  Response_ArpStatsEntry_DoNotUse();
-  explicit constexpr Response_ArpStatsEntry_DoNotUse(
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit Response_ArpStatsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const Response_ArpStatsEntry_DoNotUse& other);
-  static const Response_ArpStatsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const Response_ArpStatsEntry_DoNotUse*>(&_Response_ArpStatsEntry_DoNotUse_default_instance_); }
-  static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ns.Response.ArpStatsEntry.key");
- }
-  static bool ValidateValue(void*) { return true; }
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-};
-
-// -------------------------------------------------------------------
-
 class Response final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ns.Response) */ {
  public:
@@ -272,7 +271,7 @@ class Response final :
                &_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    1;
 
   friend void swap(Response& a, Response& b) {
     a.Swap(&b);
@@ -343,93 +342,43 @@ class Response final :
 
   // nested types ----------------------------------------------------
 
-
   // accessors -------------------------------------------------------
 
   enum : int {
-    kArpStatsFieldNumber = 7,
-    kPciIdFieldNumber = 1,
-    kNumArpFieldNumber = 2,
-    kNumBcastArpFieldNumber = 3,
-    kNumIpv4FieldNumber = 4,
-    kNumIpv6FieldNumber = 5,
-    kNumMulticastFieldNumber = 6,
+    kMsgFieldNumber = 2,
+    kNetStatsFieldNumber = 1,
   };
-  // map<string, .ns.ARPStats> arp_stats = 7;
-  int arp_stats_size() const;
-  private:
-  int _internal_arp_stats_size() const;
-  public:
-  void clear_arp_stats();
-  private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >&
-      _internal_arp_stats() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >*
-      _internal_mutable_arp_stats();
-  public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >&
-      arp_stats() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >*
-      mutable_arp_stats();
-
-  // string pci_id = 1;
-  void clear_pci_id();
-  const std::string& pci_id() const;
+  // string msg = 2;
+  void clear_msg();
+  const std::string& msg() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_pci_id(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_pci_id();
-  PROTOBUF_NODISCARD std::string* release_pci_id();
-  void set_allocated_pci_id(std::string* pci_id);
+  void set_msg(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_msg();
+  PROTOBUF_NODISCARD std::string* release_msg();
+  void set_allocated_msg(std::string* msg);
   private:
-  const std::string& _internal_pci_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_pci_id(const std::string& value);
-  std::string* _internal_mutable_pci_id();
+  const std::string& _internal_msg() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_msg(const std::string& value);
+  std::string* _internal_mutable_msg();
   public:
 
-  // uint32 num_arp = 2;
-  void clear_num_arp();
-  uint32_t num_arp() const;
-  void set_num_arp(uint32_t value);
+  // .ns.NetStats net_stats = 1;
+  bool has_net_stats() const;
   private:
-  uint32_t _internal_num_arp() const;
-  void _internal_set_num_arp(uint32_t value);
+  bool _internal_has_net_stats() const;
   public:
-
-  // uint32 num_bcast_arp = 3;
-  void clear_num_bcast_arp();
-  uint32_t num_bcast_arp() const;
-  void set_num_bcast_arp(uint32_t value);
+  void clear_net_stats();
+  const ::ns::NetStats& net_stats() const;
+  PROTOBUF_NODISCARD ::ns::NetStats* release_net_stats();
+  ::ns::NetStats* mutable_net_stats();
+  void set_allocated_net_stats(::ns::NetStats* net_stats);
   private:
-  uint32_t _internal_num_bcast_arp() const;
-  void _internal_set_num_bcast_arp(uint32_t value);
+  const ::ns::NetStats& _internal_net_stats() const;
+  ::ns::NetStats* _internal_mutable_net_stats();
   public:
-
-  // uint32 num_ipv4 = 4;
-  void clear_num_ipv4();
-  uint32_t num_ipv4() const;
-  void set_num_ipv4(uint32_t value);
-  private:
-  uint32_t _internal_num_ipv4() const;
-  void _internal_set_num_ipv4(uint32_t value);
-  public:
-
-  // uint32 num_ipv6 = 5;
-  void clear_num_ipv6();
-  uint32_t num_ipv6() const;
-  void set_num_ipv6(uint32_t value);
-  private:
-  uint32_t _internal_num_ipv6() const;
-  void _internal_set_num_ipv6(uint32_t value);
-  public:
-
-  // uint32 num_multicast = 6;
-  void clear_num_multicast();
-  uint32_t num_multicast() const;
-  void set_num_multicast(uint32_t value);
-  private:
-  uint32_t _internal_num_multicast() const;
-  void _internal_set_num_multicast(uint32_t value);
-  public:
+  void unsafe_arena_set_allocated_net_stats(
+      ::ns::NetStats* net_stats);
+  ::ns::NetStats* unsafe_arena_release_net_stats();
 
   // @@protoc_insertion_point(class_scope:ns.Response)
  private:
@@ -438,17 +387,675 @@ class Response final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr msg_;
+  ::ns::NetStats* net_stats_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ns_2eproto;
+};
+// -------------------------------------------------------------------
+
+class NetStats_DeviceStatsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<NetStats_DeviceStatsEntry_DoNotUse, 
+    std::string, ::ns::DeviceStats,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<NetStats_DeviceStatsEntry_DoNotUse, 
+    std::string, ::ns::DeviceStats,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
+  NetStats_DeviceStatsEntry_DoNotUse();
+  explicit constexpr NetStats_DeviceStatsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit NetStats_DeviceStatsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const NetStats_DeviceStatsEntry_DoNotUse& other);
+  static const NetStats_DeviceStatsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const NetStats_DeviceStatsEntry_DoNotUse*>(&_NetStats_DeviceStatsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ns.NetStats.DeviceStatsEntry.key");
+ }
+  static bool ValidateValue(void*) { return true; }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+};
+
+// -------------------------------------------------------------------
+
+class NetStats_SrcIpStatsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<NetStats_SrcIpStatsEntry_DoNotUse, 
+    std::string, ::ns::IPMACStats,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<NetStats_SrcIpStatsEntry_DoNotUse, 
+    std::string, ::ns::IPMACStats,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
+  NetStats_SrcIpStatsEntry_DoNotUse();
+  explicit constexpr NetStats_SrcIpStatsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit NetStats_SrcIpStatsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const NetStats_SrcIpStatsEntry_DoNotUse& other);
+  static const NetStats_SrcIpStatsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const NetStats_SrcIpStatsEntry_DoNotUse*>(&_NetStats_SrcIpStatsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ns.NetStats.SrcIpStatsEntry.key");
+ }
+  static bool ValidateValue(void*) { return true; }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+};
+
+// -------------------------------------------------------------------
+
+class NetStats_DestIpStatsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<NetStats_DestIpStatsEntry_DoNotUse, 
+    std::string, ::ns::IPMACStats,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<NetStats_DestIpStatsEntry_DoNotUse, 
+    std::string, ::ns::IPMACStats,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
+  NetStats_DestIpStatsEntry_DoNotUse();
+  explicit constexpr NetStats_DestIpStatsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit NetStats_DestIpStatsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const NetStats_DestIpStatsEntry_DoNotUse& other);
+  static const NetStats_DestIpStatsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const NetStats_DestIpStatsEntry_DoNotUse*>(&_NetStats_DestIpStatsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "ns.NetStats.DestIpStatsEntry.key");
+ }
+  static bool ValidateValue(void*) { return true; }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+};
+
+// -------------------------------------------------------------------
+
+class NetStats final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ns.NetStats) */ {
+ public:
+  inline NetStats() : NetStats(nullptr) {}
+  ~NetStats() override;
+  explicit constexpr NetStats(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  NetStats(const NetStats& from);
+  NetStats(NetStats&& from) noexcept
+    : NetStats() {
+    *this = ::std::move(from);
+  }
+
+  inline NetStats& operator=(const NetStats& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline NetStats& operator=(NetStats&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const NetStats& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const NetStats* internal_default_instance() {
+    return reinterpret_cast<const NetStats*>(
+               &_NetStats_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(NetStats& a, NetStats& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(NetStats* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(NetStats* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  NetStats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<NetStats>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const NetStats& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const NetStats& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(NetStats* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ns.NetStats";
+  }
+  protected:
+  explicit NetStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDeviceStatsFieldNumber = 1,
+    kSrcIpStatsFieldNumber = 2,
+    kDestIpStatsFieldNumber = 3,
+    kNumPkgtsFieldNumber = 4,
+    kRateFieldNumber = 5,
+    kNumIpv4FieldNumber = 6,
+    kNumIpv6FieldNumber = 7,
+    kNumMulticastFieldNumber = 8,
+  };
+  // map<string, .ns.DeviceStats> device_stats = 1;
+  int device_stats_size() const;
+  private:
+  int _internal_device_stats_size() const;
+  public:
+  void clear_device_stats();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >&
+      _internal_device_stats() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >*
+      _internal_mutable_device_stats();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >&
+      device_stats() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >*
+      mutable_device_stats();
+
+  // map<string, .ns.IPMACStats> src_ip_stats = 2;
+  int src_ip_stats_size() const;
+  private:
+  int _internal_src_ip_stats_size() const;
+  public:
+  void clear_src_ip_stats();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >&
+      _internal_src_ip_stats() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >*
+      _internal_mutable_src_ip_stats();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >&
+      src_ip_stats() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >*
+      mutable_src_ip_stats();
+
+  // map<string, .ns.IPMACStats> dest_ip_stats = 3;
+  int dest_ip_stats_size() const;
+  private:
+  int _internal_dest_ip_stats_size() const;
+  public:
+  void clear_dest_ip_stats();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >&
+      _internal_dest_ip_stats() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >*
+      _internal_mutable_dest_ip_stats();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >&
+      dest_ip_stats() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >*
+      mutable_dest_ip_stats();
+
+  // uint32 num_pkgts = 4;
+  void clear_num_pkgts();
+  uint32_t num_pkgts() const;
+  void set_num_pkgts(uint32_t value);
+  private:
+  uint32_t _internal_num_pkgts() const;
+  void _internal_set_num_pkgts(uint32_t value);
+  public:
+
+  // uint32 rate = 5;
+  void clear_rate();
+  uint32_t rate() const;
+  void set_rate(uint32_t value);
+  private:
+  uint32_t _internal_rate() const;
+  void _internal_set_rate(uint32_t value);
+  public:
+
+  // uint32 num_ipv4 = 6;
+  void clear_num_ipv4();
+  uint32_t num_ipv4() const;
+  void set_num_ipv4(uint32_t value);
+  private:
+  uint32_t _internal_num_ipv4() const;
+  void _internal_set_num_ipv4(uint32_t value);
+  public:
+
+  // uint32 num_ipv6 = 7;
+  void clear_num_ipv6();
+  uint32_t num_ipv6() const;
+  void set_num_ipv6(uint32_t value);
+  private:
+  uint32_t _internal_num_ipv6() const;
+  void _internal_set_num_ipv6(uint32_t value);
+  public:
+
+  // uint32 num_multicast = 8;
+  void clear_num_multicast();
+  uint32_t num_multicast() const;
+  void set_num_multicast(uint32_t value);
+  private:
+  uint32_t _internal_num_multicast() const;
+  void _internal_set_num_multicast(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ns.NetStats)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-      Response_ArpStatsEntry_DoNotUse,
-      std::string, ::ns::ARPStats,
+      NetStats_DeviceStatsEntry_DoNotUse,
+      std::string, ::ns::DeviceStats,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> arp_stats_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pci_id_;
-  uint32_t num_arp_;
-  uint32_t num_bcast_arp_;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> device_stats_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      NetStats_SrcIpStatsEntry_DoNotUse,
+      std::string, ::ns::IPMACStats,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> src_ip_stats_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      NetStats_DestIpStatsEntry_DoNotUse,
+      std::string, ::ns::IPMACStats,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> dest_ip_stats_;
+  uint32_t num_pkgts_;
+  uint32_t rate_;
   uint32_t num_ipv4_;
   uint32_t num_ipv6_;
   uint32_t num_multicast_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ns_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DeviceStats final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ns.DeviceStats) */ {
+ public:
+  inline DeviceStats() : DeviceStats(nullptr) {}
+  ~DeviceStats() override;
+  explicit constexpr DeviceStats(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DeviceStats(const DeviceStats& from);
+  DeviceStats(DeviceStats&& from) noexcept
+    : DeviceStats() {
+    *this = ::std::move(from);
+  }
+
+  inline DeviceStats& operator=(const DeviceStats& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DeviceStats& operator=(DeviceStats&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DeviceStats& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DeviceStats* internal_default_instance() {
+    return reinterpret_cast<const DeviceStats*>(
+               &_DeviceStats_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(DeviceStats& a, DeviceStats& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DeviceStats* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DeviceStats* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DeviceStats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DeviceStats>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DeviceStats& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const DeviceStats& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DeviceStats* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ns.DeviceStats";
+  }
+  protected:
+  explicit DeviceStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kArpStatsFieldNumber = 1,
+    kIcmpStatsFieldNumber = 2,
+  };
+  // .ns.ARPStats arp_stats = 1;
+  bool has_arp_stats() const;
+  private:
+  bool _internal_has_arp_stats() const;
+  public:
+  void clear_arp_stats();
+  const ::ns::ARPStats& arp_stats() const;
+  PROTOBUF_NODISCARD ::ns::ARPStats* release_arp_stats();
+  ::ns::ARPStats* mutable_arp_stats();
+  void set_allocated_arp_stats(::ns::ARPStats* arp_stats);
+  private:
+  const ::ns::ARPStats& _internal_arp_stats() const;
+  ::ns::ARPStats* _internal_mutable_arp_stats();
+  public:
+  void unsafe_arena_set_allocated_arp_stats(
+      ::ns::ARPStats* arp_stats);
+  ::ns::ARPStats* unsafe_arena_release_arp_stats();
+
+  // .ns.ICMPStats icmp_stats = 2;
+  bool has_icmp_stats() const;
+  private:
+  bool _internal_has_icmp_stats() const;
+  public:
+  void clear_icmp_stats();
+  const ::ns::ICMPStats& icmp_stats() const;
+  PROTOBUF_NODISCARD ::ns::ICMPStats* release_icmp_stats();
+  ::ns::ICMPStats* mutable_icmp_stats();
+  void set_allocated_icmp_stats(::ns::ICMPStats* icmp_stats);
+  private:
+  const ::ns::ICMPStats& _internal_icmp_stats() const;
+  ::ns::ICMPStats* _internal_mutable_icmp_stats();
+  public:
+  void unsafe_arena_set_allocated_icmp_stats(
+      ::ns::ICMPStats* icmp_stats);
+  ::ns::ICMPStats* unsafe_arena_release_icmp_stats();
+
+  // @@protoc_insertion_point(class_scope:ns.DeviceStats)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::ns::ARPStats* arp_stats_;
+  ::ns::ICMPStats* icmp_stats_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ns_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ICMPStats final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ns.ICMPStats) */ {
+ public:
+  inline ICMPStats() : ICMPStats(nullptr) {}
+  ~ICMPStats() override;
+  explicit constexpr ICMPStats(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ICMPStats(const ICMPStats& from);
+  ICMPStats(ICMPStats&& from) noexcept
+    : ICMPStats() {
+    *this = ::std::move(from);
+  }
+
+  inline ICMPStats& operator=(const ICMPStats& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ICMPStats& operator=(ICMPStats&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ICMPStats& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ICMPStats* internal_default_instance() {
+    return reinterpret_cast<const ICMPStats*>(
+               &_ICMPStats_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(ICMPStats& a, ICMPStats& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ICMPStats* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ICMPStats* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ICMPStats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ICMPStats>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ICMPStats& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ICMPStats& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ICMPStats* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ns.ICMPStats";
+  }
+  protected:
+  explicit ICMPStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNumIcmpFieldNumber = 1,
+    kNumBcastIcmpFieldNumber = 2,
+  };
+  // uint32 num_icmp = 1;
+  void clear_num_icmp();
+  uint32_t num_icmp() const;
+  void set_num_icmp(uint32_t value);
+  private:
+  uint32_t _internal_num_icmp() const;
+  void _internal_set_num_icmp(uint32_t value);
+  public:
+
+  // uint32 num_bcast_icmp = 2;
+  void clear_num_bcast_icmp();
+  uint32_t num_bcast_icmp() const;
+  void set_num_bcast_icmp(uint32_t value);
+  private:
+  uint32_t _internal_num_bcast_icmp() const;
+  void _internal_set_num_bcast_icmp(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ns.ICMPStats)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  uint32_t num_icmp_;
+  uint32_t num_bcast_icmp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ns_2eproto;
 };
@@ -502,7 +1109,7 @@ class ARPStats final :
                &_ARPStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    8;
 
   friend void swap(ARPStats& a, ARPStats& b) {
     a.Swap(&b);
@@ -576,16 +1183,21 @@ class ARPStats final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNumPktsFieldNumber = 1,
+    kNumArpFieldNumber = 1,
     kRateFieldNumber = 2,
+    kNumBcastArpFieldNumber = 3,
+    kNumReqArpFieldNumber = 4,
+    kNumRespArpFieldNumber = 5,
+    kNumGratuitousArpFieldNumber = 6,
+    kNumProbeArpFieldNumber = 7,
   };
-  // uint32 num_pkts = 1;
-  void clear_num_pkts();
-  uint32_t num_pkts() const;
-  void set_num_pkts(uint32_t value);
+  // uint32 num_arp = 1;
+  void clear_num_arp();
+  uint32_t num_arp() const;
+  void set_num_arp(uint32_t value);
   private:
-  uint32_t _internal_num_pkts() const;
-  void _internal_set_num_pkts(uint32_t value);
+  uint32_t _internal_num_arp() const;
+  void _internal_set_num_arp(uint32_t value);
   public:
 
   // uint32 rate = 2;
@@ -597,6 +1209,51 @@ class ARPStats final :
   void _internal_set_rate(uint32_t value);
   public:
 
+  // uint32 num_bcast_arp = 3;
+  void clear_num_bcast_arp();
+  uint32_t num_bcast_arp() const;
+  void set_num_bcast_arp(uint32_t value);
+  private:
+  uint32_t _internal_num_bcast_arp() const;
+  void _internal_set_num_bcast_arp(uint32_t value);
+  public:
+
+  // uint32 num_req_arp = 4;
+  void clear_num_req_arp();
+  uint32_t num_req_arp() const;
+  void set_num_req_arp(uint32_t value);
+  private:
+  uint32_t _internal_num_req_arp() const;
+  void _internal_set_num_req_arp(uint32_t value);
+  public:
+
+  // uint32 num_resp_arp = 5;
+  void clear_num_resp_arp();
+  uint32_t num_resp_arp() const;
+  void set_num_resp_arp(uint32_t value);
+  private:
+  uint32_t _internal_num_resp_arp() const;
+  void _internal_set_num_resp_arp(uint32_t value);
+  public:
+
+  // uint32 num_gratuitous_arp = 6;
+  void clear_num_gratuitous_arp();
+  uint32_t num_gratuitous_arp() const;
+  void set_num_gratuitous_arp(uint32_t value);
+  private:
+  uint32_t _internal_num_gratuitous_arp() const;
+  void _internal_set_num_gratuitous_arp(uint32_t value);
+  public:
+
+  // uint32 num_probe_arp = 7;
+  void clear_num_probe_arp();
+  uint32_t num_probe_arp() const;
+  void set_num_probe_arp(uint32_t value);
+  private:
+  uint32_t _internal_num_probe_arp() const;
+  void _internal_set_num_probe_arp(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ns.ARPStats)
  private:
   class _Internal;
@@ -604,7 +1261,169 @@ class ARPStats final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t num_pkts_;
+  uint32_t num_arp_;
+  uint32_t rate_;
+  uint32_t num_bcast_arp_;
+  uint32_t num_req_arp_;
+  uint32_t num_resp_arp_;
+  uint32_t num_gratuitous_arp_;
+  uint32_t num_probe_arp_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ns_2eproto;
+};
+// -------------------------------------------------------------------
+
+class IPMACStats final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ns.IPMACStats) */ {
+ public:
+  inline IPMACStats() : IPMACStats(nullptr) {}
+  ~IPMACStats() override;
+  explicit constexpr IPMACStats(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  IPMACStats(const IPMACStats& from);
+  IPMACStats(IPMACStats&& from) noexcept
+    : IPMACStats() {
+    *this = ::std::move(from);
+  }
+
+  inline IPMACStats& operator=(const IPMACStats& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline IPMACStats& operator=(IPMACStats&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const IPMACStats& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const IPMACStats* internal_default_instance() {
+    return reinterpret_cast<const IPMACStats*>(
+               &_IPMACStats_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(IPMACStats& a, IPMACStats& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(IPMACStats* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(IPMACStats* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  IPMACStats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<IPMACStats>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const IPMACStats& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const IPMACStats& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(IPMACStats* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "ns.IPMACStats";
+  }
+  protected:
+  explicit IPMACStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNumPkgsFieldNumber = 1,
+    kRateFieldNumber = 2,
+  };
+  // uint32 num_pkgs = 1;
+  void clear_num_pkgs();
+  uint32_t num_pkgs() const;
+  void set_num_pkgs(uint32_t value);
+  private:
+  uint32_t _internal_num_pkgs() const;
+  void _internal_set_num_pkgs(uint32_t value);
+  public:
+
+  // uint32 rate = 2;
+  void clear_rate();
+  uint32_t rate() const;
+  void set_rate(uint32_t value);
+  private:
+  uint32_t _internal_rate() const;
+  void _internal_set_rate(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:ns.IPMACStats)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  uint32_t num_pkgs_;
   uint32_t rate_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ns_2eproto;
@@ -622,212 +1441,596 @@ class ARPStats final :
 
 // -------------------------------------------------------------------
 
-// -------------------------------------------------------------------
-
 // Response
 
-// string pci_id = 1;
-inline void Response::clear_pci_id() {
-  pci_id_.ClearToEmpty();
+// .ns.NetStats net_stats = 1;
+inline bool Response::_internal_has_net_stats() const {
+  return this != internal_default_instance() && net_stats_ != nullptr;
 }
-inline const std::string& Response::pci_id() const {
-  // @@protoc_insertion_point(field_get:ns.Response.pci_id)
-  return _internal_pci_id();
+inline bool Response::has_net_stats() const {
+  return _internal_has_net_stats();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void Response::set_pci_id(ArgT0&& arg0, ArgT... args) {
- 
- pci_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:ns.Response.pci_id)
+inline void Response::clear_net_stats() {
+  if (GetArenaForAllocation() == nullptr && net_stats_ != nullptr) {
+    delete net_stats_;
+  }
+  net_stats_ = nullptr;
 }
-inline std::string* Response::mutable_pci_id() {
-  std::string* _s = _internal_mutable_pci_id();
-  // @@protoc_insertion_point(field_mutable:ns.Response.pci_id)
-  return _s;
+inline const ::ns::NetStats& Response::_internal_net_stats() const {
+  const ::ns::NetStats* p = net_stats_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ns::NetStats&>(
+      ::ns::_NetStats_default_instance_);
 }
-inline const std::string& Response::_internal_pci_id() const {
-  return pci_id_.Get();
+inline const ::ns::NetStats& Response::net_stats() const {
+  // @@protoc_insertion_point(field_get:ns.Response.net_stats)
+  return _internal_net_stats();
 }
-inline void Response::_internal_set_pci_id(const std::string& value) {
-  
-  pci_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* Response::_internal_mutable_pci_id() {
-  
-  return pci_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* Response::release_pci_id() {
-  // @@protoc_insertion_point(field_release:ns.Response.pci_id)
-  return pci_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void Response::set_allocated_pci_id(std::string* pci_id) {
-  if (pci_id != nullptr) {
+inline void Response::unsafe_arena_set_allocated_net_stats(
+    ::ns::NetStats* net_stats) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(net_stats_);
+  }
+  net_stats_ = net_stats;
+  if (net_stats) {
     
   } else {
     
   }
-  pci_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), pci_id,
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ns.Response.net_stats)
+}
+inline ::ns::NetStats* Response::release_net_stats() {
+  
+  ::ns::NetStats* temp = net_stats_;
+  net_stats_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::ns::NetStats* Response::unsafe_arena_release_net_stats() {
+  // @@protoc_insertion_point(field_release:ns.Response.net_stats)
+  
+  ::ns::NetStats* temp = net_stats_;
+  net_stats_ = nullptr;
+  return temp;
+}
+inline ::ns::NetStats* Response::_internal_mutable_net_stats() {
+  
+  if (net_stats_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ns::NetStats>(GetArenaForAllocation());
+    net_stats_ = p;
+  }
+  return net_stats_;
+}
+inline ::ns::NetStats* Response::mutable_net_stats() {
+  ::ns::NetStats* _msg = _internal_mutable_net_stats();
+  // @@protoc_insertion_point(field_mutable:ns.Response.net_stats)
+  return _msg;
+}
+inline void Response::set_allocated_net_stats(::ns::NetStats* net_stats) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete net_stats_;
+  }
+  if (net_stats) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::ns::NetStats>::GetOwningArena(net_stats);
+    if (message_arena != submessage_arena) {
+      net_stats = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, net_stats, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  net_stats_ = net_stats;
+  // @@protoc_insertion_point(field_set_allocated:ns.Response.net_stats)
+}
+
+// string msg = 2;
+inline void Response::clear_msg() {
+  msg_.ClearToEmpty();
+}
+inline const std::string& Response::msg() const {
+  // @@protoc_insertion_point(field_get:ns.Response.msg)
+  return _internal_msg();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Response::set_msg(ArgT0&& arg0, ArgT... args) {
+ 
+ msg_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:ns.Response.msg)
+}
+inline std::string* Response::mutable_msg() {
+  std::string* _s = _internal_mutable_msg();
+  // @@protoc_insertion_point(field_mutable:ns.Response.msg)
+  return _s;
+}
+inline const std::string& Response::_internal_msg() const {
+  return msg_.Get();
+}
+inline void Response::_internal_set_msg(const std::string& value) {
+  
+  msg_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* Response::_internal_mutable_msg() {
+  
+  return msg_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* Response::release_msg() {
+  // @@protoc_insertion_point(field_release:ns.Response.msg)
+  return msg_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void Response::set_allocated_msg(std::string* msg) {
+  if (msg != nullptr) {
+    
+  } else {
+    
+  }
+  msg_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), msg,
       GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (pci_id_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    pci_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  if (msg_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    msg_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:ns.Response.pci_id)
+  // @@protoc_insertion_point(field_set_allocated:ns.Response.msg)
 }
 
-// uint32 num_arp = 2;
-inline void Response::clear_num_arp() {
-  num_arp_ = 0u;
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// NetStats
+
+// map<string, .ns.DeviceStats> device_stats = 1;
+inline int NetStats::_internal_device_stats_size() const {
+  return device_stats_.size();
 }
-inline uint32_t Response::_internal_num_arp() const {
-  return num_arp_;
+inline int NetStats::device_stats_size() const {
+  return _internal_device_stats_size();
 }
-inline uint32_t Response::num_arp() const {
-  // @@protoc_insertion_point(field_get:ns.Response.num_arp)
-  return _internal_num_arp();
+inline void NetStats::clear_device_stats() {
+  device_stats_.Clear();
 }
-inline void Response::_internal_set_num_arp(uint32_t value) {
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >&
+NetStats::_internal_device_stats() const {
+  return device_stats_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >&
+NetStats::device_stats() const {
+  // @@protoc_insertion_point(field_map:ns.NetStats.device_stats)
+  return _internal_device_stats();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >*
+NetStats::_internal_mutable_device_stats() {
+  return device_stats_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >*
+NetStats::mutable_device_stats() {
+  // @@protoc_insertion_point(field_mutable_map:ns.NetStats.device_stats)
+  return _internal_mutable_device_stats();
+}
+
+// map<string, .ns.IPMACStats> src_ip_stats = 2;
+inline int NetStats::_internal_src_ip_stats_size() const {
+  return src_ip_stats_.size();
+}
+inline int NetStats::src_ip_stats_size() const {
+  return _internal_src_ip_stats_size();
+}
+inline void NetStats::clear_src_ip_stats() {
+  src_ip_stats_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >&
+NetStats::_internal_src_ip_stats() const {
+  return src_ip_stats_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >&
+NetStats::src_ip_stats() const {
+  // @@protoc_insertion_point(field_map:ns.NetStats.src_ip_stats)
+  return _internal_src_ip_stats();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >*
+NetStats::_internal_mutable_src_ip_stats() {
+  return src_ip_stats_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >*
+NetStats::mutable_src_ip_stats() {
+  // @@protoc_insertion_point(field_mutable_map:ns.NetStats.src_ip_stats)
+  return _internal_mutable_src_ip_stats();
+}
+
+// map<string, .ns.IPMACStats> dest_ip_stats = 3;
+inline int NetStats::_internal_dest_ip_stats_size() const {
+  return dest_ip_stats_.size();
+}
+inline int NetStats::dest_ip_stats_size() const {
+  return _internal_dest_ip_stats_size();
+}
+inline void NetStats::clear_dest_ip_stats() {
+  dest_ip_stats_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >&
+NetStats::_internal_dest_ip_stats() const {
+  return dest_ip_stats_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >&
+NetStats::dest_ip_stats() const {
+  // @@protoc_insertion_point(field_map:ns.NetStats.dest_ip_stats)
+  return _internal_dest_ip_stats();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >*
+NetStats::_internal_mutable_dest_ip_stats() {
+  return dest_ip_stats_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >*
+NetStats::mutable_dest_ip_stats() {
+  // @@protoc_insertion_point(field_mutable_map:ns.NetStats.dest_ip_stats)
+  return _internal_mutable_dest_ip_stats();
+}
+
+// uint32 num_pkgts = 4;
+inline void NetStats::clear_num_pkgts() {
+  num_pkgts_ = 0u;
+}
+inline uint32_t NetStats::_internal_num_pkgts() const {
+  return num_pkgts_;
+}
+inline uint32_t NetStats::num_pkgts() const {
+  // @@protoc_insertion_point(field_get:ns.NetStats.num_pkgts)
+  return _internal_num_pkgts();
+}
+inline void NetStats::_internal_set_num_pkgts(uint32_t value) {
   
-  num_arp_ = value;
+  num_pkgts_ = value;
 }
-inline void Response::set_num_arp(uint32_t value) {
-  _internal_set_num_arp(value);
-  // @@protoc_insertion_point(field_set:ns.Response.num_arp)
+inline void NetStats::set_num_pkgts(uint32_t value) {
+  _internal_set_num_pkgts(value);
+  // @@protoc_insertion_point(field_set:ns.NetStats.num_pkgts)
 }
 
-// uint32 num_bcast_arp = 3;
-inline void Response::clear_num_bcast_arp() {
-  num_bcast_arp_ = 0u;
+// uint32 rate = 5;
+inline void NetStats::clear_rate() {
+  rate_ = 0u;
 }
-inline uint32_t Response::_internal_num_bcast_arp() const {
-  return num_bcast_arp_;
+inline uint32_t NetStats::_internal_rate() const {
+  return rate_;
 }
-inline uint32_t Response::num_bcast_arp() const {
-  // @@protoc_insertion_point(field_get:ns.Response.num_bcast_arp)
-  return _internal_num_bcast_arp();
+inline uint32_t NetStats::rate() const {
+  // @@protoc_insertion_point(field_get:ns.NetStats.rate)
+  return _internal_rate();
 }
-inline void Response::_internal_set_num_bcast_arp(uint32_t value) {
+inline void NetStats::_internal_set_rate(uint32_t value) {
   
-  num_bcast_arp_ = value;
+  rate_ = value;
 }
-inline void Response::set_num_bcast_arp(uint32_t value) {
-  _internal_set_num_bcast_arp(value);
-  // @@protoc_insertion_point(field_set:ns.Response.num_bcast_arp)
+inline void NetStats::set_rate(uint32_t value) {
+  _internal_set_rate(value);
+  // @@protoc_insertion_point(field_set:ns.NetStats.rate)
 }
 
-// uint32 num_ipv4 = 4;
-inline void Response::clear_num_ipv4() {
+// uint32 num_ipv4 = 6;
+inline void NetStats::clear_num_ipv4() {
   num_ipv4_ = 0u;
 }
-inline uint32_t Response::_internal_num_ipv4() const {
+inline uint32_t NetStats::_internal_num_ipv4() const {
   return num_ipv4_;
 }
-inline uint32_t Response::num_ipv4() const {
-  // @@protoc_insertion_point(field_get:ns.Response.num_ipv4)
+inline uint32_t NetStats::num_ipv4() const {
+  // @@protoc_insertion_point(field_get:ns.NetStats.num_ipv4)
   return _internal_num_ipv4();
 }
-inline void Response::_internal_set_num_ipv4(uint32_t value) {
+inline void NetStats::_internal_set_num_ipv4(uint32_t value) {
   
   num_ipv4_ = value;
 }
-inline void Response::set_num_ipv4(uint32_t value) {
+inline void NetStats::set_num_ipv4(uint32_t value) {
   _internal_set_num_ipv4(value);
-  // @@protoc_insertion_point(field_set:ns.Response.num_ipv4)
+  // @@protoc_insertion_point(field_set:ns.NetStats.num_ipv4)
 }
 
-// uint32 num_ipv6 = 5;
-inline void Response::clear_num_ipv6() {
+// uint32 num_ipv6 = 7;
+inline void NetStats::clear_num_ipv6() {
   num_ipv6_ = 0u;
 }
-inline uint32_t Response::_internal_num_ipv6() const {
+inline uint32_t NetStats::_internal_num_ipv6() const {
   return num_ipv6_;
 }
-inline uint32_t Response::num_ipv6() const {
-  // @@protoc_insertion_point(field_get:ns.Response.num_ipv6)
+inline uint32_t NetStats::num_ipv6() const {
+  // @@protoc_insertion_point(field_get:ns.NetStats.num_ipv6)
   return _internal_num_ipv6();
 }
-inline void Response::_internal_set_num_ipv6(uint32_t value) {
+inline void NetStats::_internal_set_num_ipv6(uint32_t value) {
   
   num_ipv6_ = value;
 }
-inline void Response::set_num_ipv6(uint32_t value) {
+inline void NetStats::set_num_ipv6(uint32_t value) {
   _internal_set_num_ipv6(value);
-  // @@protoc_insertion_point(field_set:ns.Response.num_ipv6)
+  // @@protoc_insertion_point(field_set:ns.NetStats.num_ipv6)
 }
 
-// uint32 num_multicast = 6;
-inline void Response::clear_num_multicast() {
+// uint32 num_multicast = 8;
+inline void NetStats::clear_num_multicast() {
   num_multicast_ = 0u;
 }
-inline uint32_t Response::_internal_num_multicast() const {
+inline uint32_t NetStats::_internal_num_multicast() const {
   return num_multicast_;
 }
-inline uint32_t Response::num_multicast() const {
-  // @@protoc_insertion_point(field_get:ns.Response.num_multicast)
+inline uint32_t NetStats::num_multicast() const {
+  // @@protoc_insertion_point(field_get:ns.NetStats.num_multicast)
   return _internal_num_multicast();
 }
-inline void Response::_internal_set_num_multicast(uint32_t value) {
+inline void NetStats::_internal_set_num_multicast(uint32_t value) {
   
   num_multicast_ = value;
 }
-inline void Response::set_num_multicast(uint32_t value) {
+inline void NetStats::set_num_multicast(uint32_t value) {
   _internal_set_num_multicast(value);
-  // @@protoc_insertion_point(field_set:ns.Response.num_multicast)
+  // @@protoc_insertion_point(field_set:ns.NetStats.num_multicast)
 }
 
-// map<string, .ns.ARPStats> arp_stats = 7;
-inline int Response::_internal_arp_stats_size() const {
-  return arp_stats_.size();
+// -------------------------------------------------------------------
+
+// DeviceStats
+
+// .ns.ARPStats arp_stats = 1;
+inline bool DeviceStats::_internal_has_arp_stats() const {
+  return this != internal_default_instance() && arp_stats_ != nullptr;
 }
-inline int Response::arp_stats_size() const {
-  return _internal_arp_stats_size();
+inline bool DeviceStats::has_arp_stats() const {
+  return _internal_has_arp_stats();
 }
-inline void Response::clear_arp_stats() {
-  arp_stats_.Clear();
+inline void DeviceStats::clear_arp_stats() {
+  if (GetArenaForAllocation() == nullptr && arp_stats_ != nullptr) {
+    delete arp_stats_;
+  }
+  arp_stats_ = nullptr;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >&
-Response::_internal_arp_stats() const {
-  return arp_stats_.GetMap();
+inline const ::ns::ARPStats& DeviceStats::_internal_arp_stats() const {
+  const ::ns::ARPStats* p = arp_stats_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ns::ARPStats&>(
+      ::ns::_ARPStats_default_instance_);
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >&
-Response::arp_stats() const {
-  // @@protoc_insertion_point(field_map:ns.Response.arp_stats)
+inline const ::ns::ARPStats& DeviceStats::arp_stats() const {
+  // @@protoc_insertion_point(field_get:ns.DeviceStats.arp_stats)
   return _internal_arp_stats();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >*
-Response::_internal_mutable_arp_stats() {
-  return arp_stats_.MutableMap();
+inline void DeviceStats::unsafe_arena_set_allocated_arp_stats(
+    ::ns::ARPStats* arp_stats) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(arp_stats_);
+  }
+  arp_stats_ = arp_stats;
+  if (arp_stats) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ns.DeviceStats.arp_stats)
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >*
-Response::mutable_arp_stats() {
-  // @@protoc_insertion_point(field_mutable_map:ns.Response.arp_stats)
-  return _internal_mutable_arp_stats();
+inline ::ns::ARPStats* DeviceStats::release_arp_stats() {
+  
+  ::ns::ARPStats* temp = arp_stats_;
+  arp_stats_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::ns::ARPStats* DeviceStats::unsafe_arena_release_arp_stats() {
+  // @@protoc_insertion_point(field_release:ns.DeviceStats.arp_stats)
+  
+  ::ns::ARPStats* temp = arp_stats_;
+  arp_stats_ = nullptr;
+  return temp;
+}
+inline ::ns::ARPStats* DeviceStats::_internal_mutable_arp_stats() {
+  
+  if (arp_stats_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ns::ARPStats>(GetArenaForAllocation());
+    arp_stats_ = p;
+  }
+  return arp_stats_;
+}
+inline ::ns::ARPStats* DeviceStats::mutable_arp_stats() {
+  ::ns::ARPStats* _msg = _internal_mutable_arp_stats();
+  // @@protoc_insertion_point(field_mutable:ns.DeviceStats.arp_stats)
+  return _msg;
+}
+inline void DeviceStats::set_allocated_arp_stats(::ns::ARPStats* arp_stats) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete arp_stats_;
+  }
+  if (arp_stats) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::ns::ARPStats>::GetOwningArena(arp_stats);
+    if (message_arena != submessage_arena) {
+      arp_stats = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, arp_stats, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  arp_stats_ = arp_stats;
+  // @@protoc_insertion_point(field_set_allocated:ns.DeviceStats.arp_stats)
+}
+
+// .ns.ICMPStats icmp_stats = 2;
+inline bool DeviceStats::_internal_has_icmp_stats() const {
+  return this != internal_default_instance() && icmp_stats_ != nullptr;
+}
+inline bool DeviceStats::has_icmp_stats() const {
+  return _internal_has_icmp_stats();
+}
+inline void DeviceStats::clear_icmp_stats() {
+  if (GetArenaForAllocation() == nullptr && icmp_stats_ != nullptr) {
+    delete icmp_stats_;
+  }
+  icmp_stats_ = nullptr;
+}
+inline const ::ns::ICMPStats& DeviceStats::_internal_icmp_stats() const {
+  const ::ns::ICMPStats* p = icmp_stats_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ns::ICMPStats&>(
+      ::ns::_ICMPStats_default_instance_);
+}
+inline const ::ns::ICMPStats& DeviceStats::icmp_stats() const {
+  // @@protoc_insertion_point(field_get:ns.DeviceStats.icmp_stats)
+  return _internal_icmp_stats();
+}
+inline void DeviceStats::unsafe_arena_set_allocated_icmp_stats(
+    ::ns::ICMPStats* icmp_stats) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(icmp_stats_);
+  }
+  icmp_stats_ = icmp_stats;
+  if (icmp_stats) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ns.DeviceStats.icmp_stats)
+}
+inline ::ns::ICMPStats* DeviceStats::release_icmp_stats() {
+  
+  ::ns::ICMPStats* temp = icmp_stats_;
+  icmp_stats_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::ns::ICMPStats* DeviceStats::unsafe_arena_release_icmp_stats() {
+  // @@protoc_insertion_point(field_release:ns.DeviceStats.icmp_stats)
+  
+  ::ns::ICMPStats* temp = icmp_stats_;
+  icmp_stats_ = nullptr;
+  return temp;
+}
+inline ::ns::ICMPStats* DeviceStats::_internal_mutable_icmp_stats() {
+  
+  if (icmp_stats_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ns::ICMPStats>(GetArenaForAllocation());
+    icmp_stats_ = p;
+  }
+  return icmp_stats_;
+}
+inline ::ns::ICMPStats* DeviceStats::mutable_icmp_stats() {
+  ::ns::ICMPStats* _msg = _internal_mutable_icmp_stats();
+  // @@protoc_insertion_point(field_mutable:ns.DeviceStats.icmp_stats)
+  return _msg;
+}
+inline void DeviceStats::set_allocated_icmp_stats(::ns::ICMPStats* icmp_stats) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete icmp_stats_;
+  }
+  if (icmp_stats) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::ns::ICMPStats>::GetOwningArena(icmp_stats);
+    if (message_arena != submessage_arena) {
+      icmp_stats = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, icmp_stats, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  icmp_stats_ = icmp_stats;
+  // @@protoc_insertion_point(field_set_allocated:ns.DeviceStats.icmp_stats)
+}
+
+// -------------------------------------------------------------------
+
+// ICMPStats
+
+// uint32 num_icmp = 1;
+inline void ICMPStats::clear_num_icmp() {
+  num_icmp_ = 0u;
+}
+inline uint32_t ICMPStats::_internal_num_icmp() const {
+  return num_icmp_;
+}
+inline uint32_t ICMPStats::num_icmp() const {
+  // @@protoc_insertion_point(field_get:ns.ICMPStats.num_icmp)
+  return _internal_num_icmp();
+}
+inline void ICMPStats::_internal_set_num_icmp(uint32_t value) {
+  
+  num_icmp_ = value;
+}
+inline void ICMPStats::set_num_icmp(uint32_t value) {
+  _internal_set_num_icmp(value);
+  // @@protoc_insertion_point(field_set:ns.ICMPStats.num_icmp)
+}
+
+// uint32 num_bcast_icmp = 2;
+inline void ICMPStats::clear_num_bcast_icmp() {
+  num_bcast_icmp_ = 0u;
+}
+inline uint32_t ICMPStats::_internal_num_bcast_icmp() const {
+  return num_bcast_icmp_;
+}
+inline uint32_t ICMPStats::num_bcast_icmp() const {
+  // @@protoc_insertion_point(field_get:ns.ICMPStats.num_bcast_icmp)
+  return _internal_num_bcast_icmp();
+}
+inline void ICMPStats::_internal_set_num_bcast_icmp(uint32_t value) {
+  
+  num_bcast_icmp_ = value;
+}
+inline void ICMPStats::set_num_bcast_icmp(uint32_t value) {
+  _internal_set_num_bcast_icmp(value);
+  // @@protoc_insertion_point(field_set:ns.ICMPStats.num_bcast_icmp)
 }
 
 // -------------------------------------------------------------------
 
 // ARPStats
 
-// uint32 num_pkts = 1;
-inline void ARPStats::clear_num_pkts() {
-  num_pkts_ = 0u;
+// uint32 num_arp = 1;
+inline void ARPStats::clear_num_arp() {
+  num_arp_ = 0u;
 }
-inline uint32_t ARPStats::_internal_num_pkts() const {
-  return num_pkts_;
+inline uint32_t ARPStats::_internal_num_arp() const {
+  return num_arp_;
 }
-inline uint32_t ARPStats::num_pkts() const {
-  // @@protoc_insertion_point(field_get:ns.ARPStats.num_pkts)
-  return _internal_num_pkts();
+inline uint32_t ARPStats::num_arp() const {
+  // @@protoc_insertion_point(field_get:ns.ARPStats.num_arp)
+  return _internal_num_arp();
 }
-inline void ARPStats::_internal_set_num_pkts(uint32_t value) {
+inline void ARPStats::_internal_set_num_arp(uint32_t value) {
   
-  num_pkts_ = value;
+  num_arp_ = value;
 }
-inline void ARPStats::set_num_pkts(uint32_t value) {
-  _internal_set_num_pkts(value);
-  // @@protoc_insertion_point(field_set:ns.ARPStats.num_pkts)
+inline void ARPStats::set_num_arp(uint32_t value) {
+  _internal_set_num_arp(value);
+  // @@protoc_insertion_point(field_set:ns.ARPStats.num_arp)
 }
 
 // uint32 rate = 2;
@@ -850,9 +2053,165 @@ inline void ARPStats::set_rate(uint32_t value) {
   // @@protoc_insertion_point(field_set:ns.ARPStats.rate)
 }
 
+// uint32 num_bcast_arp = 3;
+inline void ARPStats::clear_num_bcast_arp() {
+  num_bcast_arp_ = 0u;
+}
+inline uint32_t ARPStats::_internal_num_bcast_arp() const {
+  return num_bcast_arp_;
+}
+inline uint32_t ARPStats::num_bcast_arp() const {
+  // @@protoc_insertion_point(field_get:ns.ARPStats.num_bcast_arp)
+  return _internal_num_bcast_arp();
+}
+inline void ARPStats::_internal_set_num_bcast_arp(uint32_t value) {
+  
+  num_bcast_arp_ = value;
+}
+inline void ARPStats::set_num_bcast_arp(uint32_t value) {
+  _internal_set_num_bcast_arp(value);
+  // @@protoc_insertion_point(field_set:ns.ARPStats.num_bcast_arp)
+}
+
+// uint32 num_req_arp = 4;
+inline void ARPStats::clear_num_req_arp() {
+  num_req_arp_ = 0u;
+}
+inline uint32_t ARPStats::_internal_num_req_arp() const {
+  return num_req_arp_;
+}
+inline uint32_t ARPStats::num_req_arp() const {
+  // @@protoc_insertion_point(field_get:ns.ARPStats.num_req_arp)
+  return _internal_num_req_arp();
+}
+inline void ARPStats::_internal_set_num_req_arp(uint32_t value) {
+  
+  num_req_arp_ = value;
+}
+inline void ARPStats::set_num_req_arp(uint32_t value) {
+  _internal_set_num_req_arp(value);
+  // @@protoc_insertion_point(field_set:ns.ARPStats.num_req_arp)
+}
+
+// uint32 num_resp_arp = 5;
+inline void ARPStats::clear_num_resp_arp() {
+  num_resp_arp_ = 0u;
+}
+inline uint32_t ARPStats::_internal_num_resp_arp() const {
+  return num_resp_arp_;
+}
+inline uint32_t ARPStats::num_resp_arp() const {
+  // @@protoc_insertion_point(field_get:ns.ARPStats.num_resp_arp)
+  return _internal_num_resp_arp();
+}
+inline void ARPStats::_internal_set_num_resp_arp(uint32_t value) {
+  
+  num_resp_arp_ = value;
+}
+inline void ARPStats::set_num_resp_arp(uint32_t value) {
+  _internal_set_num_resp_arp(value);
+  // @@protoc_insertion_point(field_set:ns.ARPStats.num_resp_arp)
+}
+
+// uint32 num_gratuitous_arp = 6;
+inline void ARPStats::clear_num_gratuitous_arp() {
+  num_gratuitous_arp_ = 0u;
+}
+inline uint32_t ARPStats::_internal_num_gratuitous_arp() const {
+  return num_gratuitous_arp_;
+}
+inline uint32_t ARPStats::num_gratuitous_arp() const {
+  // @@protoc_insertion_point(field_get:ns.ARPStats.num_gratuitous_arp)
+  return _internal_num_gratuitous_arp();
+}
+inline void ARPStats::_internal_set_num_gratuitous_arp(uint32_t value) {
+  
+  num_gratuitous_arp_ = value;
+}
+inline void ARPStats::set_num_gratuitous_arp(uint32_t value) {
+  _internal_set_num_gratuitous_arp(value);
+  // @@protoc_insertion_point(field_set:ns.ARPStats.num_gratuitous_arp)
+}
+
+// uint32 num_probe_arp = 7;
+inline void ARPStats::clear_num_probe_arp() {
+  num_probe_arp_ = 0u;
+}
+inline uint32_t ARPStats::_internal_num_probe_arp() const {
+  return num_probe_arp_;
+}
+inline uint32_t ARPStats::num_probe_arp() const {
+  // @@protoc_insertion_point(field_get:ns.ARPStats.num_probe_arp)
+  return _internal_num_probe_arp();
+}
+inline void ARPStats::_internal_set_num_probe_arp(uint32_t value) {
+  
+  num_probe_arp_ = value;
+}
+inline void ARPStats::set_num_probe_arp(uint32_t value) {
+  _internal_set_num_probe_arp(value);
+  // @@protoc_insertion_point(field_set:ns.ARPStats.num_probe_arp)
+}
+
+// -------------------------------------------------------------------
+
+// IPMACStats
+
+// uint32 num_pkgs = 1;
+inline void IPMACStats::clear_num_pkgs() {
+  num_pkgs_ = 0u;
+}
+inline uint32_t IPMACStats::_internal_num_pkgs() const {
+  return num_pkgs_;
+}
+inline uint32_t IPMACStats::num_pkgs() const {
+  // @@protoc_insertion_point(field_get:ns.IPMACStats.num_pkgs)
+  return _internal_num_pkgs();
+}
+inline void IPMACStats::_internal_set_num_pkgs(uint32_t value) {
+  
+  num_pkgs_ = value;
+}
+inline void IPMACStats::set_num_pkgs(uint32_t value) {
+  _internal_set_num_pkgs(value);
+  // @@protoc_insertion_point(field_set:ns.IPMACStats.num_pkgs)
+}
+
+// uint32 rate = 2;
+inline void IPMACStats::clear_rate() {
+  rate_ = 0u;
+}
+inline uint32_t IPMACStats::_internal_rate() const {
+  return rate_;
+}
+inline uint32_t IPMACStats::rate() const {
+  // @@protoc_insertion_point(field_get:ns.IPMACStats.rate)
+  return _internal_rate();
+}
+inline void IPMACStats::_internal_set_rate(uint32_t value) {
+  
+  rate_ = value;
+}
+inline void IPMACStats::set_rate(uint32_t value) {
+  _internal_set_rate(value);
+  // @@protoc_insertion_point(field_set:ns.IPMACStats.rate)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

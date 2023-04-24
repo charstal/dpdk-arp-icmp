@@ -15,19 +15,6 @@ static inline std::string ipv4_to_string(uint32_t ip)
            std::to_string((ip >> 8) & 0xff) + "." + std::to_string(ip & 0xff);
 }
 
-class NetStats
-{
-public:
-    // NetStats() : pci_id('0'), num_arp(0), num_ipv4(0), num_ipv6(0), num_multicast(0) {}
-    char pci_id[PORT_PCI_DEV_ID_LENGTH + 1];
-    uint32_t num_arp;
-    uint32_t num_bcast_arp;
-    uint32_t num_ipv4;
-    uint32_t num_ipv6;
-    uint32_t num_multicast;
-    std::unordered_map<uint32_t, uint32_t> arp_stats;
-};
-
 class RWLock
 {
 public:
@@ -66,6 +53,74 @@ public:
 
 private:
     RWLock *l;
+};
+
+class ARPStats
+{
+public:
+    // the number of arps
+    uint32_t num_arp;
+    // the rate of arps
+    float rate;
+    // the number of broadcast arps
+    uint32_t num_bcast_arp;
+    // request
+    // Sender MAC address	src MAC
+    // Sender IP address    src IP
+    // Target MAC address   all 0
+    // Target IP address    dest IP
+    uint32_t num_req_arp;
+    // response
+    // Sender MAC address	src MAC
+    // Sender IP address    src IP
+    // Target MAC address   dest MAC
+    // Target IP address    dest IP
+    uint32_t num_resp_arp;
+    // a kind of request arp
+    // Sender MAC address	src MAC
+    // Sender IP address    src IP
+    // Target MAC address   all 0 or all 1
+    // Target IP address    src IP
+    uint32_t num_gratuitous_arp;
+    // a kind of gratuitous arp
+    // Sender MAC address	src MAC
+    // Sender IP address    0
+    // Target MAC address   0
+    // Target IP address    src IP
+    uint32_t num_probe_arp;
+};
+
+class ICMPStats
+{
+public:
+};
+
+class DeviceStats
+{
+public:
+    ARPStats arp_stats;
+    ICMPStats icmp_stats;
+};
+
+class IPMACStats
+{
+public:
+    uint32_t num_pkgs;
+};
+
+class NetStats
+{
+public:
+    // NetStats() : pci_id('0'), num_arp(0), num_ipv4(0), num_ipv6(0), num_multicast(0) {}
+
+    // char pci_id[PORT_PCI_DEV_ID_LENGTH + 1]; // the number of arps
+    std::unordered_map<std::string, DeviceStats> device_stats;
+    std::unordered_map<uint32_t, IPMACStats> src_ip_or_mac_stats;
+    std::unordered_map<uint32_t, IPMACStats> dest_ip_or_mac_stats;
+    uint32_t num_pkgts;
+    uint32_t num_ipv4;
+    uint32_t num_ipv6;
+    uint32_t num_multicast;
 };
 
 extern std::list<NetStats> net_stats_list;

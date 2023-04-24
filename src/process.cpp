@@ -20,8 +20,16 @@ static inline void collect_stats_arp(struct rte_arp_hdr *arp_hdr, NetStats &st)
     //   return;
 
     uint32_t src_ip = rte_be_to_cpu_32(arp_hdr->arp_data.arp_sip);
-    st.arp_stats[src_ip]++;
+    uint32_t dest_ip = rte_be_to_cpu_32(arp_hdr->arp_data.arp_tip);
+    uint32_t src_mac = arp_hdr->arp_hardware;
+    // st.arp_stats[src_ip]++;
     // printf("Detect ARP requested by " IPV4_PRT_FMT "\n", IPV4_BYTES(src_ip));
+    st.++;
+    if (rte_is_broadcast_ether_addr(&ether_hdr->dst_addr))
+    {
+        collect_stats_arp(rte_pktmbuf_mtod_offset(pkts[i], struct rte_arp_hdr *, sizeof(struct rte_ether_hdr)), st);
+        st.num_bcast_arp++;
+    }
 }
 
 void collect_stats(uint16_t port_id, NetStats &st)
@@ -30,7 +38,8 @@ void collect_stats(uint16_t port_id, NetStats &st)
     struct rte_eth_dev_info dev_info;
     rte_eth_dev_info_get(port_id, &dev_info);
     struct rte_device *device = dev_info.device;
-    strncpy(st.pci_id, device->name, PORT_PCI_DEV_ID_LENGTH);
+    char device_name[13];
+    strncpy(device_name, device->name, PORT_PCI_DEV_ID_LENGTH);
     // printf("device info is %s",st.pci_id);
     uint16_t nb_rx = rte_eth_rx_burst(port_id, 0, pkts, NB_PKTS);
 
@@ -44,12 +53,7 @@ void collect_stats(uint16_t port_id, NetStats &st)
         switch (ether_type)
         {
         case RTE_ETHER_TYPE_ARP:
-            st.num_arp++;
-            if (rte_is_broadcast_ether_addr(&ether_hdr->dst_addr))
-            {
-                collect_stats_arp(rte_pktmbuf_mtod_offset(pkts[i], struct rte_arp_hdr *, sizeof(struct rte_ether_hdr)), st);
-                st.num_bcast_arp++;
-            }
+            collect_stats_arp(rte_pktmbuf_mtod_offset(pkts[i], struct rte_arp_hdr *, sizeof(struct rte_ether_hdr)), st);
             break;
         case RTE_ETHER_TYPE_IPV4:
             st.num_ipv4++;
@@ -65,6 +69,8 @@ void collect_stats(uint16_t port_id, NetStats &st)
         {
             st.num_multicast++;
         }
+
+        st.num_pkgts++;
 
         rte_pktmbuf_free(pkts[i]);
     }

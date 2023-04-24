@@ -28,26 +28,10 @@ struct RequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RequestDefaultTypeInternal _Request_default_instance_;
-constexpr Response_ArpStatsEntry_DoNotUse::Response_ArpStatsEntry_DoNotUse(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
-struct Response_ArpStatsEntry_DoNotUseDefaultTypeInternal {
-  constexpr Response_ArpStatsEntry_DoNotUseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~Response_ArpStatsEntry_DoNotUseDefaultTypeInternal() {}
-  union {
-    Response_ArpStatsEntry_DoNotUse _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Response_ArpStatsEntry_DoNotUseDefaultTypeInternal _Response_ArpStatsEntry_DoNotUse_default_instance_;
 constexpr Response::Response(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : arp_stats_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
-  , pci_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , num_arp_(0u)
-  , num_bcast_arp_(0u)
-  , num_ipv4_(0u)
-  , num_ipv6_(0u)
-  , num_multicast_(0u){}
+  : msg_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , net_stats_(nullptr){}
 struct ResponseDefaultTypeInternal {
   constexpr ResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -57,10 +41,93 @@ struct ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ResponseDefaultTypeInternal _Response_default_instance_;
+constexpr NetStats_DeviceStatsEntry_DoNotUse::NetStats_DeviceStatsEntry_DoNotUse(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct NetStats_DeviceStatsEntry_DoNotUseDefaultTypeInternal {
+  constexpr NetStats_DeviceStatsEntry_DoNotUseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~NetStats_DeviceStatsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    NetStats_DeviceStatsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetStats_DeviceStatsEntry_DoNotUseDefaultTypeInternal _NetStats_DeviceStatsEntry_DoNotUse_default_instance_;
+constexpr NetStats_SrcIpStatsEntry_DoNotUse::NetStats_SrcIpStatsEntry_DoNotUse(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct NetStats_SrcIpStatsEntry_DoNotUseDefaultTypeInternal {
+  constexpr NetStats_SrcIpStatsEntry_DoNotUseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~NetStats_SrcIpStatsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    NetStats_SrcIpStatsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetStats_SrcIpStatsEntry_DoNotUseDefaultTypeInternal _NetStats_SrcIpStatsEntry_DoNotUse_default_instance_;
+constexpr NetStats_DestIpStatsEntry_DoNotUse::NetStats_DestIpStatsEntry_DoNotUse(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct NetStats_DestIpStatsEntry_DoNotUseDefaultTypeInternal {
+  constexpr NetStats_DestIpStatsEntry_DoNotUseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~NetStats_DestIpStatsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    NetStats_DestIpStatsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetStats_DestIpStatsEntry_DoNotUseDefaultTypeInternal _NetStats_DestIpStatsEntry_DoNotUse_default_instance_;
+constexpr NetStats::NetStats(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : device_stats_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , src_ip_stats_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , dest_ip_stats_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , num_pkgts_(0u)
+  , rate_(0u)
+  , num_ipv4_(0u)
+  , num_ipv6_(0u)
+  , num_multicast_(0u){}
+struct NetStatsDefaultTypeInternal {
+  constexpr NetStatsDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~NetStatsDefaultTypeInternal() {}
+  union {
+    NetStats _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetStatsDefaultTypeInternal _NetStats_default_instance_;
+constexpr DeviceStats::DeviceStats(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : arp_stats_(nullptr)
+  , icmp_stats_(nullptr){}
+struct DeviceStatsDefaultTypeInternal {
+  constexpr DeviceStatsDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DeviceStatsDefaultTypeInternal() {}
+  union {
+    DeviceStats _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DeviceStatsDefaultTypeInternal _DeviceStats_default_instance_;
+constexpr ICMPStats::ICMPStats(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : num_icmp_(0u)
+  , num_bcast_icmp_(0u){}
+struct ICMPStatsDefaultTypeInternal {
+  constexpr ICMPStatsDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~ICMPStatsDefaultTypeInternal() {}
+  union {
+    ICMPStats _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ICMPStatsDefaultTypeInternal _ICMPStats_default_instance_;
 constexpr ARPStats::ARPStats(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : num_pkts_(0u)
-  , rate_(0u){}
+  : num_arp_(0u)
+  , rate_(0u)
+  , num_bcast_arp_(0u)
+  , num_req_arp_(0u)
+  , num_resp_arp_(0u)
+  , num_gratuitous_arp_(0u)
+  , num_probe_arp_(0u){}
 struct ARPStatsDefaultTypeInternal {
   constexpr ARPStatsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -70,8 +137,21 @@ struct ARPStatsDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ARPStatsDefaultTypeInternal _ARPStats_default_instance_;
+constexpr IPMACStats::IPMACStats(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : num_pkgs_(0u)
+  , rate_(0u){}
+struct IPMACStatsDefaultTypeInternal {
+  constexpr IPMACStatsDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~IPMACStatsDefaultTypeInternal() {}
+  union {
+    IPMACStats _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT IPMACStatsDefaultTypeInternal _IPMACStats_default_instance_;
 }  // namespace ns
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ns_2eproto[4];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_ns_2eproto[10];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_ns_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_ns_2eproto = nullptr;
 
@@ -82,68 +162,153 @@ const uint32_t TableStruct_ns_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(proto
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ns::Response_ArpStatsEntry_DoNotUse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response_ArpStatsEntry_DoNotUse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ns::Response_ArpStatsEntry_DoNotUse, key_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response_ArpStatsEntry_DoNotUse, value_),
-  0,
-  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ns::Response, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ns::Response, pci_id_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, num_arp_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, num_bcast_arp_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, num_ipv4_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, num_ipv6_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, num_multicast_),
-  PROTOBUF_FIELD_OFFSET(::ns::Response, arp_stats_),
+  PROTOBUF_FIELD_OFFSET(::ns::Response, net_stats_),
+  PROTOBUF_FIELD_OFFSET(::ns::Response, msg_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DeviceStatsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DeviceStatsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DeviceStatsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DeviceStatsEntry_DoNotUse, value_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_SrcIpStatsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_SrcIpStatsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_SrcIpStatsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_SrcIpStatsEntry_DoNotUse, value_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DestIpStatsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DestIpStatsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DestIpStatsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DestIpStatsEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats, device_stats_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats, src_ip_stats_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats, dest_ip_stats_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats, num_pkgts_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats, rate_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats, num_ipv4_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats, num_ipv6_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats, num_multicast_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ns::DeviceStats, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ns::DeviceStats, arp_stats_),
+  PROTOBUF_FIELD_OFFSET(::ns::DeviceStats, icmp_stats_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ns::ICMPStats, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ns::ICMPStats, num_icmp_),
+  PROTOBUF_FIELD_OFFSET(::ns::ICMPStats, num_bcast_icmp_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ns::ARPStats, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ns::ARPStats, num_pkts_),
+  PROTOBUF_FIELD_OFFSET(::ns::ARPStats, num_arp_),
   PROTOBUF_FIELD_OFFSET(::ns::ARPStats, rate_),
+  PROTOBUF_FIELD_OFFSET(::ns::ARPStats, num_bcast_arp_),
+  PROTOBUF_FIELD_OFFSET(::ns::ARPStats, num_req_arp_),
+  PROTOBUF_FIELD_OFFSET(::ns::ARPStats, num_resp_arp_),
+  PROTOBUF_FIELD_OFFSET(::ns::ARPStats, num_gratuitous_arp_),
+  PROTOBUF_FIELD_OFFSET(::ns::ARPStats, num_probe_arp_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ns::IPMACStats, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::ns::IPMACStats, num_pkgs_),
+  PROTOBUF_FIELD_OFFSET(::ns::IPMACStats, rate_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::ns::Request)},
-  { 6, 14, -1, sizeof(::ns::Response_ArpStatsEntry_DoNotUse)},
-  { 16, -1, -1, sizeof(::ns::Response)},
-  { 29, -1, -1, sizeof(::ns::ARPStats)},
+  { 6, -1, -1, sizeof(::ns::Response)},
+  { 14, 22, -1, sizeof(::ns::NetStats_DeviceStatsEntry_DoNotUse)},
+  { 24, 32, -1, sizeof(::ns::NetStats_SrcIpStatsEntry_DoNotUse)},
+  { 34, 42, -1, sizeof(::ns::NetStats_DestIpStatsEntry_DoNotUse)},
+  { 44, -1, -1, sizeof(::ns::NetStats)},
+  { 58, -1, -1, sizeof(::ns::DeviceStats)},
+  { 66, -1, -1, sizeof(::ns::ICMPStats)},
+  { 74, -1, -1, sizeof(::ns::ARPStats)},
+  { 87, -1, -1, sizeof(::ns::IPMACStats)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_Request_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_Response_ArpStatsEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_NetStats_DeviceStatsEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_NetStats_SrcIpStatsEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_NetStats_DestIpStatsEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_NetStats_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_DeviceStats_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_ICMPStats_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_ARPStats_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_IPMACStats_default_instance_),
 };
 
 const char descriptor_table_protodef_ns_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\010ns.proto\022\002ns\"\t\n\007Request\"\353\001\n\010Response\022\016"
-  "\n\006pci_id\030\001 \001(\t\022\017\n\007num_arp\030\002 \001(\r\022\025\n\rnum_b"
-  "cast_arp\030\003 \001(\r\022\020\n\010num_ipv4\030\004 \001(\r\022\020\n\010num_"
-  "ipv6\030\005 \001(\r\022\025\n\rnum_multicast\030\006 \001(\r\022-\n\tarp"
-  "_stats\030\007 \003(\0132\032.ns.Response.ArpStatsEntry"
-  "\032=\n\rArpStatsEntry\022\013\n\003key\030\001 \001(\t\022\033\n\005value\030"
-  "\002 \001(\0132\014.ns.ARPStats:\0028\001\"*\n\010ARPStats\022\020\n\010n"
-  "um_pkts\030\001 \001(\r\022\014\n\004rate\030\002 \001(\r26\n\010NetStats\022"
-  "*\n\013GetNetStats\022\013.ns.Request\032\014.ns.Respons"
-  "e\"\000b\006proto3"
+  "\n\010ns.proto\022\002ns\"\t\n\007Request\"8\n\010Response\022\037\n"
+  "\tnet_stats\030\001 \001(\0132\014.ns.NetStats\022\013\n\003msg\030\002 "
+  "\001(\t\"\321\003\n\010NetStats\0223\n\014device_stats\030\001 \003(\0132\035"
+  ".ns.NetStats.DeviceStatsEntry\0222\n\014src_ip_"
+  "stats\030\002 \003(\0132\034.ns.NetStats.SrcIpStatsEntr"
+  "y\0224\n\rdest_ip_stats\030\003 \003(\0132\035.ns.NetStats.D"
+  "estIpStatsEntry\022\021\n\tnum_pkgts\030\004 \001(\r\022\014\n\004ra"
+  "te\030\005 \001(\r\022\020\n\010num_ipv4\030\006 \001(\r\022\020\n\010num_ipv6\030\007"
+  " \001(\r\022\025\n\rnum_multicast\030\010 \001(\r\032C\n\020DeviceSta"
+  "tsEntry\022\013\n\003key\030\001 \001(\t\022\036\n\005value\030\002 \001(\0132\017.ns"
+  ".DeviceStats:\0028\001\032A\n\017SrcIpStatsEntry\022\013\n\003k"
+  "ey\030\001 \001(\t\022\035\n\005value\030\002 \001(\0132\016.ns.IPMACStats:"
+  "\0028\001\032B\n\020DestIpStatsEntry\022\013\n\003key\030\001 \001(\t\022\035\n\005"
+  "value\030\002 \001(\0132\016.ns.IPMACStats:\0028\001\"Q\n\013Devic"
+  "eStats\022\037\n\tarp_stats\030\001 \001(\0132\014.ns.ARPStats\022"
+  "!\n\nicmp_stats\030\002 \001(\0132\r.ns.ICMPStats\"5\n\tIC"
+  "MPStats\022\020\n\010num_icmp\030\001 \001(\r\022\026\n\016num_bcast_i"
+  "cmp\030\002 \001(\r\"\236\001\n\010ARPStats\022\017\n\007num_arp\030\001 \001(\r\022"
+  "\014\n\004rate\030\002 \001(\r\022\025\n\rnum_bcast_arp\030\003 \001(\r\022\023\n\013"
+  "num_req_arp\030\004 \001(\r\022\024\n\014num_resp_arp\030\005 \001(\r\022"
+  "\032\n\022num_gratuitous_arp\030\006 \001(\r\022\025\n\rnum_probe"
+  "_arp\030\007 \001(\r\",\n\nIPMACStats\022\020\n\010num_pkgs\030\001 \001"
+  "(\r\022\014\n\004rate\030\002 \001(\r2=\n\017NetStatsService\022*\n\013G"
+  "etNetStats\022\013.ns.Request\032\014.ns.Response\"\000b"
+  "\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ns_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ns_2eproto = {
-  false, false, 371, descriptor_table_protodef_ns_2eproto, "ns.proto", 
-  &descriptor_table_ns_2eproto_once, nullptr, 0, 4,
+  false, false, 967, descriptor_table_protodef_ns_2eproto, "ns.proto", 
+  &descriptor_table_ns_2eproto_once, nullptr, 0, 10,
   schemas, file_default_instances, TableStruct_ns_2eproto::offsets,
   file_level_metadata_ns_2eproto, file_level_enum_descriptors_ns_2eproto, file_level_service_descriptors_ns_2eproto,
 };
@@ -196,28 +361,18 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Request::GetClassData() const 
 
 // ===================================================================
 
-Response_ArpStatsEntry_DoNotUse::Response_ArpStatsEntry_DoNotUse() {}
-Response_ArpStatsEntry_DoNotUse::Response_ArpStatsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-    : SuperType(arena) {}
-void Response_ArpStatsEntry_DoNotUse::MergeFrom(const Response_ArpStatsEntry_DoNotUse& other) {
-  MergeFromInternal(other);
-}
-::PROTOBUF_NAMESPACE_ID::Metadata Response_ArpStatsEntry_DoNotUse::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
-      file_level_metadata_ns_2eproto[1]);
-}
-
-// ===================================================================
-
 class Response::_Internal {
  public:
+  static const ::ns::NetStats& net_stats(const Response* msg);
 };
 
+const ::ns::NetStats&
+Response::_Internal::net_stats(const Response* msg) {
+  return *msg->net_stats_;
+}
 Response::Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  arp_stats_(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -227,30 +382,28 @@ Response::Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 Response::Response(const Response& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  arp_stats_.MergeFrom(from.arp_stats_);
-  pci_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  msg_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    pci_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    msg_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_pci_id().empty()) {
-    pci_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_pci_id(), 
+  if (!from._internal_msg().empty()) {
+    msg_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_msg(), 
       GetArenaForAllocation());
   }
-  ::memcpy(&num_arp_, &from.num_arp_,
-    static_cast<size_t>(reinterpret_cast<char*>(&num_multicast_) -
-    reinterpret_cast<char*>(&num_arp_)) + sizeof(num_multicast_));
+  if (from._internal_has_net_stats()) {
+    net_stats_ = new ::ns::NetStats(*from.net_stats_);
+  } else {
+    net_stats_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:ns.Response)
 }
 
 inline void Response::SharedCtor() {
-pci_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+msg_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  pci_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  msg_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&num_arp_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&num_multicast_) -
-    reinterpret_cast<char*>(&num_arp_)) + sizeof(num_multicast_));
+net_stats_ = nullptr;
 }
 
 Response::~Response() {
@@ -262,18 +415,15 @@ Response::~Response() {
 
 inline void Response::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  pci_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  msg_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete net_stats_;
 }
 
 void Response::ArenaDtor(void* object) {
   Response* _this = reinterpret_cast< Response* >(object);
   (void)_this;
-  _this->arp_stats_. ~MapField();
 }
-inline void Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) {
-  if (arena != nullptr) {
-    arena->OwnCustomDestructor(this, &Response::ArenaDtor);
-  }
+void Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
 void Response::SetCachedSize(int size) const {
   _cached_size_.Set(size);
@@ -285,11 +435,11 @@ void Response::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  arp_stats_.Clear();
-  pci_id_.ClearToEmpty();
-  ::memset(&num_arp_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&num_multicast_) -
-      reinterpret_cast<char*>(&num_arp_)) + sizeof(num_multicast_));
+  msg_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && net_stats_ != nullptr) {
+    delete net_stats_;
+  }
+  net_stats_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -299,66 +449,21 @@ const char* Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string pci_id = 1;
+      // .ns.NetStats net_stats = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_pci_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ns.Response.pci_id"));
+          ptr = ctx->ParseMessage(_internal_mutable_net_stats(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 num_arp = 2;
+      // string msg = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          num_arp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_msg();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "ns.Response.msg"));
           CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 num_bcast_arp = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          num_bcast_arp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 num_ipv4 = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          num_ipv4_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 num_ipv6 = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          num_ipv6_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 num_multicast = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
-          num_multicast_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // map<string, .ns.ARPStats> arp_stats = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(&arp_stats_, ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -391,86 +496,22 @@ uint8_t* Response::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string pci_id = 1;
-  if (!this->_internal_pci_id().empty()) {
+  // .ns.NetStats net_stats = 1;
+  if (this->_internal_has_net_stats()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::net_stats(this), target, stream);
+  }
+
+  // string msg = 2;
+  if (!this->_internal_msg().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_pci_id().data(), static_cast<int>(this->_internal_pci_id().length()),
+      this->_internal_msg().data(), static_cast<int>(this->_internal_msg().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "ns.Response.pci_id");
+      "ns.Response.msg");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_pci_id(), target);
-  }
-
-  // uint32 num_arp = 2;
-  if (this->_internal_num_arp() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_num_arp(), target);
-  }
-
-  // uint32 num_bcast_arp = 3;
-  if (this->_internal_num_bcast_arp() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_num_bcast_arp(), target);
-  }
-
-  // uint32 num_ipv4 = 4;
-  if (this->_internal_num_ipv4() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_num_ipv4(), target);
-  }
-
-  // uint32 num_ipv6 = 5;
-  if (this->_internal_num_ipv6() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_num_ipv6(), target);
-  }
-
-  // uint32 num_multicast = 6;
-  if (this->_internal_num_multicast() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_num_multicast(), target);
-  }
-
-  // map<string, .ns.ARPStats> arp_stats = 7;
-  if (!this->_internal_arp_stats().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        (void)p;
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "ns.Response.ArpStatsEntry.key");
-      }
-    };
-
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_arp_stats().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_arp_stats().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >::const_iterator
-          it = this->_internal_arp_stats().begin();
-          it != this->_internal_arp_stats().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = Response_ArpStatsEntry_DoNotUse::Funcs::InternalSerialize(7, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
-      }
-    } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >::const_iterator
-          it = this->_internal_arp_stats().begin();
-          it != this->_internal_arp_stats().end(); ++it) {
-        target = Response_ArpStatsEntry_DoNotUse::Funcs::InternalSerialize(7, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
-      }
-    }
+        2, this->_internal_msg(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -489,45 +530,18 @@ size_t Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // map<string, .ns.ARPStats> arp_stats = 7;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_arp_stats_size());
-  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::ARPStats >::const_iterator
-      it = this->_internal_arp_stats().begin();
-      it != this->_internal_arp_stats().end(); ++it) {
-    total_size += Response_ArpStatsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
-  }
-
-  // string pci_id = 1;
-  if (!this->_internal_pci_id().empty()) {
+  // string msg = 2;
+  if (!this->_internal_msg().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_pci_id());
+        this->_internal_msg());
   }
 
-  // uint32 num_arp = 2;
-  if (this->_internal_num_arp() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_arp());
-  }
-
-  // uint32 num_bcast_arp = 3;
-  if (this->_internal_num_bcast_arp() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_bcast_arp());
-  }
-
-  // uint32 num_ipv4 = 4;
-  if (this->_internal_num_ipv4() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv4());
-  }
-
-  // uint32 num_ipv6 = 5;
-  if (this->_internal_num_ipv6() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv6());
-  }
-
-  // uint32 num_multicast = 6;
-  if (this->_internal_num_multicast() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_multicast());
+  // .ns.NetStats net_stats = 1;
+  if (this->_internal_has_net_stats()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *net_stats_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -552,24 +566,11 @@ void Response::MergeFrom(const Response& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  arp_stats_.MergeFrom(from.arp_stats_);
-  if (!from._internal_pci_id().empty()) {
-    _internal_set_pci_id(from._internal_pci_id());
+  if (!from._internal_msg().empty()) {
+    _internal_set_msg(from._internal_msg());
   }
-  if (from._internal_num_arp() != 0) {
-    _internal_set_num_arp(from._internal_num_arp());
-  }
-  if (from._internal_num_bcast_arp() != 0) {
-    _internal_set_num_bcast_arp(from._internal_num_bcast_arp());
-  }
-  if (from._internal_num_ipv4() != 0) {
-    _internal_set_num_ipv4(from._internal_num_ipv4());
-  }
-  if (from._internal_num_ipv6() != 0) {
-    _internal_set_num_ipv6(from._internal_num_ipv6());
-  }
-  if (from._internal_num_multicast() != 0) {
-    _internal_set_num_multicast(from._internal_num_multicast());
+  if (from._internal_has_net_stats()) {
+    _internal_mutable_net_stats()->::ns::NetStats::MergeFrom(from._internal_net_stats());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -590,24 +591,1007 @@ void Response::InternalSwap(Response* other) {
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  arp_stats_.InternalSwap(&other->arp_stats_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &pci_id_, lhs_arena,
-      &other->pci_id_, rhs_arena
+      &msg_, lhs_arena,
+      &other->msg_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Response, num_multicast_)
-      + sizeof(Response::num_multicast_)
-      - PROTOBUF_FIELD_OFFSET(Response, num_arp_)>(
-          reinterpret_cast<char*>(&num_arp_),
-          reinterpret_cast<char*>(&other->num_arp_));
+  swap(net_stats_, other->net_stats_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Response::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
+      file_level_metadata_ns_2eproto[1]);
+}
+
+// ===================================================================
+
+NetStats_DeviceStatsEntry_DoNotUse::NetStats_DeviceStatsEntry_DoNotUse() {}
+NetStats_DeviceStatsEntry_DoNotUse::NetStats_DeviceStatsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void NetStats_DeviceStatsEntry_DoNotUse::MergeFrom(const NetStats_DeviceStatsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata NetStats_DeviceStatsEntry_DoNotUse::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
       file_level_metadata_ns_2eproto[2]);
+}
+
+// ===================================================================
+
+NetStats_SrcIpStatsEntry_DoNotUse::NetStats_SrcIpStatsEntry_DoNotUse() {}
+NetStats_SrcIpStatsEntry_DoNotUse::NetStats_SrcIpStatsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void NetStats_SrcIpStatsEntry_DoNotUse::MergeFrom(const NetStats_SrcIpStatsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata NetStats_SrcIpStatsEntry_DoNotUse::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
+      file_level_metadata_ns_2eproto[3]);
+}
+
+// ===================================================================
+
+NetStats_DestIpStatsEntry_DoNotUse::NetStats_DestIpStatsEntry_DoNotUse() {}
+NetStats_DestIpStatsEntry_DoNotUse::NetStats_DestIpStatsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void NetStats_DestIpStatsEntry_DoNotUse::MergeFrom(const NetStats_DestIpStatsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata NetStats_DestIpStatsEntry_DoNotUse::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
+      file_level_metadata_ns_2eproto[4]);
+}
+
+// ===================================================================
+
+class NetStats::_Internal {
+ public:
+};
+
+NetStats::NetStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  device_stats_(arena),
+  src_ip_stats_(arena),
+  dest_ip_stats_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:ns.NetStats)
+}
+NetStats::NetStats(const NetStats& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  device_stats_.MergeFrom(from.device_stats_);
+  src_ip_stats_.MergeFrom(from.src_ip_stats_);
+  dest_ip_stats_.MergeFrom(from.dest_ip_stats_);
+  ::memcpy(&num_pkgts_, &from.num_pkgts_,
+    static_cast<size_t>(reinterpret_cast<char*>(&num_multicast_) -
+    reinterpret_cast<char*>(&num_pkgts_)) + sizeof(num_multicast_));
+  // @@protoc_insertion_point(copy_constructor:ns.NetStats)
+}
+
+inline void NetStats::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&num_pkgts_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&num_multicast_) -
+    reinterpret_cast<char*>(&num_pkgts_)) + sizeof(num_multicast_));
+}
+
+NetStats::~NetStats() {
+  // @@protoc_insertion_point(destructor:ns.NetStats)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void NetStats::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void NetStats::ArenaDtor(void* object) {
+  NetStats* _this = reinterpret_cast< NetStats* >(object);
+  (void)_this;
+  _this->device_stats_. ~MapField();
+  _this->src_ip_stats_. ~MapField();
+  _this->dest_ip_stats_. ~MapField();
+}
+inline void NetStats::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) {
+  if (arena != nullptr) {
+    arena->OwnCustomDestructor(this, &NetStats::ArenaDtor);
+  }
+}
+void NetStats::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void NetStats::Clear() {
+// @@protoc_insertion_point(message_clear_start:ns.NetStats)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  device_stats_.Clear();
+  src_ip_stats_.Clear();
+  dest_ip_stats_.Clear();
+  ::memset(&num_pkgts_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&num_multicast_) -
+      reinterpret_cast<char*>(&num_pkgts_)) + sizeof(num_multicast_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* NetStats::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // map<string, .ns.DeviceStats> device_stats = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&device_stats_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, .ns.IPMACStats> src_ip_stats = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&src_ip_stats_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, .ns.IPMACStats> dest_ip_stats = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&dest_ip_stats_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 num_pkgts = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          num_pkgts_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 rate = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          rate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 num_ipv4 = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          num_ipv4_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 num_ipv6 = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          num_ipv6_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 num_multicast = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          num_multicast_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* NetStats::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ns.NetStats)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // map<string, .ns.DeviceStats> device_stats = 1;
+  if (!this->_internal_device_stats().empty()) {
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        (void)p;
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+          "ns.NetStats.DeviceStatsEntry.key");
+      }
+    };
+
+    if (stream->IsSerializationDeterministic() &&
+        this->_internal_device_stats().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->_internal_device_stats().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >::size_type size_type;
+      size_type n = 0;
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >::const_iterator
+          it = this->_internal_device_stats().begin();
+          it != this->_internal_device_stats().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      for (size_type i = 0; i < n; i++) {
+        target = NetStats_DeviceStatsEntry_DoNotUse::Funcs::InternalSerialize(1, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >::const_iterator
+          it = this->_internal_device_stats().begin();
+          it != this->_internal_device_stats().end(); ++it) {
+        target = NetStats_DeviceStatsEntry_DoNotUse::Funcs::InternalSerialize(1, it->first, it->second, target, stream);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  // map<string, .ns.IPMACStats> src_ip_stats = 2;
+  if (!this->_internal_src_ip_stats().empty()) {
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        (void)p;
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+          "ns.NetStats.SrcIpStatsEntry.key");
+      }
+    };
+
+    if (stream->IsSerializationDeterministic() &&
+        this->_internal_src_ip_stats().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->_internal_src_ip_stats().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::size_type size_type;
+      size_type n = 0;
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_iterator
+          it = this->_internal_src_ip_stats().begin();
+          it != this->_internal_src_ip_stats().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      for (size_type i = 0; i < n; i++) {
+        target = NetStats_SrcIpStatsEntry_DoNotUse::Funcs::InternalSerialize(2, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_iterator
+          it = this->_internal_src_ip_stats().begin();
+          it != this->_internal_src_ip_stats().end(); ++it) {
+        target = NetStats_SrcIpStatsEntry_DoNotUse::Funcs::InternalSerialize(2, it->first, it->second, target, stream);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  // map<string, .ns.IPMACStats> dest_ip_stats = 3;
+  if (!this->_internal_dest_ip_stats().empty()) {
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        (void)p;
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+          "ns.NetStats.DestIpStatsEntry.key");
+      }
+    };
+
+    if (stream->IsSerializationDeterministic() &&
+        this->_internal_dest_ip_stats().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->_internal_dest_ip_stats().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::size_type size_type;
+      size_type n = 0;
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_iterator
+          it = this->_internal_dest_ip_stats().begin();
+          it != this->_internal_dest_ip_stats().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      for (size_type i = 0; i < n; i++) {
+        target = NetStats_DestIpStatsEntry_DoNotUse::Funcs::InternalSerialize(3, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_iterator
+          it = this->_internal_dest_ip_stats().begin();
+          it != this->_internal_dest_ip_stats().end(); ++it) {
+        target = NetStats_DestIpStatsEntry_DoNotUse::Funcs::InternalSerialize(3, it->first, it->second, target, stream);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  // uint32 num_pkgts = 4;
+  if (this->_internal_num_pkgts() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_num_pkgts(), target);
+  }
+
+  // uint32 rate = 5;
+  if (this->_internal_rate() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_rate(), target);
+  }
+
+  // uint32 num_ipv4 = 6;
+  if (this->_internal_num_ipv4() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_num_ipv4(), target);
+  }
+
+  // uint32 num_ipv6 = 7;
+  if (this->_internal_num_ipv6() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_num_ipv6(), target);
+  }
+
+  // uint32 num_multicast = 8;
+  if (this->_internal_num_multicast() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_num_multicast(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ns.NetStats)
+  return target;
+}
+
+size_t NetStats::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ns.NetStats)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, .ns.DeviceStats> device_stats = 1;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_device_stats_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::DeviceStats >::const_iterator
+      it = this->_internal_device_stats().begin();
+      it != this->_internal_device_stats().end(); ++it) {
+    total_size += NetStats_DeviceStatsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // map<string, .ns.IPMACStats> src_ip_stats = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_src_ip_stats_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_iterator
+      it = this->_internal_src_ip_stats().begin();
+      it != this->_internal_src_ip_stats().end(); ++it) {
+    total_size += NetStats_SrcIpStatsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // map<string, .ns.IPMACStats> dest_ip_stats = 3;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_dest_ip_stats_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_iterator
+      it = this->_internal_dest_ip_stats().begin();
+      it != this->_internal_dest_ip_stats().end(); ++it) {
+    total_size += NetStats_DestIpStatsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // uint32 num_pkgts = 4;
+  if (this->_internal_num_pkgts() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_pkgts());
+  }
+
+  // uint32 rate = 5;
+  if (this->_internal_rate() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_rate());
+  }
+
+  // uint32 num_ipv4 = 6;
+  if (this->_internal_num_ipv4() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv4());
+  }
+
+  // uint32 num_ipv6 = 7;
+  if (this->_internal_num_ipv6() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_ipv6());
+  }
+
+  // uint32 num_multicast = 8;
+  if (this->_internal_num_multicast() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_multicast());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData NetStats::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    NetStats::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*NetStats::GetClassData() const { return &_class_data_; }
+
+void NetStats::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<NetStats *>(to)->MergeFrom(
+      static_cast<const NetStats &>(from));
+}
+
+
+void NetStats::MergeFrom(const NetStats& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ns.NetStats)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  device_stats_.MergeFrom(from.device_stats_);
+  src_ip_stats_.MergeFrom(from.src_ip_stats_);
+  dest_ip_stats_.MergeFrom(from.dest_ip_stats_);
+  if (from._internal_num_pkgts() != 0) {
+    _internal_set_num_pkgts(from._internal_num_pkgts());
+  }
+  if (from._internal_rate() != 0) {
+    _internal_set_rate(from._internal_rate());
+  }
+  if (from._internal_num_ipv4() != 0) {
+    _internal_set_num_ipv4(from._internal_num_ipv4());
+  }
+  if (from._internal_num_ipv6() != 0) {
+    _internal_set_num_ipv6(from._internal_num_ipv6());
+  }
+  if (from._internal_num_multicast() != 0) {
+    _internal_set_num_multicast(from._internal_num_multicast());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void NetStats::CopyFrom(const NetStats& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ns.NetStats)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NetStats::IsInitialized() const {
+  return true;
+}
+
+void NetStats::InternalSwap(NetStats* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  device_stats_.InternalSwap(&other->device_stats_);
+  src_ip_stats_.InternalSwap(&other->src_ip_stats_);
+  dest_ip_stats_.InternalSwap(&other->dest_ip_stats_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(NetStats, num_multicast_)
+      + sizeof(NetStats::num_multicast_)
+      - PROTOBUF_FIELD_OFFSET(NetStats, num_pkgts_)>(
+          reinterpret_cast<char*>(&num_pkgts_),
+          reinterpret_cast<char*>(&other->num_pkgts_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata NetStats::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
+      file_level_metadata_ns_2eproto[5]);
+}
+
+// ===================================================================
+
+class DeviceStats::_Internal {
+ public:
+  static const ::ns::ARPStats& arp_stats(const DeviceStats* msg);
+  static const ::ns::ICMPStats& icmp_stats(const DeviceStats* msg);
+};
+
+const ::ns::ARPStats&
+DeviceStats::_Internal::arp_stats(const DeviceStats* msg) {
+  return *msg->arp_stats_;
+}
+const ::ns::ICMPStats&
+DeviceStats::_Internal::icmp_stats(const DeviceStats* msg) {
+  return *msg->icmp_stats_;
+}
+DeviceStats::DeviceStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:ns.DeviceStats)
+}
+DeviceStats::DeviceStats(const DeviceStats& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_arp_stats()) {
+    arp_stats_ = new ::ns::ARPStats(*from.arp_stats_);
+  } else {
+    arp_stats_ = nullptr;
+  }
+  if (from._internal_has_icmp_stats()) {
+    icmp_stats_ = new ::ns::ICMPStats(*from.icmp_stats_);
+  } else {
+    icmp_stats_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:ns.DeviceStats)
+}
+
+inline void DeviceStats::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&arp_stats_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&icmp_stats_) -
+    reinterpret_cast<char*>(&arp_stats_)) + sizeof(icmp_stats_));
+}
+
+DeviceStats::~DeviceStats() {
+  // @@protoc_insertion_point(destructor:ns.DeviceStats)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void DeviceStats::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete arp_stats_;
+  if (this != internal_default_instance()) delete icmp_stats_;
+}
+
+void DeviceStats::ArenaDtor(void* object) {
+  DeviceStats* _this = reinterpret_cast< DeviceStats* >(object);
+  (void)_this;
+}
+void DeviceStats::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DeviceStats::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DeviceStats::Clear() {
+// @@protoc_insertion_point(message_clear_start:ns.DeviceStats)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && arp_stats_ != nullptr) {
+    delete arp_stats_;
+  }
+  arp_stats_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && icmp_stats_ != nullptr) {
+    delete icmp_stats_;
+  }
+  icmp_stats_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DeviceStats::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .ns.ARPStats arp_stats = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_arp_stats(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .ns.ICMPStats icmp_stats = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_icmp_stats(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* DeviceStats::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ns.DeviceStats)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ns.ARPStats arp_stats = 1;
+  if (this->_internal_has_arp_stats()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::arp_stats(this), target, stream);
+  }
+
+  // .ns.ICMPStats icmp_stats = 2;
+  if (this->_internal_has_icmp_stats()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::icmp_stats(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ns.DeviceStats)
+  return target;
+}
+
+size_t DeviceStats::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ns.DeviceStats)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .ns.ARPStats arp_stats = 1;
+  if (this->_internal_has_arp_stats()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *arp_stats_);
+  }
+
+  // .ns.ICMPStats icmp_stats = 2;
+  if (this->_internal_has_icmp_stats()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *icmp_stats_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DeviceStats::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    DeviceStats::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DeviceStats::GetClassData() const { return &_class_data_; }
+
+void DeviceStats::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<DeviceStats *>(to)->MergeFrom(
+      static_cast<const DeviceStats &>(from));
+}
+
+
+void DeviceStats::MergeFrom(const DeviceStats& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ns.DeviceStats)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_arp_stats()) {
+    _internal_mutable_arp_stats()->::ns::ARPStats::MergeFrom(from._internal_arp_stats());
+  }
+  if (from._internal_has_icmp_stats()) {
+    _internal_mutable_icmp_stats()->::ns::ICMPStats::MergeFrom(from._internal_icmp_stats());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DeviceStats::CopyFrom(const DeviceStats& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ns.DeviceStats)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeviceStats::IsInitialized() const {
+  return true;
+}
+
+void DeviceStats::InternalSwap(DeviceStats* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DeviceStats, icmp_stats_)
+      + sizeof(DeviceStats::icmp_stats_)
+      - PROTOBUF_FIELD_OFFSET(DeviceStats, arp_stats_)>(
+          reinterpret_cast<char*>(&arp_stats_),
+          reinterpret_cast<char*>(&other->arp_stats_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DeviceStats::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
+      file_level_metadata_ns_2eproto[6]);
+}
+
+// ===================================================================
+
+class ICMPStats::_Internal {
+ public:
+};
+
+ICMPStats::ICMPStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:ns.ICMPStats)
+}
+ICMPStats::ICMPStats(const ICMPStats& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&num_icmp_, &from.num_icmp_,
+    static_cast<size_t>(reinterpret_cast<char*>(&num_bcast_icmp_) -
+    reinterpret_cast<char*>(&num_icmp_)) + sizeof(num_bcast_icmp_));
+  // @@protoc_insertion_point(copy_constructor:ns.ICMPStats)
+}
+
+inline void ICMPStats::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&num_icmp_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&num_bcast_icmp_) -
+    reinterpret_cast<char*>(&num_icmp_)) + sizeof(num_bcast_icmp_));
+}
+
+ICMPStats::~ICMPStats() {
+  // @@protoc_insertion_point(destructor:ns.ICMPStats)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void ICMPStats::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void ICMPStats::ArenaDtor(void* object) {
+  ICMPStats* _this = reinterpret_cast< ICMPStats* >(object);
+  (void)_this;
+}
+void ICMPStats::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void ICMPStats::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void ICMPStats::Clear() {
+// @@protoc_insertion_point(message_clear_start:ns.ICMPStats)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&num_icmp_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&num_bcast_icmp_) -
+      reinterpret_cast<char*>(&num_icmp_)) + sizeof(num_bcast_icmp_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ICMPStats::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 num_icmp = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          num_icmp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 num_bcast_icmp = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          num_bcast_icmp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ICMPStats::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ns.ICMPStats)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 num_icmp = 1;
+  if (this->_internal_num_icmp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_num_icmp(), target);
+  }
+
+  // uint32 num_bcast_icmp = 2;
+  if (this->_internal_num_bcast_icmp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_num_bcast_icmp(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ns.ICMPStats)
+  return target;
+}
+
+size_t ICMPStats::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ns.ICMPStats)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 num_icmp = 1;
+  if (this->_internal_num_icmp() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_icmp());
+  }
+
+  // uint32 num_bcast_icmp = 2;
+  if (this->_internal_num_bcast_icmp() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_bcast_icmp());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ICMPStats::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ICMPStats::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ICMPStats::GetClassData() const { return &_class_data_; }
+
+void ICMPStats::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ICMPStats *>(to)->MergeFrom(
+      static_cast<const ICMPStats &>(from));
+}
+
+
+void ICMPStats::MergeFrom(const ICMPStats& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ns.ICMPStats)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_num_icmp() != 0) {
+    _internal_set_num_icmp(from._internal_num_icmp());
+  }
+  if (from._internal_num_bcast_icmp() != 0) {
+    _internal_set_num_bcast_icmp(from._internal_num_bcast_icmp());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ICMPStats::CopyFrom(const ICMPStats& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ns.ICMPStats)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ICMPStats::IsInitialized() const {
+  return true;
+}
+
+void ICMPStats::InternalSwap(ICMPStats* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ICMPStats, num_bcast_icmp_)
+      + sizeof(ICMPStats::num_bcast_icmp_)
+      - PROTOBUF_FIELD_OFFSET(ICMPStats, num_icmp_)>(
+          reinterpret_cast<char*>(&num_icmp_),
+          reinterpret_cast<char*>(&other->num_icmp_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ICMPStats::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
+      file_level_metadata_ns_2eproto[7]);
 }
 
 // ===================================================================
@@ -628,17 +1612,17 @@ ARPStats::ARPStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 ARPStats::ARPStats(const ARPStats& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&num_pkts_, &from.num_pkts_,
-    static_cast<size_t>(reinterpret_cast<char*>(&rate_) -
-    reinterpret_cast<char*>(&num_pkts_)) + sizeof(rate_));
+  ::memcpy(&num_arp_, &from.num_arp_,
+    static_cast<size_t>(reinterpret_cast<char*>(&num_probe_arp_) -
+    reinterpret_cast<char*>(&num_arp_)) + sizeof(num_probe_arp_));
   // @@protoc_insertion_point(copy_constructor:ns.ARPStats)
 }
 
 inline void ARPStats::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&num_pkts_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&rate_) -
-    reinterpret_cast<char*>(&num_pkts_)) + sizeof(rate_));
+    reinterpret_cast<char*>(&num_arp_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&num_probe_arp_) -
+    reinterpret_cast<char*>(&num_arp_)) + sizeof(num_probe_arp_));
 }
 
 ARPStats::~ARPStats() {
@@ -668,9 +1652,9 @@ void ARPStats::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&num_pkts_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&rate_) -
-      reinterpret_cast<char*>(&num_pkts_)) + sizeof(rate_));
+  ::memset(&num_arp_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&num_probe_arp_) -
+      reinterpret_cast<char*>(&num_arp_)) + sizeof(num_probe_arp_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -680,10 +1664,332 @@ const char* ARPStats::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 num_pkts = 1;
+      // uint32 num_arp = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          num_pkts_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          num_arp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 rate = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          rate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 num_bcast_arp = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          num_bcast_arp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 num_req_arp = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          num_req_arp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 num_resp_arp = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          num_resp_arp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 num_gratuitous_arp = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          num_gratuitous_arp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 num_probe_arp = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          num_probe_arp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ARPStats::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ns.ARPStats)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 num_arp = 1;
+  if (this->_internal_num_arp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_num_arp(), target);
+  }
+
+  // uint32 rate = 2;
+  if (this->_internal_rate() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_rate(), target);
+  }
+
+  // uint32 num_bcast_arp = 3;
+  if (this->_internal_num_bcast_arp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_num_bcast_arp(), target);
+  }
+
+  // uint32 num_req_arp = 4;
+  if (this->_internal_num_req_arp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_num_req_arp(), target);
+  }
+
+  // uint32 num_resp_arp = 5;
+  if (this->_internal_num_resp_arp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_num_resp_arp(), target);
+  }
+
+  // uint32 num_gratuitous_arp = 6;
+  if (this->_internal_num_gratuitous_arp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_num_gratuitous_arp(), target);
+  }
+
+  // uint32 num_probe_arp = 7;
+  if (this->_internal_num_probe_arp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_num_probe_arp(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ns.ARPStats)
+  return target;
+}
+
+size_t ARPStats::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ns.ARPStats)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 num_arp = 1;
+  if (this->_internal_num_arp() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_arp());
+  }
+
+  // uint32 rate = 2;
+  if (this->_internal_rate() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_rate());
+  }
+
+  // uint32 num_bcast_arp = 3;
+  if (this->_internal_num_bcast_arp() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_bcast_arp());
+  }
+
+  // uint32 num_req_arp = 4;
+  if (this->_internal_num_req_arp() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_req_arp());
+  }
+
+  // uint32 num_resp_arp = 5;
+  if (this->_internal_num_resp_arp() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_resp_arp());
+  }
+
+  // uint32 num_gratuitous_arp = 6;
+  if (this->_internal_num_gratuitous_arp() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_gratuitous_arp());
+  }
+
+  // uint32 num_probe_arp = 7;
+  if (this->_internal_num_probe_arp() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_probe_arp());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ARPStats::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ARPStats::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ARPStats::GetClassData() const { return &_class_data_; }
+
+void ARPStats::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ARPStats *>(to)->MergeFrom(
+      static_cast<const ARPStats &>(from));
+}
+
+
+void ARPStats::MergeFrom(const ARPStats& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ns.ARPStats)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_num_arp() != 0) {
+    _internal_set_num_arp(from._internal_num_arp());
+  }
+  if (from._internal_rate() != 0) {
+    _internal_set_rate(from._internal_rate());
+  }
+  if (from._internal_num_bcast_arp() != 0) {
+    _internal_set_num_bcast_arp(from._internal_num_bcast_arp());
+  }
+  if (from._internal_num_req_arp() != 0) {
+    _internal_set_num_req_arp(from._internal_num_req_arp());
+  }
+  if (from._internal_num_resp_arp() != 0) {
+    _internal_set_num_resp_arp(from._internal_num_resp_arp());
+  }
+  if (from._internal_num_gratuitous_arp() != 0) {
+    _internal_set_num_gratuitous_arp(from._internal_num_gratuitous_arp());
+  }
+  if (from._internal_num_probe_arp() != 0) {
+    _internal_set_num_probe_arp(from._internal_num_probe_arp());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ARPStats::CopyFrom(const ARPStats& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ns.ARPStats)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ARPStats::IsInitialized() const {
+  return true;
+}
+
+void ARPStats::InternalSwap(ARPStats* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ARPStats, num_probe_arp_)
+      + sizeof(ARPStats::num_probe_arp_)
+      - PROTOBUF_FIELD_OFFSET(ARPStats, num_arp_)>(
+          reinterpret_cast<char*>(&num_arp_),
+          reinterpret_cast<char*>(&other->num_arp_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ARPStats::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
+      file_level_metadata_ns_2eproto[8]);
+}
+
+// ===================================================================
+
+class IPMACStats::_Internal {
+ public:
+};
+
+IPMACStats::IPMACStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:ns.IPMACStats)
+}
+IPMACStats::IPMACStats(const IPMACStats& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&num_pkgs_, &from.num_pkgs_,
+    static_cast<size_t>(reinterpret_cast<char*>(&rate_) -
+    reinterpret_cast<char*>(&num_pkgs_)) + sizeof(rate_));
+  // @@protoc_insertion_point(copy_constructor:ns.IPMACStats)
+}
+
+inline void IPMACStats::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&num_pkgs_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&rate_) -
+    reinterpret_cast<char*>(&num_pkgs_)) + sizeof(rate_));
+}
+
+IPMACStats::~IPMACStats() {
+  // @@protoc_insertion_point(destructor:ns.IPMACStats)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void IPMACStats::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void IPMACStats::ArenaDtor(void* object) {
+  IPMACStats* _this = reinterpret_cast< IPMACStats* >(object);
+  (void)_this;
+}
+void IPMACStats::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void IPMACStats::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void IPMACStats::Clear() {
+// @@protoc_insertion_point(message_clear_start:ns.IPMACStats)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&num_pkgs_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&rate_) -
+      reinterpret_cast<char*>(&num_pkgs_)) + sizeof(rate_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* IPMACStats::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 num_pkgs = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          num_pkgs_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -719,16 +2025,16 @@ failure:
 #undef CHK_
 }
 
-uint8_t* ARPStats::_InternalSerialize(
+uint8_t* IPMACStats::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ns.ARPStats)
+  // @@protoc_insertion_point(serialize_to_array_start:ns.IPMACStats)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 num_pkts = 1;
-  if (this->_internal_num_pkts() != 0) {
+  // uint32 num_pkgs = 1;
+  if (this->_internal_num_pkgs() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_num_pkts(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_num_pkgs(), target);
   }
 
   // uint32 rate = 2;
@@ -741,21 +2047,21 @@ uint8_t* ARPStats::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ns.ARPStats)
+  // @@protoc_insertion_point(serialize_to_array_end:ns.IPMACStats)
   return target;
 }
 
-size_t ARPStats::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ns.ARPStats)
+size_t IPMACStats::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ns.IPMACStats)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint32 num_pkts = 1;
-  if (this->_internal_num_pkts() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_pkts());
+  // uint32 num_pkgs = 1;
+  if (this->_internal_num_pkgs() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_pkgs());
   }
 
   // uint32 rate = 2;
@@ -766,27 +2072,27 @@ size_t ARPStats::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ARPStats::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData IPMACStats::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    ARPStats::MergeImpl
+    IPMACStats::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ARPStats::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*IPMACStats::GetClassData() const { return &_class_data_; }
 
-void ARPStats::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void IPMACStats::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ARPStats *>(to)->MergeFrom(
-      static_cast<const ARPStats &>(from));
+  static_cast<IPMACStats *>(to)->MergeFrom(
+      static_cast<const IPMACStats &>(from));
 }
 
 
-void ARPStats::MergeFrom(const ARPStats& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ns.ARPStats)
+void IPMACStats::MergeFrom(const IPMACStats& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ns.IPMACStats)
   GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_num_pkts() != 0) {
-    _internal_set_num_pkts(from._internal_num_pkts());
+  if (from._internal_num_pkgs() != 0) {
+    _internal_set_num_pkgs(from._internal_num_pkgs());
   }
   if (from._internal_rate() != 0) {
     _internal_set_rate(from._internal_rate());
@@ -794,32 +2100,32 @@ void ARPStats::MergeFrom(const ARPStats& from) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void ARPStats::CopyFrom(const ARPStats& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ns.ARPStats)
+void IPMACStats::CopyFrom(const IPMACStats& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ns.IPMACStats)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ARPStats::IsInitialized() const {
+bool IPMACStats::IsInitialized() const {
   return true;
 }
 
-void ARPStats::InternalSwap(ARPStats* other) {
+void IPMACStats::InternalSwap(IPMACStats* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ARPStats, rate_)
-      + sizeof(ARPStats::rate_)
-      - PROTOBUF_FIELD_OFFSET(ARPStats, num_pkts_)>(
-          reinterpret_cast<char*>(&num_pkts_),
-          reinterpret_cast<char*>(&other->num_pkts_));
+      PROTOBUF_FIELD_OFFSET(IPMACStats, rate_)
+      + sizeof(IPMACStats::rate_)
+      - PROTOBUF_FIELD_OFFSET(IPMACStats, num_pkgs_)>(
+          reinterpret_cast<char*>(&num_pkgs_),
+          reinterpret_cast<char*>(&other->num_pkgs_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ARPStats::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata IPMACStats::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
-      file_level_metadata_ns_2eproto[3]);
+      file_level_metadata_ns_2eproto[9]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -828,14 +2134,32 @@ PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::ns::Request* Arena::CreateMaybeMessage< ::ns::Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ns::Request >(arena);
 }
-template<> PROTOBUF_NOINLINE ::ns::Response_ArpStatsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ns::Response_ArpStatsEntry_DoNotUse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ns::Response_ArpStatsEntry_DoNotUse >(arena);
-}
 template<> PROTOBUF_NOINLINE ::ns::Response* Arena::CreateMaybeMessage< ::ns::Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ns::Response >(arena);
 }
+template<> PROTOBUF_NOINLINE ::ns::NetStats_DeviceStatsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ns::NetStats_DeviceStatsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ns::NetStats_DeviceStatsEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ns::NetStats_SrcIpStatsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ns::NetStats_SrcIpStatsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ns::NetStats_SrcIpStatsEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ns::NetStats_DestIpStatsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ns::NetStats_DestIpStatsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ns::NetStats_DestIpStatsEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ns::NetStats* Arena::CreateMaybeMessage< ::ns::NetStats >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ns::NetStats >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ns::DeviceStats* Arena::CreateMaybeMessage< ::ns::DeviceStats >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ns::DeviceStats >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ns::ICMPStats* Arena::CreateMaybeMessage< ::ns::ICMPStats >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ns::ICMPStats >(arena);
+}
 template<> PROTOBUF_NOINLINE ::ns::ARPStats* Arena::CreateMaybeMessage< ::ns::ARPStats >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ns::ARPStats >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ns::IPMACStats* Arena::CreateMaybeMessage< ::ns::IPMACStats >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ns::IPMACStats >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

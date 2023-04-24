@@ -12,7 +12,7 @@ using grpc::Channel;
 using grpc::ClientContext;
 using grpc::Status;
 
-using ns::NetStats;
+using ns::NetStatsService;
 using ns::Request;
 using ns::Response;
 
@@ -20,7 +20,7 @@ class GreeterClient
 {
 public:
   GreeterClient(std::shared_ptr<Channel> channel)
-      : stub_(NetStats::NewStub(channel)) {}
+      : stub_(NetStatsService::NewStub(channel)) {}
 
   // Assembles the client's payload, sends it and presents the response back
   // from the server.
@@ -48,12 +48,12 @@ public:
       // std::cout << std::setw(12) << "scrip" << std::setw(12) << "arp-request-pkts"
       //             << std::setw(12) << "rate"<< std::endl;
       // std::cout << "----------------------------------------------------" << std::endl;
-      std::cout << "pci_id:  " << response.pci_id() << std::endl;
-      std::cout << "arp_rx_total_pps:  " << response.num_arp() << std::endl;
-      std::cout << "arp_rx_bcast_pps:  " << response.num_bcast_arp() << std::endl;
-      std::cout << "ipv4 total:  " << response.num_ipv4() << std::endl;
-      std::cout << "ipv6 total:  " << response.num_ipv6() << std::endl;
-      std::cout << "multicast total:  " << response.num_multicast() << std::endl;
+      // std::cout << "pci_id:  " << response.pci_id() << std::endl;
+      // std::cout << "arp_rx_total_pps:  " << response.num_arp() << std::endl;
+      // std::cout << "arp_rx_bcast_pps:  " << response.num_bcast_arp() << std::endl;
+      // std::cout << "ipv4 total:  " << response.num_ipv4() << std::endl;
+      // std::cout << "ipv6 total:  " << response.num_ipv6() << std::endl;
+      // std::cout << "multicast total:  " << response.num_multicast() << std::endl;
 
       // for(auto it : response.arp_stats()){
       //    ns::ARPStats tmp = it.second;
@@ -71,7 +71,7 @@ public:
   }
 
 private:
-  std::unique_ptr<NetStats::Stub> stub_;
+  std::unique_ptr<NetStatsService::Stub> stub_;
 };
 
 int main(int argc, char **argv)

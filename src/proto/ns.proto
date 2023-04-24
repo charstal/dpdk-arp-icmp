@@ -2,19 +2,26 @@ syntax = "proto3";
 
 package ns;
 
-service NetStats {
+service NetStatsService {
   rpc GetNetStats(Request) returns (Response) {}
 }
 
 message Request {}
 
 message Response {
+  NetStats net_stats = 1;
+  string msg = 2;
+}
+
+message NetStats {
   map<string, DeviceStats> device_stats = 1;
-  uint32 num_pkgts = 2;
-  uint32 rate = 3;
-  uint32 num_ipv4 = 4;
-  uint32 num_ipv6 = 5;
-  uint32 num_multicast = 6;
+  map<string, IPMACStats> src_ip_stats = 2;
+  map<string, IPMACStats> dest_ip_stats = 3;
+  uint32 num_pkgts = 4;
+  float rate = 5;
+  uint32 num_ipv4 = 6;
+  uint32 num_ipv6 = 7;
+  uint32 num_multicast = 8;
 }
 
 message DeviceStats {
@@ -29,9 +36,15 @@ message ICMPStats {
 
 message ARPStats {
   uint32 num_arp = 1;
-  uint32 num_bcast_arp = 2;
-  uint32 num_req_arp = 3;
-  uint32 num_resp_arp = 4;
-  uint32 num_gratuitous_arp = 5;
-  uint32 num_probe_arp = 6;
+  float rate = 2;
+  uint32 num_bcast_arp = 3;
+  uint32 num_req_arp = 4;
+  uint32 num_resp_arp = 5;
+  uint32 num_gratuitous_arp = 6;
+  uint32 num_probe_arp = 7;
+}
+
+message IPMACStats {
+  uint32 num_pkgs = 1;
+  float rate = 2;
 }

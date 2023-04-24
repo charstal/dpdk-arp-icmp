@@ -27,10 +27,10 @@
 
 namespace ns {
 
-class NetStats final {
+class NetStatsService final {
  public:
   static constexpr char const* service_full_name() {
-    return "ns.NetStats";
+    return "ns.NetStatsService";
   }
   class StubInterface {
    public:

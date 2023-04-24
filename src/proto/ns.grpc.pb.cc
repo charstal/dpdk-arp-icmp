@@ -21,49 +21,49 @@
 #include <grpcpp/impl/codegen/sync_stream.h>
 namespace ns {
 
-static const char* NetStats_method_names[] = {
-  "/ns.NetStats/GetNetStats",
+static const char* NetStatsService_method_names[] = {
+  "/ns.NetStatsService/GetNetStats",
 };
 
-std::unique_ptr< NetStats::Stub> NetStats::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+std::unique_ptr< NetStatsService::Stub> NetStatsService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< NetStats::Stub> stub(new NetStats::Stub(channel, options));
+  std::unique_ptr< NetStatsService::Stub> stub(new NetStatsService::Stub(channel, options));
   return stub;
 }
 
-NetStats::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_GetNetStats_(NetStats_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+NetStatsService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_GetNetStats_(NetStatsService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status NetStats::Stub::GetNetStats(::grpc::ClientContext* context, const ::ns::Request& request, ::ns::Response* response) {
+::grpc::Status NetStatsService::Stub::GetNetStats(::grpc::ClientContext* context, const ::ns::Request& request, ::ns::Response* response) {
   return ::grpc::internal::BlockingUnaryCall< ::ns::Request, ::ns::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetNetStats_, context, request, response);
 }
 
-void NetStats::Stub::async::GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, std::function<void(::grpc::Status)> f) {
+void NetStatsService::Stub::async::GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::ns::Request, ::ns::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetNetStats_, context, request, response, std::move(f));
 }
 
-void NetStats::Stub::async::GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, ::grpc::ClientUnaryReactor* reactor) {
+void NetStatsService::Stub::async::GetNetStats(::grpc::ClientContext* context, const ::ns::Request* request, ::ns::Response* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetNetStats_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::ns::Response>* NetStats::Stub::PrepareAsyncGetNetStatsRaw(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ns::Response>* NetStatsService::Stub::PrepareAsyncGetNetStatsRaw(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::ns::Response, ::ns::Request, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetNetStats_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::ns::Response>* NetStats::Stub::AsyncGetNetStatsRaw(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ns::Response>* NetStatsService::Stub::AsyncGetNetStatsRaw(::grpc::ClientContext* context, const ::ns::Request& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetNetStatsRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-NetStats::Service::Service() {
+NetStatsService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      NetStats_method_names[0],
+      NetStatsService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< NetStats::Service, ::ns::Request, ::ns::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
-          [](NetStats::Service* service,
+      new ::grpc::internal::RpcMethodHandler< NetStatsService::Service, ::ns::Request, ::ns::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](NetStatsService::Service* service,
              ::grpc::ServerContext* ctx,
              const ::ns::Request* req,
              ::ns::Response* resp) {
@@ -71,10 +71,10 @@ NetStats::Service::Service() {
              }, this)));
 }
 
-NetStats::Service::~Service() {
+NetStatsService::Service::~Service() {
 }
 
-::grpc::Status NetStats::Service::GetNetStats(::grpc::ServerContext* context, const ::ns::Request* request, ::ns::Response* response) {
+::grpc::Status NetStatsService::Service::GetNetStats(::grpc::ServerContext* context, const ::ns::Request* request, ::ns::Response* response) {
   (void) context;
   (void) request;
   (void) response;
