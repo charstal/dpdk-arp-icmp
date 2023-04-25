@@ -4,6 +4,7 @@
 #include <list>
 #include <string>
 #include <unordered_map>
+#include <iostream>
 
 #include <rte_rwlock.h>
 
@@ -60,8 +61,6 @@ class ARPStats
 public:
     // the number of arps
     uint32_t num_arp;
-    // the rate of arps
-    float rate;
     // the number of broadcast arps
     uint32_t num_bcast_arp;
     // request
@@ -88,6 +87,10 @@ public:
     // Target MAC address   0
     // Target IP address    src IP
     uint32_t num_probe_arp;
+
+    ARPStats &operator+=(const ARPStats &b);
+
+    friend std::ostream &operator<<(std::ostream &out, const ARPStats &b);
 };
 
 class ICMPStats
@@ -106,6 +109,11 @@ class IPMACStats
 {
 public:
     uint32_t num_pkgs;
+    IPMACStats &operator+=(const IPMACStats &b)
+    {
+        this->num_pkgs += b.num_pkgs;
+        return *this;
+    }
 };
 
 class NetStats
@@ -115,8 +123,8 @@ public:
 
     // char pci_id[PORT_PCI_DEV_ID_LENGTH + 1]; // the number of arps
     std::unordered_map<std::string, DeviceStats> device_stats;
-    std::unordered_map<uint32_t, IPMACStats> src_ip_or_mac_stats;
-    std::unordered_map<uint32_t, IPMACStats> dest_ip_or_mac_stats;
+    std::unordered_map<std::string, IPMACStats> src_ip_or_mac_stats;
+    std::unordered_map<std::string, IPMACStats> dest_ip_or_mac_stats;
     uint32_t num_pkgts;
     uint32_t num_ipv4;
     uint32_t num_ipv6;

@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <iostream>
 
 #include <rte_cycles.h>
 #include <rte_eal.h>
@@ -20,24 +21,35 @@
 #include "include/process.hpp"
 #include "include/server.hpp"
 
+using std::cout;
+using std::endl;
+
 uint32_t interval = 60;
 static inline void print_stats(NetStats &st)
 {
-    for (uint64_t i = 0; i < sizeof(st.pci_id); i++)
+    // for (uint64_t i = 0; i < sizeof(st.pci_id); i++)
+    // {
+    //     printf("%c", st.pci_id[i]);
+    // }
+    cout << endl;
+    cout << "num_ipv4: " << st.num_ipv4
+         << "\nnum_ipv6: " << st.num_ipv6
+         << "\nnum_multicast: " << st.num_multicast
+         << "\nnum_pkgts: " << st.num_pkgts
+         << endl;
+
+    cout << "---------------------------arp----------------------------------" << endl;
+    for (auto &it : st.device_stats)
     {
-        printf("%c", st.pci_id[i]);
+        cout << endl;
+        cout << "device name: " << it.first;
+        cout << it.second.arp_stats
+             << endl;
     }
-    printf("\n");
-    printf(
-        "num_arp: %" PRIu32 "\nnum_bcast_arp: %" PRIu32
-        "\nnum_ipv4: %" PRIu32 "\nnum_ipv6: %" PRIu32
-        "\nnum_multicast: %" PRIu32 "\n",
-        st.num_arp, st.num_bcast_arp,
-        st.num_ipv4, st.num_ipv6, st.num_multicast);
-    for (auto it = st.arp_stats.begin(); it != st.arp_stats.end(); ++it)
-    {
-        printf(IPV4_PRT_FMT "\t%" PRIu32 "\n", IPV4_BYTES(it->first), it->second);
-    }
+    // for (auto it = st.src_ip_or_mac_stats.begin(); it != st.arp_stats.end(); ++it)
+    // {
+    //     printf(IPV4_PRT_FMT "\t%" PRIu32 "\n", IPV4_BYTES(it->first), it->second);
+    // }
     // printf("------------------------\n");
 }
 
@@ -126,7 +138,7 @@ int main(int argc, char *argv[])
     {
         rte_exit(1, "Fail to initialize EAL\n");
     }
-    printf("Initialize EAL OK\n");
+    cout << "Initialize EAL OK" << endl;
     // else
     // {
     // argc -= ret;

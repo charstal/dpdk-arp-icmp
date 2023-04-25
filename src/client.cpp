@@ -39,6 +39,9 @@ public:
     // The actual RPC.
     Status status = stub_->GetNetStats(&context, request, &response);
 
+    auto msg = response.msg();
+    auto stats = response.net_stats();
+
     // Act upon its status.
     if (status.ok())
     {
@@ -51,9 +54,26 @@ public:
       // std::cout << "pci_id:  " << response.pci_id() << std::endl;
       // std::cout << "arp_rx_total_pps:  " << response.num_arp() << std::endl;
       // std::cout << "arp_rx_bcast_pps:  " << response.num_bcast_arp() << std::endl;
-      // std::cout << "ipv4 total:  " << response.num_ipv4() << std::endl;
-      // std::cout << "ipv6 total:  " << response.num_ipv6() << std::endl;
-      // std::cout << "multicast total:  " << response.num_multicast() << std::endl;
+      std::cout << "ipv4 total:  " << stats.num_ipv4() << std::endl;
+      std::cout << "ipv6 total:  " << stats.num_ipv6() << std::endl;
+      std::cout << "multicast total:  " << stats.num_multicast() << std::endl;
+      std::cout << "rate: " << stats.rate() << std::endl;
+
+      std::cout << "--------------------------arp-------------------------" << std::endl;
+      // arp
+      for (auto it : stats.device_stats())
+      {
+        auto arp_stats = it.second.arp_stats();
+        std::cout << "device name: " << it.first
+                  << "\nnum arp: " << arp_stats.num_arp()
+                  << "\nrate: " << arp_stats.rate()
+                  << "\nnum broadcast arp: " << arp_stats.num_bcast_arp()
+                  << "\nnum gratuitous arp: " << arp_stats.num_gratuitous_arp()
+                  << "\nnum probe arp: " << arp_stats.num_probe_arp()
+                  << "\nnum req arp: " << arp_stats.num_req_arp()
+                  << "\nnum resp arp: " << arp_stats.num_resp_arp()
+                  << std::endl;
+      }
 
       // for(auto it : response.arp_stats()){
       //    ns::ARPStats tmp = it.second;

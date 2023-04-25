@@ -52,35 +52,35 @@ struct NetStats_DeviceStatsEntry_DoNotUseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetStats_DeviceStatsEntry_DoNotUseDefaultTypeInternal _NetStats_DeviceStatsEntry_DoNotUse_default_instance_;
-constexpr NetStats_SrcIpStatsEntry_DoNotUse::NetStats_SrcIpStatsEntry_DoNotUse(
+constexpr NetStats_SrcIpmacStatsEntry_DoNotUse::NetStats_SrcIpmacStatsEntry_DoNotUse(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
-struct NetStats_SrcIpStatsEntry_DoNotUseDefaultTypeInternal {
-  constexpr NetStats_SrcIpStatsEntry_DoNotUseDefaultTypeInternal()
+struct NetStats_SrcIpmacStatsEntry_DoNotUseDefaultTypeInternal {
+  constexpr NetStats_SrcIpmacStatsEntry_DoNotUseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~NetStats_SrcIpStatsEntry_DoNotUseDefaultTypeInternal() {}
+  ~NetStats_SrcIpmacStatsEntry_DoNotUseDefaultTypeInternal() {}
   union {
-    NetStats_SrcIpStatsEntry_DoNotUse _instance;
+    NetStats_SrcIpmacStatsEntry_DoNotUse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetStats_SrcIpStatsEntry_DoNotUseDefaultTypeInternal _NetStats_SrcIpStatsEntry_DoNotUse_default_instance_;
-constexpr NetStats_DestIpStatsEntry_DoNotUse::NetStats_DestIpStatsEntry_DoNotUse(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetStats_SrcIpmacStatsEntry_DoNotUseDefaultTypeInternal _NetStats_SrcIpmacStatsEntry_DoNotUse_default_instance_;
+constexpr NetStats_DestIpmacStatsEntry_DoNotUse::NetStats_DestIpmacStatsEntry_DoNotUse(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
-struct NetStats_DestIpStatsEntry_DoNotUseDefaultTypeInternal {
-  constexpr NetStats_DestIpStatsEntry_DoNotUseDefaultTypeInternal()
+struct NetStats_DestIpmacStatsEntry_DoNotUseDefaultTypeInternal {
+  constexpr NetStats_DestIpmacStatsEntry_DoNotUseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~NetStats_DestIpStatsEntry_DoNotUseDefaultTypeInternal() {}
+  ~NetStats_DestIpmacStatsEntry_DoNotUseDefaultTypeInternal() {}
   union {
-    NetStats_DestIpStatsEntry_DoNotUse _instance;
+    NetStats_DestIpmacStatsEntry_DoNotUse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetStats_DestIpStatsEntry_DoNotUseDefaultTypeInternal _NetStats_DestIpStatsEntry_DoNotUse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT NetStats_DestIpmacStatsEntry_DoNotUseDefaultTypeInternal _NetStats_DestIpmacStatsEntry_DoNotUse_default_instance_;
 constexpr NetStats::NetStats(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : device_stats_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
-  , src_ip_stats_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
-  , dest_ip_stats_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , src_ipmac_stats_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , dest_ipmac_stats_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
   , num_pkgts_(0u)
-  , rate_(0u)
+  , rate_(0)
   , num_ipv4_(0u)
   , num_ipv6_(0u)
   , num_multicast_(0u){}
@@ -122,7 +122,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ICMPStatsDefaultTypeInternal _I
 constexpr ARPStats::ARPStats(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : num_arp_(0u)
-  , rate_(0u)
+  , rate_(0)
   , num_bcast_arp_(0u)
   , num_req_arp_(0u)
   , num_resp_arp_(0u)
@@ -140,7 +140,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ARPStatsDefaultTypeInternal _AR
 constexpr IPMACStats::IPMACStats(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : num_pkgs_(0u)
-  , rate_(0u){}
+  , rate_(0){}
 struct IPMACStatsDefaultTypeInternal {
   constexpr IPMACStatsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -180,24 +180,24 @@ const uint32_t TableStruct_ns_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(proto
   PROTOBUF_FIELD_OFFSET(::ns::NetStats_DeviceStatsEntry_DoNotUse, value_),
   0,
   1,
-  PROTOBUF_FIELD_OFFSET(::ns::NetStats_SrcIpStatsEntry_DoNotUse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::ns::NetStats_SrcIpStatsEntry_DoNotUse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_SrcIpmacStatsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_SrcIpmacStatsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ns::NetStats_SrcIpStatsEntry_DoNotUse, key_),
-  PROTOBUF_FIELD_OFFSET(::ns::NetStats_SrcIpStatsEntry_DoNotUse, value_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_SrcIpmacStatsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_SrcIpmacStatsEntry_DoNotUse, value_),
   0,
   1,
-  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DestIpStatsEntry_DoNotUse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DestIpStatsEntry_DoNotUse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DestIpmacStatsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DestIpmacStatsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DestIpStatsEntry_DoNotUse, key_),
-  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DestIpStatsEntry_DoNotUse, value_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DestIpmacStatsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats_DestIpmacStatsEntry_DoNotUse, value_),
   0,
   1,
   ~0u,  // no _has_bits_
@@ -207,8 +207,8 @@ const uint32_t TableStruct_ns_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(proto
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::ns::NetStats, device_stats_),
-  PROTOBUF_FIELD_OFFSET(::ns::NetStats, src_ip_stats_),
-  PROTOBUF_FIELD_OFFSET(::ns::NetStats, dest_ip_stats_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats, src_ipmac_stats_),
+  PROTOBUF_FIELD_OFFSET(::ns::NetStats, dest_ipmac_stats_),
   PROTOBUF_FIELD_OFFSET(::ns::NetStats, num_pkgts_),
   PROTOBUF_FIELD_OFFSET(::ns::NetStats, rate_),
   PROTOBUF_FIELD_OFFSET(::ns::NetStats, num_ipv4_),
@@ -256,8 +256,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 0, -1, -1, sizeof(::ns::Request)},
   { 6, -1, -1, sizeof(::ns::Response)},
   { 14, 22, -1, sizeof(::ns::NetStats_DeviceStatsEntry_DoNotUse)},
-  { 24, 32, -1, sizeof(::ns::NetStats_SrcIpStatsEntry_DoNotUse)},
-  { 34, 42, -1, sizeof(::ns::NetStats_DestIpStatsEntry_DoNotUse)},
+  { 24, 32, -1, sizeof(::ns::NetStats_SrcIpmacStatsEntry_DoNotUse)},
+  { 34, 42, -1, sizeof(::ns::NetStats_DestIpmacStatsEntry_DoNotUse)},
   { 44, -1, -1, sizeof(::ns::NetStats)},
   { 58, -1, -1, sizeof(::ns::DeviceStats)},
   { 66, -1, -1, sizeof(::ns::ICMPStats)},
@@ -269,8 +269,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_NetStats_DeviceStatsEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_NetStats_SrcIpStatsEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_NetStats_DestIpStatsEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_NetStats_SrcIpmacStatsEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_NetStats_DestIpmacStatsEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_NetStats_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_DeviceStats_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::ns::_ICMPStats_default_instance_),
@@ -281,33 +281,33 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_ns_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\010ns.proto\022\002ns\"\t\n\007Request\"8\n\010Response\022\037\n"
   "\tnet_stats\030\001 \001(\0132\014.ns.NetStats\022\013\n\003msg\030\002 "
-  "\001(\t\"\321\003\n\010NetStats\0223\n\014device_stats\030\001 \003(\0132\035"
-  ".ns.NetStats.DeviceStatsEntry\0222\n\014src_ip_"
-  "stats\030\002 \003(\0132\034.ns.NetStats.SrcIpStatsEntr"
-  "y\0224\n\rdest_ip_stats\030\003 \003(\0132\035.ns.NetStats.D"
-  "estIpStatsEntry\022\021\n\tnum_pkgts\030\004 \001(\r\022\014\n\004ra"
-  "te\030\005 \001(\r\022\020\n\010num_ipv4\030\006 \001(\r\022\020\n\010num_ipv6\030\007"
-  " \001(\r\022\025\n\rnum_multicast\030\010 \001(\r\032C\n\020DeviceSta"
-  "tsEntry\022\013\n\003key\030\001 \001(\t\022\036\n\005value\030\002 \001(\0132\017.ns"
-  ".DeviceStats:\0028\001\032A\n\017SrcIpStatsEntry\022\013\n\003k"
-  "ey\030\001 \001(\t\022\035\n\005value\030\002 \001(\0132\016.ns.IPMACStats:"
-  "\0028\001\032B\n\020DestIpStatsEntry\022\013\n\003key\030\001 \001(\t\022\035\n\005"
-  "value\030\002 \001(\0132\016.ns.IPMACStats:\0028\001\"Q\n\013Devic"
-  "eStats\022\037\n\tarp_stats\030\001 \001(\0132\014.ns.ARPStats\022"
-  "!\n\nicmp_stats\030\002 \001(\0132\r.ns.ICMPStats\"5\n\tIC"
-  "MPStats\022\020\n\010num_icmp\030\001 \001(\r\022\026\n\016num_bcast_i"
-  "cmp\030\002 \001(\r\"\236\001\n\010ARPStats\022\017\n\007num_arp\030\001 \001(\r\022"
-  "\014\n\004rate\030\002 \001(\r\022\025\n\rnum_bcast_arp\030\003 \001(\r\022\023\n\013"
-  "num_req_arp\030\004 \001(\r\022\024\n\014num_resp_arp\030\005 \001(\r\022"
-  "\032\n\022num_gratuitous_arp\030\006 \001(\r\022\025\n\rnum_probe"
-  "_arp\030\007 \001(\r\",\n\nIPMACStats\022\020\n\010num_pkgs\030\001 \001"
-  "(\r\022\014\n\004rate\030\002 \001(\r2=\n\017NetStatsService\022*\n\013G"
-  "etNetStats\022\013.ns.Request\032\014.ns.Response\"\000b"
-  "\006proto3"
+  "\001(\t\"\343\003\n\010NetStats\0223\n\014device_stats\030\001 \003(\0132\035"
+  ".ns.NetStats.DeviceStatsEntry\0228\n\017src_ipm"
+  "ac_stats\030\002 \003(\0132\037.ns.NetStats.SrcIpmacSta"
+  "tsEntry\022:\n\020dest_ipmac_stats\030\003 \003(\0132 .ns.N"
+  "etStats.DestIpmacStatsEntry\022\021\n\tnum_pkgts"
+  "\030\004 \001(\r\022\014\n\004rate\030\005 \001(\002\022\020\n\010num_ipv4\030\006 \001(\r\022\020"
+  "\n\010num_ipv6\030\007 \001(\r\022\025\n\rnum_multicast\030\010 \001(\r\032"
+  "C\n\020DeviceStatsEntry\022\013\n\003key\030\001 \001(\t\022\036\n\005valu"
+  "e\030\002 \001(\0132\017.ns.DeviceStats:\0028\001\032D\n\022SrcIpmac"
+  "StatsEntry\022\013\n\003key\030\001 \001(\t\022\035\n\005value\030\002 \001(\0132\016"
+  ".ns.IPMACStats:\0028\001\032E\n\023DestIpmacStatsEntr"
+  "y\022\013\n\003key\030\001 \001(\t\022\035\n\005value\030\002 \001(\0132\016.ns.IPMAC"
+  "Stats:\0028\001\"Q\n\013DeviceStats\022\037\n\tarp_stats\030\001 "
+  "\001(\0132\014.ns.ARPStats\022!\n\nicmp_stats\030\002 \001(\0132\r."
+  "ns.ICMPStats\"5\n\tICMPStats\022\020\n\010num_icmp\030\001 "
+  "\001(\r\022\026\n\016num_bcast_icmp\030\002 \001(\r\"\236\001\n\010ARPStats"
+  "\022\017\n\007num_arp\030\001 \001(\r\022\014\n\004rate\030\002 \001(\002\022\025\n\rnum_b"
+  "cast_arp\030\003 \001(\r\022\023\n\013num_req_arp\030\004 \001(\r\022\024\n\014n"
+  "um_resp_arp\030\005 \001(\r\022\032\n\022num_gratuitous_arp\030"
+  "\006 \001(\r\022\025\n\rnum_probe_arp\030\007 \001(\r\",\n\nIPMACSta"
+  "ts\022\020\n\010num_pkgs\030\001 \001(\r\022\014\n\004rate\030\002 \001(\0022=\n\017Ne"
+  "tStatsService\022*\n\013GetNetStats\022\013.ns.Reques"
+  "t\032\014.ns.Response\"\000b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ns_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ns_2eproto = {
-  false, false, 967, descriptor_table_protodef_ns_2eproto, "ns.proto", 
+  false, false, 985, descriptor_table_protodef_ns_2eproto, "ns.proto", 
   &descriptor_table_ns_2eproto_once, nullptr, 0, 10,
   schemas, file_default_instances, TableStruct_ns_2eproto::offsets,
   file_level_metadata_ns_2eproto, file_level_enum_descriptors_ns_2eproto, file_level_service_descriptors_ns_2eproto,
@@ -621,13 +621,13 @@ void NetStats_DeviceStatsEntry_DoNotUse::MergeFrom(const NetStats_DeviceStatsEnt
 
 // ===================================================================
 
-NetStats_SrcIpStatsEntry_DoNotUse::NetStats_SrcIpStatsEntry_DoNotUse() {}
-NetStats_SrcIpStatsEntry_DoNotUse::NetStats_SrcIpStatsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+NetStats_SrcIpmacStatsEntry_DoNotUse::NetStats_SrcIpmacStatsEntry_DoNotUse() {}
+NetStats_SrcIpmacStatsEntry_DoNotUse::NetStats_SrcIpmacStatsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
     : SuperType(arena) {}
-void NetStats_SrcIpStatsEntry_DoNotUse::MergeFrom(const NetStats_SrcIpStatsEntry_DoNotUse& other) {
+void NetStats_SrcIpmacStatsEntry_DoNotUse::MergeFrom(const NetStats_SrcIpmacStatsEntry_DoNotUse& other) {
   MergeFromInternal(other);
 }
-::PROTOBUF_NAMESPACE_ID::Metadata NetStats_SrcIpStatsEntry_DoNotUse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata NetStats_SrcIpmacStatsEntry_DoNotUse::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
       file_level_metadata_ns_2eproto[3]);
@@ -635,13 +635,13 @@ void NetStats_SrcIpStatsEntry_DoNotUse::MergeFrom(const NetStats_SrcIpStatsEntry
 
 // ===================================================================
 
-NetStats_DestIpStatsEntry_DoNotUse::NetStats_DestIpStatsEntry_DoNotUse() {}
-NetStats_DestIpStatsEntry_DoNotUse::NetStats_DestIpStatsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+NetStats_DestIpmacStatsEntry_DoNotUse::NetStats_DestIpmacStatsEntry_DoNotUse() {}
+NetStats_DestIpmacStatsEntry_DoNotUse::NetStats_DestIpmacStatsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
     : SuperType(arena) {}
-void NetStats_DestIpStatsEntry_DoNotUse::MergeFrom(const NetStats_DestIpStatsEntry_DoNotUse& other) {
+void NetStats_DestIpmacStatsEntry_DoNotUse::MergeFrom(const NetStats_DestIpmacStatsEntry_DoNotUse& other) {
   MergeFromInternal(other);
 }
-::PROTOBUF_NAMESPACE_ID::Metadata NetStats_DestIpStatsEntry_DoNotUse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata NetStats_DestIpmacStatsEntry_DoNotUse::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_ns_2eproto_getter, &descriptor_table_ns_2eproto_once,
       file_level_metadata_ns_2eproto[4]);
@@ -657,8 +657,8 @@ NetStats::NetStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   device_stats_(arena),
-  src_ip_stats_(arena),
-  dest_ip_stats_(arena) {
+  src_ipmac_stats_(arena),
+  dest_ipmac_stats_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -669,8 +669,8 @@ NetStats::NetStats(const NetStats& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   device_stats_.MergeFrom(from.device_stats_);
-  src_ip_stats_.MergeFrom(from.src_ip_stats_);
-  dest_ip_stats_.MergeFrom(from.dest_ip_stats_);
+  src_ipmac_stats_.MergeFrom(from.src_ipmac_stats_);
+  dest_ipmac_stats_.MergeFrom(from.dest_ipmac_stats_);
   ::memcpy(&num_pkgts_, &from.num_pkgts_,
     static_cast<size_t>(reinterpret_cast<char*>(&num_multicast_) -
     reinterpret_cast<char*>(&num_pkgts_)) + sizeof(num_multicast_));
@@ -699,8 +699,8 @@ void NetStats::ArenaDtor(void* object) {
   NetStats* _this = reinterpret_cast< NetStats* >(object);
   (void)_this;
   _this->device_stats_. ~MapField();
-  _this->src_ip_stats_. ~MapField();
-  _this->dest_ip_stats_. ~MapField();
+  _this->src_ipmac_stats_. ~MapField();
+  _this->dest_ipmac_stats_. ~MapField();
 }
 inline void NetStats::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) {
   if (arena != nullptr) {
@@ -718,8 +718,8 @@ void NetStats::Clear() {
   (void) cached_has_bits;
 
   device_stats_.Clear();
-  src_ip_stats_.Clear();
-  dest_ip_stats_.Clear();
+  src_ipmac_stats_.Clear();
+  dest_ipmac_stats_.Clear();
   ::memset(&num_pkgts_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&num_multicast_) -
       reinterpret_cast<char*>(&num_pkgts_)) + sizeof(num_multicast_));
@@ -745,26 +745,26 @@ const char* NetStats::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
         } else
           goto handle_unusual;
         continue;
-      // map<string, .ns.IPMACStats> src_ip_stats = 2;
+      // map<string, .ns.IPMACStats> src_ipmac_stats = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&src_ip_stats_, ptr);
+            ptr = ctx->ParseMessage(&src_ipmac_stats_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else
           goto handle_unusual;
         continue;
-      // map<string, .ns.IPMACStats> dest_ip_stats = 3;
+      // map<string, .ns.IPMACStats> dest_ipmac_stats = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&dest_ip_stats_, ptr);
+            ptr = ctx->ParseMessage(&dest_ipmac_stats_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
@@ -779,11 +779,11 @@ const char* NetStats::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
         } else
           goto handle_unusual;
         continue;
-      // uint32 rate = 5;
+      // float rate = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          rate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 45)) {
+          rate_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
@@ -882,8 +882,8 @@ uint8_t* NetStats::_InternalSerialize(
     }
   }
 
-  // map<string, .ns.IPMACStats> src_ip_stats = 2;
-  if (!this->_internal_src_ip_stats().empty()) {
+  // map<string, .ns.IPMACStats> src_ipmac_stats = 2;
+  if (!this->_internal_src_ipmac_stats().empty()) {
     typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_pointer
         ConstPtr;
     typedef ConstPtr SortItem;
@@ -894,38 +894,38 @@ uint8_t* NetStats::_InternalSerialize(
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
           p->first.data(), static_cast<int>(p->first.length()),
           ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "ns.NetStats.SrcIpStatsEntry.key");
+          "ns.NetStats.SrcIpmacStatsEntry.key");
       }
     };
 
     if (stream->IsSerializationDeterministic() &&
-        this->_internal_src_ip_stats().size() > 1) {
+        this->_internal_src_ipmac_stats().size() > 1) {
       ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_src_ip_stats().size()]);
+          new SortItem[this->_internal_src_ipmac_stats().size()]);
       typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::size_type size_type;
       size_type n = 0;
       for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_iterator
-          it = this->_internal_src_ip_stats().begin();
-          it != this->_internal_src_ip_stats().end(); ++it, ++n) {
+          it = this->_internal_src_ipmac_stats().begin();
+          it != this->_internal_src_ipmac_stats().end(); ++it, ++n) {
         items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
       }
       ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
       for (size_type i = 0; i < n; i++) {
-        target = NetStats_SrcIpStatsEntry_DoNotUse::Funcs::InternalSerialize(2, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
+        target = NetStats_SrcIpmacStatsEntry_DoNotUse::Funcs::InternalSerialize(2, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
         Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
       }
     } else {
       for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_iterator
-          it = this->_internal_src_ip_stats().begin();
-          it != this->_internal_src_ip_stats().end(); ++it) {
-        target = NetStats_SrcIpStatsEntry_DoNotUse::Funcs::InternalSerialize(2, it->first, it->second, target, stream);
+          it = this->_internal_src_ipmac_stats().begin();
+          it != this->_internal_src_ipmac_stats().end(); ++it) {
+        target = NetStats_SrcIpmacStatsEntry_DoNotUse::Funcs::InternalSerialize(2, it->first, it->second, target, stream);
         Utf8Check::Check(&(*it));
       }
     }
   }
 
-  // map<string, .ns.IPMACStats> dest_ip_stats = 3;
-  if (!this->_internal_dest_ip_stats().empty()) {
+  // map<string, .ns.IPMACStats> dest_ipmac_stats = 3;
+  if (!this->_internal_dest_ipmac_stats().empty()) {
     typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_pointer
         ConstPtr;
     typedef ConstPtr SortItem;
@@ -936,31 +936,31 @@ uint8_t* NetStats::_InternalSerialize(
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
           p->first.data(), static_cast<int>(p->first.length()),
           ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "ns.NetStats.DestIpStatsEntry.key");
+          "ns.NetStats.DestIpmacStatsEntry.key");
       }
     };
 
     if (stream->IsSerializationDeterministic() &&
-        this->_internal_dest_ip_stats().size() > 1) {
+        this->_internal_dest_ipmac_stats().size() > 1) {
       ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_dest_ip_stats().size()]);
+          new SortItem[this->_internal_dest_ipmac_stats().size()]);
       typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::size_type size_type;
       size_type n = 0;
       for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_iterator
-          it = this->_internal_dest_ip_stats().begin();
-          it != this->_internal_dest_ip_stats().end(); ++it, ++n) {
+          it = this->_internal_dest_ipmac_stats().begin();
+          it != this->_internal_dest_ipmac_stats().end(); ++it, ++n) {
         items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
       }
       ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
       for (size_type i = 0; i < n; i++) {
-        target = NetStats_DestIpStatsEntry_DoNotUse::Funcs::InternalSerialize(3, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
+        target = NetStats_DestIpmacStatsEntry_DoNotUse::Funcs::InternalSerialize(3, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
         Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
       }
     } else {
       for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_iterator
-          it = this->_internal_dest_ip_stats().begin();
-          it != this->_internal_dest_ip_stats().end(); ++it) {
-        target = NetStats_DestIpStatsEntry_DoNotUse::Funcs::InternalSerialize(3, it->first, it->second, target, stream);
+          it = this->_internal_dest_ipmac_stats().begin();
+          it != this->_internal_dest_ipmac_stats().end(); ++it) {
+        target = NetStats_DestIpmacStatsEntry_DoNotUse::Funcs::InternalSerialize(3, it->first, it->second, target, stream);
         Utf8Check::Check(&(*it));
       }
     }
@@ -972,10 +972,14 @@ uint8_t* NetStats::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_num_pkgts(), target);
   }
 
-  // uint32 rate = 5;
-  if (this->_internal_rate() != 0) {
+  // float rate = 5;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_rate = this->_internal_rate();
+  uint32_t raw_rate;
+  memcpy(&raw_rate, &tmp_rate, sizeof(tmp_rate));
+  if (raw_rate != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_rate(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_rate(), target);
   }
 
   // uint32 num_ipv4 = 6;
@@ -1021,22 +1025,22 @@ size_t NetStats::ByteSizeLong() const {
     total_size += NetStats_DeviceStatsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
-  // map<string, .ns.IPMACStats> src_ip_stats = 2;
+  // map<string, .ns.IPMACStats> src_ipmac_stats = 2;
   total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_src_ip_stats_size());
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_src_ipmac_stats_size());
   for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_iterator
-      it = this->_internal_src_ip_stats().begin();
-      it != this->_internal_src_ip_stats().end(); ++it) {
-    total_size += NetStats_SrcIpStatsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+      it = this->_internal_src_ipmac_stats().begin();
+      it != this->_internal_src_ipmac_stats().end(); ++it) {
+    total_size += NetStats_SrcIpmacStatsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
-  // map<string, .ns.IPMACStats> dest_ip_stats = 3;
+  // map<string, .ns.IPMACStats> dest_ipmac_stats = 3;
   total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_dest_ip_stats_size());
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_dest_ipmac_stats_size());
   for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::ns::IPMACStats >::const_iterator
-      it = this->_internal_dest_ip_stats().begin();
-      it != this->_internal_dest_ip_stats().end(); ++it) {
-    total_size += NetStats_DestIpStatsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+      it = this->_internal_dest_ipmac_stats().begin();
+      it != this->_internal_dest_ipmac_stats().end(); ++it) {
+    total_size += NetStats_DestIpmacStatsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
   // uint32 num_pkgts = 4;
@@ -1044,9 +1048,13 @@ size_t NetStats::ByteSizeLong() const {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_pkgts());
   }
 
-  // uint32 rate = 5;
-  if (this->_internal_rate() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_rate());
+  // float rate = 5;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_rate = this->_internal_rate();
+  uint32_t raw_rate;
+  memcpy(&raw_rate, &tmp_rate, sizeof(tmp_rate));
+  if (raw_rate != 0) {
+    total_size += 1 + 4;
   }
 
   // uint32 num_ipv4 = 6;
@@ -1087,12 +1095,16 @@ void NetStats::MergeFrom(const NetStats& from) {
   (void) cached_has_bits;
 
   device_stats_.MergeFrom(from.device_stats_);
-  src_ip_stats_.MergeFrom(from.src_ip_stats_);
-  dest_ip_stats_.MergeFrom(from.dest_ip_stats_);
+  src_ipmac_stats_.MergeFrom(from.src_ipmac_stats_);
+  dest_ipmac_stats_.MergeFrom(from.dest_ipmac_stats_);
   if (from._internal_num_pkgts() != 0) {
     _internal_set_num_pkgts(from._internal_num_pkgts());
   }
-  if (from._internal_rate() != 0) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_rate = from._internal_rate();
+  uint32_t raw_rate;
+  memcpy(&raw_rate, &tmp_rate, sizeof(tmp_rate));
+  if (raw_rate != 0) {
     _internal_set_rate(from._internal_rate());
   }
   if (from._internal_num_ipv4() != 0) {
@@ -1122,8 +1134,8 @@ void NetStats::InternalSwap(NetStats* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   device_stats_.InternalSwap(&other->device_stats_);
-  src_ip_stats_.InternalSwap(&other->src_ip_stats_);
-  dest_ip_stats_.InternalSwap(&other->dest_ip_stats_);
+  src_ipmac_stats_.InternalSwap(&other->src_ipmac_stats_);
+  dest_ipmac_stats_.InternalSwap(&other->dest_ipmac_stats_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(NetStats, num_multicast_)
       + sizeof(NetStats::num_multicast_)
@@ -1672,11 +1684,11 @@ const char* ARPStats::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
         } else
           goto handle_unusual;
         continue;
-      // uint32 rate = 2;
+      // float rate = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          rate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
+          rate_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
@@ -1755,10 +1767,14 @@ uint8_t* ARPStats::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_num_arp(), target);
   }
 
-  // uint32 rate = 2;
-  if (this->_internal_rate() != 0) {
+  // float rate = 2;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_rate = this->_internal_rate();
+  uint32_t raw_rate;
+  memcpy(&raw_rate, &tmp_rate, sizeof(tmp_rate));
+  if (raw_rate != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_rate(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_rate(), target);
   }
 
   // uint32 num_bcast_arp = 3;
@@ -1812,9 +1828,13 @@ size_t ARPStats::ByteSizeLong() const {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_arp());
   }
 
-  // uint32 rate = 2;
-  if (this->_internal_rate() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_rate());
+  // float rate = 2;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_rate = this->_internal_rate();
+  uint32_t raw_rate;
+  memcpy(&raw_rate, &tmp_rate, sizeof(tmp_rate));
+  if (raw_rate != 0) {
+    total_size += 1 + 4;
   }
 
   // uint32 num_bcast_arp = 3;
@@ -1867,7 +1887,11 @@ void ARPStats::MergeFrom(const ARPStats& from) {
   if (from._internal_num_arp() != 0) {
     _internal_set_num_arp(from._internal_num_arp());
   }
-  if (from._internal_rate() != 0) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_rate = from._internal_rate();
+  uint32_t raw_rate;
+  memcpy(&raw_rate, &tmp_rate, sizeof(tmp_rate));
+  if (raw_rate != 0) {
     _internal_set_rate(from._internal_rate());
   }
   if (from._internal_num_bcast_arp() != 0) {
@@ -1994,11 +2018,11 @@ const char* IPMACStats::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         } else
           goto handle_unusual;
         continue;
-      // uint32 rate = 2;
+      // float rate = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          rate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
+          rate_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
@@ -2037,10 +2061,14 @@ uint8_t* IPMACStats::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_num_pkgs(), target);
   }
 
-  // uint32 rate = 2;
-  if (this->_internal_rate() != 0) {
+  // float rate = 2;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_rate = this->_internal_rate();
+  uint32_t raw_rate;
+  memcpy(&raw_rate, &tmp_rate, sizeof(tmp_rate));
+  if (raw_rate != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_rate(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_rate(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2064,9 +2092,13 @@ size_t IPMACStats::ByteSizeLong() const {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_num_pkgs());
   }
 
-  // uint32 rate = 2;
-  if (this->_internal_rate() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_rate());
+  // float rate = 2;
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_rate = this->_internal_rate();
+  uint32_t raw_rate;
+  memcpy(&raw_rate, &tmp_rate, sizeof(tmp_rate));
+  if (raw_rate != 0) {
+    total_size += 1 + 4;
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -2094,7 +2126,11 @@ void IPMACStats::MergeFrom(const IPMACStats& from) {
   if (from._internal_num_pkgs() != 0) {
     _internal_set_num_pkgs(from._internal_num_pkgs());
   }
-  if (from._internal_rate() != 0) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_rate = from._internal_rate();
+  uint32_t raw_rate;
+  memcpy(&raw_rate, &tmp_rate, sizeof(tmp_rate));
+  if (raw_rate != 0) {
     _internal_set_rate(from._internal_rate());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -2140,11 +2176,11 @@ template<> PROTOBUF_NOINLINE ::ns::Response* Arena::CreateMaybeMessage< ::ns::Re
 template<> PROTOBUF_NOINLINE ::ns::NetStats_DeviceStatsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ns::NetStats_DeviceStatsEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ns::NetStats_DeviceStatsEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::ns::NetStats_SrcIpStatsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ns::NetStats_SrcIpStatsEntry_DoNotUse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ns::NetStats_SrcIpStatsEntry_DoNotUse >(arena);
+template<> PROTOBUF_NOINLINE ::ns::NetStats_SrcIpmacStatsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ns::NetStats_SrcIpmacStatsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ns::NetStats_SrcIpmacStatsEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::ns::NetStats_DestIpStatsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ns::NetStats_DestIpStatsEntry_DoNotUse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::ns::NetStats_DestIpStatsEntry_DoNotUse >(arena);
+template<> PROTOBUF_NOINLINE ::ns::NetStats_DestIpmacStatsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ns::NetStats_DestIpmacStatsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::ns::NetStats_DestIpmacStatsEntry_DoNotUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ns::NetStats* Arena::CreateMaybeMessage< ::ns::NetStats >(Arena* arena) {
   return Arena::CreateMessageInternal< ::ns::NetStats >(arena);
