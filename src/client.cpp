@@ -39,8 +39,8 @@ public:
     // The actual RPC.
     Status status = stub_->GetNetStats(&context, request, &response);
 
-    auto msg = response.msg();
-    auto stats = response.net_stats();
+    const auto msg = response.msg();
+    const auto stats = response.net_stats();
 
     // Act upon its status.
     if (status.ok())
@@ -80,7 +80,7 @@ public:
       //  std::cout << it.first <<std::setw(12) << "   amount: "<< tmp.num_pkts() << std::setw(12) << "    rate: " << tmp.rate() << std::endl;
       //}
 
-      return 1;
+      return 0;
     }
     else
     {

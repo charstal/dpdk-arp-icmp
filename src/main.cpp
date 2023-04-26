@@ -38,11 +38,12 @@ static inline void print_stats(NetStats &st)
          << "\nnum_pkgts: " << st.num_pkgts
          << endl;
 
-    cout << "---------------------------arp----------------------------------" << endl;
+    cout << "---------ARP------------" << endl;
     for (auto &it : st.device_stats)
     {
         cout << endl;
-        cout << "device name: " << it.first;
+        cout << "device name: " << it.first
+             << endl;
         cout << it.second.arp_stats
              << endl;
     }
@@ -78,10 +79,10 @@ __rte_noreturn int main_loop(__rte_unused void *arg)
             WriteLockGuard guard(lock);
             auto &st = net_stats_list.front();
             // auto &st_2 = net_stats_list_2.front();
-            if (port_id == 0)
-            {
-                collect_stats(port_id, st);
-            }
+            // if (port_id == 0)
+            // {
+            collect_stats(port_id, st);
+            // }
             // else if (port_id == 1)
             // {
             //     collect_stats(port_id, st_2);
@@ -89,10 +90,11 @@ __rte_noreturn int main_loop(__rte_unused void *arg)
             uint64_t cur_tsc = rte_get_timer_cycles();
             if (cur_tsc - cur_cycles >= period)
             {
+                printf("------------------------\n");
                 print_stats(st);
                 // print_stats(st_2);
                 cur_cycles = cur_tsc;
-                printf("------------------------\n");
+
                 // 添加新节点，删除旧节点
                 net_stats_list.emplace_front();
                 if (net_stats_list.size() > interval)
