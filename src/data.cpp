@@ -9,6 +9,7 @@ ARPStats &ARPStats::operator+=(const ARPStats &b)
     this->num_resp_arp += b.num_resp_arp;
     this->num_gratuitous_arp += b.num_gratuitous_arp;
     this->num_probe_arp += b.num_probe_arp;
+    this->num_bcast_arp += b.num_bcast_arp;
 
     return *this;
 }

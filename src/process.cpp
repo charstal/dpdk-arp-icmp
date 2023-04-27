@@ -88,7 +88,9 @@ static inline void collect_stats_arp(struct rte_arp_hdr *arp_hdr, NetStats &st, 
 
     arp_stats.num_arp++;
 
-    if (rte_is_broadcast_ether_addr(&arp_hdr->arp_data.arp_tha))
+    // all 1  or all 0, all 1 means broadcast, all 0 means unknown
+
+    if (rte_is_broadcast_ether_addr(&arp_hdr->arp_data.arp_tha) || rte_is_zero_ether_addr(&arp_hdr->arp_data.arp_tha))
     {
         arp_stats.num_bcast_arp++;
     }
@@ -100,6 +102,7 @@ static inline void collect_stats_arp(struct rte_arp_hdr *arp_hdr, NetStats &st, 
         break;
     case RTE_ARP_OP_REPLY:
         arp_stats.num_resp_arp++;
+        break;
     }
 
     if (arp_check_gratuitous(arp_hdr))
@@ -109,7 +112,7 @@ static inline void collect_stats_arp(struct rte_arp_hdr *arp_hdr, NetStats &st, 
 
     if (arp_check_probe(arp_hdr))
     {
-        arp_stats.num_arp++;
+        arp_stats.num_probe_arp++;
     }
 
     // st.arp_stats[src_ip]++;
