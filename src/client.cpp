@@ -47,6 +47,7 @@ public:
     {
       // std::cout << "@##################################################"
       //         << std::endl;
+      std::cout << "--------------------------total-------------------------" << std::endl;
       std::cout << std::left;
       // std::cout << std::setw(12) << "scrip" << std::setw(12) << "arp-request-pkts"
       //             << std::setw(12) << "rate"<< std::endl;
@@ -54,6 +55,25 @@ public:
       // std::cout << "pci_id:  " << response.pci_id() << std::endl;
       // std::cout << "arp_rx_total_pps:  " << response.num_arp() << std::endl;
       // std::cout << "arp_rx_bcast_pps:  " << response.num_bcast_arp() << std::endl;
+
+      auto &src_ipmac = stats.src_ipmac_stats();
+      auto &dst_ipmac = stats.dest_ipmac_stats();
+
+      std::cout << "Source ip or mac" << std::endl;
+      for (auto ch : src_ipmac)
+      {
+        std::cout << "\t" << ch.first << std::endl;
+        std::cout << "\t\tnum pkg: " << ch.second.num_pkgs() << std::endl;
+        std::cout << "\t\trate: " << ch.second.rate() << std::endl;
+      }
+      std::cout << "Dest ip or mac" << std::endl;
+      for (auto ch : dst_ipmac)
+      {
+        std::cout << "\t" << ch.first << std::endl;
+        std::cout << "\t\tnum pkg: " << ch.second.num_pkgs() << std::endl;
+        std::cout << "\t\trate: " << ch.second.rate() << std::endl;
+      }
+
       std::cout << "ipv4 total:  " << stats.num_ipv4() << std::endl;
       std::cout << "ipv6 total:  " << stats.num_ipv6() << std::endl;
       std::cout << "multicast total:  " << stats.num_multicast() << std::endl;
@@ -79,6 +99,8 @@ public:
       //    ns::ARPStats tmp = it.second;
       //  std::cout << it.first <<std::setw(12) << "   amount: "<< tmp.num_pkts() << std::setw(12) << "    rate: " << tmp.rate() << std::endl;
       //}
+
+      std::cout << "--------------------------end-------------------------" << std::endl;
 
       return 0;
     }
