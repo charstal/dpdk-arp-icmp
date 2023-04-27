@@ -99,7 +99,7 @@ int main(int argc, char **argv)
   GreeterClient greeter(
       grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials()));
   int reply = greeter.GetNetStats();
-  std::cout << "Greeter received: " << reply << std::endl;
+  // std::cout << "Greeter received: " << reply << std::endl;
 
-  return 0;
+  return reply;
 }

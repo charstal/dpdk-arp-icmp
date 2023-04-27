@@ -119,7 +119,7 @@ public:
 class NetStats
 {
 public:
-    // NetStats() : pci_id('0'), num_arp(0), num_ipv4(0), num_ipv6(0), num_multicast(0) {}
+    NetStats() : num_pkgts(0), num_ipv4(0), num_ipv6(0), num_multicast(0) {}
 
     // char pci_id[PORT_PCI_DEV_ID_LENGTH + 1]; // the number of arps
     std::unordered_map<std::string, DeviceStats> device_stats;

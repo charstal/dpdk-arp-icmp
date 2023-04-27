@@ -13,14 +13,15 @@ ARPStats &ARPStats::operator+=(const ARPStats &b)
     return *this;
 }
 
-std::ostream &operator<<(std::ostream &out, const ARPStats &b)
+std::ostream &
+operator<<(std::ostream &out, const ARPStats &b)
 {
-    out << "num arp: " << b.num_arp
-        << "\nnum broadcast arp: " << b.num_bcast_arp
-        << "\nnum gratuitous arp: " << b.num_gratuitous_arp
-        << "\nnum probe arp: " << b.num_probe_arp
-        << "\nnum req arp: " << b.num_req_arp
-        << "\nnum resp arp: " << b.num_resp_arp
+    out << "\tnum arp: " << b.num_arp
+        << "\n\tnum broadcast arp: " << b.num_bcast_arp
+        << "\n\tnum gratuitous arp: " << b.num_gratuitous_arp
+        << "\n\tnum probe arp: " << b.num_probe_arp
+        << "\n\tnum req arp: " << b.num_req_arp
+        << "\n\tnum resp arp: " << b.num_resp_arp
         << std::endl;
     return out;
 }
